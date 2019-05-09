@@ -181,3 +181,6 @@ exec --no-startup-id i3-msg 'exec LD_LIBRARY_PATH=/opt/oldlibs/ lightscreen;'
 
 
 for_window [class="^.*"] border pixel
+
+gaps outer 10
+gaps inner 10
