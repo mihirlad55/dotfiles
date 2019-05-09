@@ -1,0 +1,33 @@
+# Ignore everything
+/*
+
+# Except
+!.gitignore
+
+
+# Include .config/i3/*
+!/.config/
+/.config/*
+!/.config/i3/
+
+# Include .config/nvim/init.vim
+!/.config/nvim/
+/.config/nvim/*
+!/.config/nvim/init.vim
+
+# Include .vim/autoload/*
+!/.vim/
+/.vim/*
+!/.vim/autoload/
+!/.vim/autoload/*
+
+# Include these files in root
+!/
+!/.bashrc
+!/.emacs
+!/.tmux.conf
+!/.vimrc
+!/.zshrc
+
+
+
