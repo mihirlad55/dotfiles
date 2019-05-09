@@ -65,3 +65,5 @@ let g:DoxygenToolkit_briefTag_pre = ""
 let g:DoxygenToolkit_licenseTag = "Copyright (c) Purple Fire Robotics"
 let g:DoxygenToolkit_versionTag = ""
 
+" Keep background of terminal
+hi Normal guibg=NONE ctermbg=NONE
