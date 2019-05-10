@@ -7,12 +7,13 @@ Plug 'kaicataldo/material.vim'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
     \ }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 let g:completor_refresh_always = 0 "avoid flickering
 let g:completor_python_omni_trigger = ".*"
@@ -67,3 +68,5 @@ let g:DoxygenToolkit_versionTag = ""
 
 " Keep background of terminal
 hi Normal guibg=NONE ctermbg=NONE
+
+let g:airline_powerline_fonts = 1
