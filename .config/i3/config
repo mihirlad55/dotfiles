@@ -168,13 +168,13 @@ bar {
 
 # Program Assignments
 assign [class="Slack"] $ws10
-assign [class="discord"] $ws9
+assign [class="discord"] $ws10
 assign [class="Mailspring"] $ws8
 assign [class="Station"] $ws7
 
 # Startup Programs
 exec --no-startup-id i3-msg 'exec slack;'
-exec --no-startup-id i3-msg 'exec discord;'
+exec --no-startup-id i3-msg 'exec social;'
 exec --no-startup-id i3-msg 'exec mailspring;'
 exec --no-startup-id i3-msg 'exec station;'
 exec --no-startup-id i3-msg 'exec LD_LIBRARY_PATH=/opt/oldlibs/ lightscreen;'
@@ -182,5 +182,13 @@ exec --no-startup-id i3-msg 'exec LD_LIBRARY_PATH=/opt/oldlibs/ lightscreen;'
 
 for_window [class="^.*"] border pixel
 
+# Gaps and borders
 gaps outer 10
 gaps inner 10
+client.focused #710002 #285577 #ffffff #2e9ef4 #710002
+
+
+# Set background and start compton
+exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/terminator.jpg'
+exec --no-startup-id i3-msg 'exec compton -b'
+
