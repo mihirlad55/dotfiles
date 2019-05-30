@@ -5,6 +5,7 @@ Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim'
 Plug 'https://github.com/kana/vim-operator-user' 
 Plug 'kaicataldo/material.vim'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
+Plug 'https://github.com/ap/vim-css-color'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
