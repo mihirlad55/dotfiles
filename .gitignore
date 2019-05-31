@@ -15,6 +15,11 @@
 /.config/nvim/*
 !/.config/nvim/init.vim
 
+# Include .config/redshift/redshift.conf
+!/.config/redshift
+/.config/redshift/*
+!.config/redshift/redshift.conf
+
 # Include .vim/autoload/*
 !/.vim/
 /.vim/*

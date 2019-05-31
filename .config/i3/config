@@ -191,6 +191,7 @@ client.focused #710002 #285577 #ffffff #2e9ef4 #710002
 # Set background and start compton
 exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/terminator.jpg'
 exec --no-startup-id i3-msg 'exec compton -b'
+exec --no-startup-id i3-msg 'exec redshift'
 
 exec --no-startup-id i3-msg 'exec xrandr --auto --output HDMI-0 --mode 1920x1080 --right-of DVI-I-1'
 
