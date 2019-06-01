@@ -70,3 +70,6 @@ let g:DoxygenToolkit_versionTag = ""
 hi Normal guibg=NONE ctermbg=NONE
 
 let g:airline_powerline_fonts = 1
+
+vnoremap gy "+y
+vnoremap gp "+p
