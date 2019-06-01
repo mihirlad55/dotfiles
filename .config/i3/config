@@ -177,7 +177,7 @@ exec --no-startup-id i3-msg 'exec slack;'
 exec --no-startup-id i3-msg 'exec social;'
 exec --no-startup-id i3-msg 'exec mailspring;'
 exec --no-startup-id i3-msg 'exec station;'
-exec --no-startup-id i3-msg 'exec LD_LIBRARY_PATH=/opt/oldlibs/ lightscreen;'
+exec --no-startup-id i3-msg 'exec lightscreen;'
 
 
 for_window [class="^.*"] border pixel
@@ -192,3 +192,5 @@ client.focused #710002 #285577 #ffffff #2e9ef4 #710002
 exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/terminator.jpg'
 exec --no-startup-id i3-msg 'exec compton -b'
 exec --no-startup-id i3-msg 'exec xbindkeys'
+exec --no-startup-id i3-msg 'exec redshift'
+exec --no-startup-id i3-msg 'exec dunst'
