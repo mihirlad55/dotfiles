@@ -149,9 +149,7 @@ mode "resize" {
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
+# back to normal: Enter or Escape or $mod+r bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
@@ -193,6 +191,4 @@ exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/terminator.jpg'
 exec --no-startup-id i3-msg 'exec compton -b'
 exec --no-startup-id i3-msg 'exec redshift'
 exec --no-startup-id i3-msg 'exec dunst'
-
-exec --no-startup-id i3-msg 'exec xrandr --auto --output HDMI-0 --mode 1920x1080 --right-of DVI-I-1'
-
+exec --no-startup-id i3-msg 'exec xbindkeys'
