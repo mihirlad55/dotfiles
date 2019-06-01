@@ -11,10 +11,7 @@
 !/.config/i3/
 
 # Include .config/nvim/init.vim
-!/.config/nvim/
-/.config/nvim/*
-!/.config/nvim/init.vim
-
+!/.config/nvim/ /.config/nvim/* !/.config/nvim/init.vim 
 # Include .vim/autoload/*
 !/.vim/
 /.vim/*
@@ -32,3 +29,5 @@
 !/.gitconfig
 !/.xsessionrc
 !/.xbindkeysrc
+!/install
+!/install/*
