@@ -14,3 +14,7 @@
 # Decrease backlight
 "xbacklight -dec 10"
    XF86MonBrightnessDown
+
+# Rofi
+"rofi -show drun"
+   XF86Search
