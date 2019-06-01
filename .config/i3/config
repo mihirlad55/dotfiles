@@ -191,4 +191,4 @@ client.focused #710002 #285577 #ffffff #2e9ef4 #710002
 # Set background and start compton
 exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/terminator.jpg'
 exec --no-startup-id i3-msg 'exec compton -b'
-
+exec --no-startup-id i3-msg 'exec xbindkeys'
