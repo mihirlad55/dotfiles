@@ -26,6 +26,11 @@
 !/.vim/autoload/
 !/.vim/autoload/*
 
+# Include .vifm/vifmrc
+!/.vifm/
+/.vifm/*
+!/.vifm/vifmrc
+
 # Include these files in root
 !/
 !/.bashrc
