@@ -42,5 +42,6 @@
 !/.gitconfig
 !/.xsessionrc
 !/.xbindkeysrc
+!/.yaourtrc
 !/install
 !/install/*
