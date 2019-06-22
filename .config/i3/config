@@ -182,6 +182,7 @@ exec --no-startup-id i3-msg 'exec mailspring;'
 exec --no-startup-id i3-msg 'exec station;'
 exec --no-startup-id i3-msg 'exec lightscreen;'
 exec --no-startup-id i3-msg 'exec polybar example'
+exec --no-startup-id i3-msg 'exec sudo udevadm trigger'
 
 
 for_window [class="^.*"] border pixel
