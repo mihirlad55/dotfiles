@@ -60,7 +60,7 @@ font-4 = Segoe UI Symbol:pixelsize=10;1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = spotify previous playpause next filesystem xbacklight pulseaudio memory cpu wlan eth battery temperature date time powermenu
+modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu wlan eth battery temperature date time powermenu
 
 tray-position = right
 tray-padding = 2
@@ -103,7 +103,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5} %{F-}: %percentage_used%%
+label-mounted = %{F#555} %{F-} %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -245,12 +245,11 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
 ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-padding = 2
 
 [module/eth]
 type = internal/network
@@ -377,7 +376,7 @@ animation-charging-1 = 
 animation-charging-2 =  
 animation-charging-3 =  
 animation-charging-4 = l
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.foreground-alt} 
 animation-charging-framerate = 750
 
 [module/temperature]
