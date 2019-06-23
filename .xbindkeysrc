@@ -28,3 +28,7 @@
 
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 	XF86AudioPrev
+
+# Lock Screen (Super_L + l)
+"betterlockscreen --lock"
+    Mod4+l
