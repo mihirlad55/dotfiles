@@ -14,11 +14,12 @@
 !/.config/nvim/
 /.config/nvim/*
 !/.config/nvim/init.vim 
-
 # Include .config/redshift/redshift.conf
 !/.config/redshift
 /.config/redshift/*
 !/.config/redshift/redshift.conf
+# Include .config/betterlockscreenrc
+!/.config/betterlockscreenrc
 
 # Include .config/mimeapps.list
 !/.config/mimeapps.list
@@ -30,6 +31,7 @@
 # Include .config/dunst
 !/.config/dunst
 !/.config/dunst/*
+
 
 # Include .vim/autoload/*
 !/.vim/
