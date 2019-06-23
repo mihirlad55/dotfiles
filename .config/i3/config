@@ -185,12 +185,12 @@ exec --no-startup-id i3-msg 'exec social;'
 exec --no-startup-id i3-msg 'exec mailspring;'
 exec --no-startup-id i3-msg 'exec station;'
 exec --no-startup-id i3-msg 'exec lightscreen;'
+exec --no-startup-id i3-msg 'exec sh ~/install/polybar-spotify-controls/scripts/spotify/launchlistener.sh'
+exec --no-startup-id i3-msg 'exec sh ~/install/launch-polybar.sh'
 exec --no-startup-id i3-msg 'exec xbindkeys'
 exec --no-startup-id i3-msg 'exec redshift'
 exec --no-startup-id i3-msg 'exec dunst'
 exec --no-startup-id i3-msg 'exec insync start'
-exec --no-startup-id i3-msg 'exec sh ~/install/polybar-spotify-controls/scripts/spotify/launchlistener.sh'
-exec --no-startup-id i3-msg 'exec sh ~/install/launch-polybar.sh'
 
 for_window [class="^.*"] border pixel
 
