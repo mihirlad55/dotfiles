@@ -32,6 +32,10 @@
 !/.config/dunst
 !/.config/dunst/*
 
+# Include .config/gtk-3.0/settings.ini
+!/.config/gtk-3.0/
+/.config/gtk-3.0/*
+!/.config/gtk-3.0/settings.ini
 
 # Include .vim/autoload/*
 !/.vim/
