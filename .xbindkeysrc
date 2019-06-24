@@ -30,5 +30,5 @@
 	XF86AudioPrev
 
 # Lock Screen (Super_L + l)
-"betterlockscreen --lock"
+"physlock -l && betterlockscreen --lock"
     Mod4+l
