@@ -193,10 +193,20 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $(thefuck --alias)
 bindkey -v
 
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Aliases
+
+alias p="sudo pacman"
+alias SS="sudo systemctl"
+alias se="sudoedit"
+alias g="git"
+
+# Adding color
+alias grep="grep --color=auto"
+alias ccat="highlight --out --out-format=ansi"
