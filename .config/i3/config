@@ -183,7 +183,7 @@ for_window [class="Spotify"] move to workspace $ws9
 # Startup Programs
 # Set background and start compton
 exec --no-startup-id i3-msg 'exec sudo udevadm trigger'
-exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/terminator.jpg'
+exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/99000X-07.png'
 exec --no-startup-id i3-msg 'exec compton -b'
 exec --no-startup-id i3-msg 'exec slack;'
 exec --no-startup-id i3-msg 'exec social;'
