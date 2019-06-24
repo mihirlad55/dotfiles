@@ -11,3 +11,45 @@ rofi.padding: 800
 rofi.eh: 2
 rofi.separator-style: none 
 rofi.hide-scrollbar: true
+
+*.font: Source Code Pro-10.5;Font Awesome-10.5;DejaVu Sans-10.5;
+
+! HOST
+*.color0:   #44475A
+! SYNTAX_STRINg
+*.color1:   #FF5555
+! COMMAND
+*.color2:   #50FA7B
+! COMMAND_COLOr2
+*.color3:   #FFB86C
+! PATH
+*.color4:   #8BE9FD
+! SYNTAX_VAR
+*.color5:   #BD93F9
+! PROMPT
+*.color6:   #FF79C6
+!
+*.color7:   #94a3a5
+
+*.color8:   #FF5555
+! COMMAND_ERROR
+*.color9:   #FF5555
+! COMMAND
+*.color10:  #50FA7B
+!
+*.color11:  #FFB86C
+! FOLDER
+*.color12:  #82AAFF
+!
+*.color13:  #BD93F9
+!
+*.color14:  #FF79C6
+!
+*.color15:  #FFFFFF
+
+
+URxvt.depth:    32
+URxvt.background:   [90]#282A36
+URxvt.foreground:   #94A3A5
+
+URxvt.scrollBar: false
