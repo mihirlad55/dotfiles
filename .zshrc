@@ -209,4 +209,4 @@ alias g="git"
 
 # Adding color
 alias grep="grep --color=auto"
-alias ccat="highlight --out --out-format=ansi"
+alias ccat="highlight --out-format=ansi"
