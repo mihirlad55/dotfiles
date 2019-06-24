@@ -1,1 +1,2 @@
 filetype * xdg-open %c
+set vicmd=nvim
