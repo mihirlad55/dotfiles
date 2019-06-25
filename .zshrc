@@ -201,6 +201,7 @@ bindkey -v
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PROMPT=$'%{\e[0;31m%}%n %{\e[0;36m%}%~ %% '
+export EDITOR=nvim
 
 # Aliases
 
