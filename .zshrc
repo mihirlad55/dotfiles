@@ -8,7 +8,7 @@ export PATH=$PATH
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -199,6 +199,8 @@ eval $(thefuck --alias)
 bindkey -v
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PROMPT=$'%{\e[0;31m%}%n %{\e[0;36m%}%~ %% '
 
 # Aliases
 
