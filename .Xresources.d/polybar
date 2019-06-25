@@ -1,0 +1,21 @@
+! INCLUDE THEME !
+#include "/home/mihirlad55/.Xresources.d/themes/base16-google-dark"
+
+! Polybar !
+polybar.background:             c00 
+polybar.background-alt:         c08
+
+polybar.foreground:             c15
+polybar.foreground-alt:         c07
+
+polybar.icon:                   c08
+polybar.alert:                  c01
+
+polybar.ws-focused-background:  c08 
+polybar.ws-focused-underline:   c03
+
+polybar.primary:      c00
+polybar.secondary:    c00
+polybar.tertiary:     c00
+polybar.quaternary:   c00
+polybar.quinary:      c00

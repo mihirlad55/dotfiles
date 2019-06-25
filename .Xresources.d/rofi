@@ -1,0 +1,17 @@
+! SOURCE THEME !
+#include "/home/mihirlad55/.Xresources.d/themes/base16-google-dark"
+
+! Rofi !
+rofi.color-window: argb:c82d303b, argb:c82d303b
+rofi.color-normal: argb:00000000, #c4cbd4, argb:00000000, argb:00000000, #9575cd
+rofi.color-urgent: argb:00000000, #c4cbd4, argb:00000000, argb:00000000, #9575cd
+rofi.color-active: argb:00000000, #c4cbd4, argb:00000000, argb:00000000, #9575cd
+rofi.width: 100
+rofi.lines: 3
+rofi.columns: 1
+rofi.font: System San Francisco 18
+rofi.bw: 0
+rofi.padding: 800
+rofi.eh: 2
+rofi.separator-style: none 
+rofi.hide-scrollbar: true

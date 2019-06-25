@@ -1,0 +1,26 @@
+#ifndef _BASE16_GOOGLE_DARK
+#define _BASE16_GOOGLE_DARK
+
+! MAIN COLORS !
+#define bg #1D1F21
+#define fg #C5C8C6
+#define cc #C5C8C6
+
+#define c00 #1D1F21
+#define c08 #969896
+#define c01 #CC342B
+#define c09 #CC342B
+#define c02 #198844
+#define c10 #198844
+#define c03 #FBA922
+#define c11 #FBA922
+#define c04 #3971ED
+#define c12 #3971ED
+#define c05 #A36AC7
+#define c13 #A36AC7
+#define c06 #3971ED
+#define c14 #3971ED
+#define c07 #C5C8C6
+#define c15 #FFFFFF
+
+#endif
