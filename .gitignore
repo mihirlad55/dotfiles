@@ -61,5 +61,7 @@
 !/.xbindkeysrc
 !/.yaourtrc
 !/.Xresources
+!/.Xresources.d/
+!/.Xresources.d/*
 !/install
 !/install/*
