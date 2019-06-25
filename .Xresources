@@ -1,3 +1,6 @@
+! INCLUDE THEME !
+#include "/home/mihirlad55/.Xresources.d/themes/base16-google-dark"
+
 ! INCLUDE ROFI !
 #include "/home/mihirlad55/.Xresources.d/rofi"
 
@@ -7,4 +10,6 @@
 ! INCLUDE ST !
 #include "/home/mihirlad55/.Xresources.d/st"
 
+! INCLUDE i3 !
+#include "/home/mihirlad55/.Xresources.d/i3"
 

@@ -1,6 +1,3 @@
-! SOURCE THEME !
-#include "/home/mihirlad55/.Xresources.d/themes/base16-google-dark"
-
 ! Rofi !
 rofi.color-window: argb:c82d303b, argb:c82d303b
 rofi.color-normal: argb:00000000, #c4cbd4, argb:00000000, argb:00000000, #9575cd

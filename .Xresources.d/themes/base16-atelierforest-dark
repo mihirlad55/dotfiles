@@ -1,0 +1,36 @@
+! special
+#define fg #a6a28c
+#define bg #20201d
+#define cc #a6a28c
+
+! black
+#define c00 #20201d
+#define c08 #7d7a68
+
+! red
+#define c01 #d73737
+#define c09 #d73737
+
+! green
+#define c02 #60ac39
+#define c10 #60ac39
+
+! yellow
+#define c03 #cfb017
+#define c11 #cfb017
+
+! blue
+#define c04 #6684e1
+#define c12 #6684e1
+
+! magenta
+#define c05 #b854d4
+#define c13 #b854d4
+
+! cyan
+#define c06 #1fad83
+#define c14 #1fad83
+
+! white
+#define c07 #a6a28c
+#define c15 #fefbec
