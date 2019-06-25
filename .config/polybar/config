@@ -276,7 +276,7 @@ label = BL
 
 bar-width = 10
 bar-indicator = |
-bar-indicator-foreground = ${colors.background} 
+bar-indicator-foreground = ${colors.foreground} 
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
