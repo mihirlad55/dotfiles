@@ -4,6 +4,7 @@
 *.foreground:   fg
 *.background:   bg
 *.cursorColor:  cc
+*.opacity:      87 
 
 ! black
 *.color0:       c00
