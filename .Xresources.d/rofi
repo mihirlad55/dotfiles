@@ -1,8 +1,18 @@
 ! Rofi !
-rofi.color-window: argb:c82d303b, argb:c82d303b
-rofi.color-normal: argb:00000000, #c4cbd4, argb:00000000, argb:00000000, #9575cd
-rofi.color-urgent: argb:00000000, #c4cbd4, argb:00000000, argb:00000000, #9575cd
-rofi.color-active: argb:00000000, #c4cbd4, argb:00000000, argb:00000000, #9575cd
+
+#define rofi_bg         argb:c82d303b
+#define rofi_fg         #c4cbd4 
+#define rofi_active     c04
+
+
+! Colors
+rofi.color-window: rofi_bg, rofi_bg
+rofi.color-normal: argb:00000000, rofi_fg, argb:00000000, argb:00000000, rofi_active
+rofi.color-urgent: argb:00000000, rofi_fg, argb:00000000, argb:00000000, rofi_active
+rofi.color-active: argb:00000000, rofi_fg, argb:00000000, argb:00000000, rofi_active
+
+
+! Other
 rofi.width: 100
 rofi.lines: 3
 rofi.columns: 1
