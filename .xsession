@@ -5,7 +5,7 @@ sudo udevadm trigger &
 feh --bg-scale ~/Backgrounds/99000X-07.png &
 
 # Start programs
-compton &
+compton -b &
 slack &
 mailspring &
 station &
