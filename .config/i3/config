@@ -15,8 +15,7 @@ set $mod Mod1
 # is used in the bar {} block below.
 font pango:roboto 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# This font is widely installed, provides lots of unicode glyphs, right-to-left text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -186,22 +185,8 @@ assign [class="Mailspring"] $ws8
 assign [class="Station"] $ws7
 for_window [class="Spotify"] move to workspace $ws9
 
-# Startup Programs
-# Set background and start compton
-exec --no-startup-id i3-msg 'exec sudo udevadm trigger'
-exec --no-startup-id i3-msg 'exec feh --bg-scale ~/Backgrounds/99000X-07.png'
-exec --no-startup-id i3-msg 'exec compton -b'
-exec --no-startup-id i3-msg 'exec slack;'
-exec --no-startup-id i3-msg 'exec social;'
-exec --no-startup-id i3-msg 'exec mailspring;'
-exec --no-startup-id i3-msg 'exec station;'
-exec --no-startup-id i3-msg 'exec lightscreen;'
-exec --no-startup-id i3-msg 'exec sh ~/install/polybar-spotify-controls/scripts/spotify/launchlistener.sh'
-exec --no-startup-id i3-msg 'exec sh ~/install/launch-polybar.sh'
-exec --no-startup-id i3-msg 'exec xbindkeys'
-exec --no-startup-id i3-msg 'exec redshift'
-exec --no-startup-id i3-msg 'exec dunst'
-exec --no-startup-id i3-msg 'exec insync start'
+# Startup script 
+exec --no-startup-id i3-msg 'exec sh ~/.xsession'
 
 for_window [class="^.*"] border pixel
 
