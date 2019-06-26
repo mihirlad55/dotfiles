@@ -1,3 +1,6 @@
 [submodule "install"]
 	path = install
 	url = git@github.com:mihirlad55/arch-install
+[submodule "st"]
+	path = st
+	url = git@github.com:mihirlad55/st

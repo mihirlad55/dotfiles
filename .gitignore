@@ -48,6 +48,10 @@
 /.vifm/*
 !/.vifm/vifmrc
 
+# Include st/
+!/st/
+!/st/*
+
 # Include these files in root
 !/
 !/.bashrc
