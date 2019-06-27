@@ -253,7 +253,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type=custom/script
 
 exec = echo $(pacman -Su --print | wc -l) + $(yay -Pu | wc -l) | bc
-exec-if = if [ $(echo $(pacman -Su --print | wc -l) + $(yay -Pu | wc -l) | bc) -ne "0" ]; then echo 1; else echo 0; fi
+exec-if = [ $(echo $(pacman -Su --print | wc -l) + $(yay -Pu | wc -l) | bc) -ne "0" ]
 tail = true
 
 label = %output%
@@ -266,7 +266,7 @@ format = <label>
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
-click-left = st sh -c 'sudo pacman -Syyu; sh'
+click-left = st sh -c 'sudo pacman -Syyu && yay -Syyu; sh'
 
 interval = 90
 
