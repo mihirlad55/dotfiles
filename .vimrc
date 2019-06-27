@@ -65,6 +65,8 @@ let g:airline_powerline_fonts = 1
 " Bind gy/gp to unnamedplus clipboard
 vnoremap gy "+y
 vnoremap gp "+p
+nnoremap gy "+y
+nnoremap gp "+p
 
 " Auto rebuild .Xresources
 autocmd BufWritePost .Xresources,~/.Xresources.d/* !xrdb ~/.Xresources;
