@@ -14,12 +14,17 @@
 !/.config/nvim/
 /.config/nvim/*
 !/.config/nvim/init.vim 
+
 # Include .config/redshift/redshift.conf
 !/.config/redshift
 /.config/redshift/*
 !/.config/redshift/redshift.conf
+
 # Include .config/betterlockscreenrc
 !/.config/betterlockscreenrc
+
+#Include .config/compton.conf
+!/.config/compton.conf
 
 # Include .config/mimeapps.list
 !/.config/mimeapps.list
@@ -51,6 +56,10 @@
 # Include st/
 !/st/
 !/st/*
+
+# Include dwm
+!/dwm/
+!/dwm/*
 
 # Include these files in root
 !/
