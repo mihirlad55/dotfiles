@@ -1,0 +1,22 @@
+! DUNST !
+
+! Special
+Dunst.font:             Roboto         
+Dunst.fontsize:         12
+Dunst.borderwidth:      1
+Dunst.framecolor:       #000000
+
+! Low Urgency
+Dunst.lowbg:            bg
+Dunst.lowfg:            c07
+Dunst.lowframecolor:    c07 
+
+Dunst.normbg:           bg
+Dunst.normfg:           c03
+Dunst.normframecolor:   c03
+
+Dunst.critbg:           bg
+Dunst.critfg:           c01
+Dunst.critframecolor:   c01
+
+! vim:ft=xdefaults

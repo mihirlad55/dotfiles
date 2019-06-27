@@ -15,3 +15,6 @@
 
 ! INCLUDE DWM !
 #include "/home/mihirlad55/.Xresources.d/dwm"
+
+! INCLUDE DUNST !
+#include "/home/mihirlad55/.Xresources.d/dunst"
