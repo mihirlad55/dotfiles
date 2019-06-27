@@ -13,3 +13,5 @@
 ! INCLUDE i3 !
 #include "/home/mihirlad55/.Xresources.d/i3"
 
+! INCLUDE DWM !
+#include "/home/mihirlad55/.Xresources.d/dwm"
