@@ -252,7 +252,8 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/updates]
 type=custom/script
 
-exec = pacman -Su --print | wc -l
+exec = echo $(pacman -Su --print | wc -l) + $(yay -Pu | wc -l) | bc
+exec-if = if [ $(echo $(pacman -Su --print | wc -l) + $(yay -Pu | wc -l) | bc) -ne "0" ]; then echo 1; else echo 0; fi
 tail = true
 
 label = %output%
@@ -267,7 +268,7 @@ format-background = ${colors.background}
 
 click-left = st sh -c 'sudo pacman -Syyu; sh'
 
-interval = 3600
+interval = 90
 
 
 [module/filesystem]
