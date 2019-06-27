@@ -79,7 +79,7 @@ font-4 = Segoe UI Symbol:pixelsize=10;1
 
 modules-left = i3
 ;modules-center = xwindow
-modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu wlan eth battery temperature date time powermenu
+modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu updates wlan eth battery temperature date time powermenu
 
 tray-position = right
 tray-padding = 2
@@ -245,6 +245,25 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+[module/updates]
+type=custom/script
+
+exec = pacman -Su --print | wc -l
+tail = true
+
+label = %output%
+
+format-prefix = " "
+format-prefix-foreground = ${colors.icon}
+format-prefix-background = ${colors.background}
+
+format = <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+interval = 3600
 
 
 [module/filesystem]
