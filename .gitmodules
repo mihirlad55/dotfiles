@@ -7,6 +7,6 @@
 [submodule "dwm"]
 	path = dwm
 	url = git@github.com:mihirlad55/dwm
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh

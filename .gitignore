@@ -61,6 +61,10 @@
 !/dwm/
 !/dwm/*
 
+# Include oh-my-zsh
+!/.oh-my-zsh/
+!/.oh-my-zsh/*
+
 # Include these files in root
 !/
 !/.bashrc
