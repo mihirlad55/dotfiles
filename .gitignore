@@ -65,6 +65,10 @@
 !/.oh-my-zsh/
 !/.oh-my-zsh/*
 
+# Include Backgrounds/
+!/Backgrounds/
+!/Backgrounds/*
+
 # Include these files in root
 !/
 !/.bashrc
