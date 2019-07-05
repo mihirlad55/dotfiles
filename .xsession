@@ -2,7 +2,7 @@
 sudo udevadm trigger &
 
 # Set background
-feh --bg-scale ~/Backgrounds/99000X-07.png &
+nitrogen --restore
 
 # Start programs
 compton -b --config ~/.config/compton.conf &
