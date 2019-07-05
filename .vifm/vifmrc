@@ -1,2 +1,3 @@
 filetype * xdg-open %c
 set vicmd=nvim
+nnoremap bb :bmarks<cr>
