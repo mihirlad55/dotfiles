@@ -110,6 +110,7 @@ alias p="sudo pacman"
 alias SS="sudo systemctl"
 alias se="sudoedit"
 alias g="git"
+alias o="xdg-open"
 
 # Adding color
 alias grep="grep --color=auto"
