@@ -6,7 +6,6 @@ x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/mailspring=mailspring.desktop
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+image/png=sxiv.desktop
+image/jpeg=sxiv.desktop
 
-[Added Associations]
-image/png=eog.desktop;
-image/jpeg=eog.desktop;
