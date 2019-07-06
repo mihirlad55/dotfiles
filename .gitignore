@@ -42,6 +42,16 @@
 /.config/gtk-3.0/*
 !/.config/gtk-3.0/settings.ini
 
+# Include clickup integration for franz
+!/.config/Franz/
+/.config/Franz/*
+!/.config/Franz/recipes/
+/.config/Franz/recipes/*
+!/.config/Franz/recipes/dev/
+/.config/Franz/recipes/dev/*
+!/.config/Franz/recipes/dev/clickup/*
+!/.config/Franz/recipes/dev/clickup/*
+
 # Include .vim/autoload/*
 !/.vim/
 /.vim/*
