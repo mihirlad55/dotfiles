@@ -70,3 +70,6 @@ nnoremap gp "+p
 
 " Auto rebuild .Xresources
 autocmd BufWritePost .Xresources,~/.Xresources.d/* !xrdb ~/.Xresources;
+
+" Relative line numbers
+set relativenumber
