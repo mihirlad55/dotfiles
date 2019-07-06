@@ -49,7 +49,7 @@
 /.config/Franz/recipes/*
 !/.config/Franz/recipes/dev/
 /.config/Franz/recipes/dev/*
-!/.config/Franz/recipes/dev/clickup/*
+!/.config/Franz/recipes/dev/clickup/
 !/.config/Franz/recipes/dev/clickup/*
 
 # Include .vim/autoload/*
