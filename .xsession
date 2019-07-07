@@ -10,8 +10,8 @@ slack &
 mailspring &
 station &
 lightscreen &
-sh ~/install/polybar-spotify-controls/scripts/spotify/launchlistener.sh &
-sh ~/install/launch-polybar.sh &
+sh ~/.submodules/install/polybar-spotify-controls/scripts/spotify/launchlistener.sh &
+sh ~/.submodules/install/launch-polybar.sh &
 xbindkeys &
 redshift &
 dunst &
