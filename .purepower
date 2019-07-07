@@ -161,10 +161,11 @@ fi
       # time                  # current time
   )
 
-  # `$(_pp_c x y`) evaluates to `y` if the terminal supports >= 256 colors and to `x` otherwise.
+  # `$(_pp_c x y`) evaluates to `x` if the terminal supports >= 256 colors and to `x` otherwise.
+  # Always use terminal colors
   zmodload zsh/terminfo
   if (( terminfo[colors] >= 256 )); then
-    function _pp_c() { print -nr -- $2 }
+    function _pp_c() { print -nr -- $1 }
   else
     function _pp_c() { print -nr -- $1 }
     typeset -g POWERLEVEL9K_IGNORE_TERM_COLORS=true
