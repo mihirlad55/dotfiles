@@ -63,17 +63,13 @@
 /.vifm/*
 !/.vifm/vifmrc
 
-# Include st/
-!/st/
-!/st/*
-
-# Include dwm
-!/dwm/
-!/dwm/*
-
 # Include oh-my-zsh
 !/.oh-my-zsh/
 !/.oh-my-zsh/*
+
+# Include .submodules
+!/.submodules/
+!/.submodules/*
 
 # Include Backgrounds/
 !/Backgrounds/
@@ -94,5 +90,3 @@
 !/.Xresources
 !/.Xresources.d/
 !/.Xresources.d/*
-!/install
-!/install/*

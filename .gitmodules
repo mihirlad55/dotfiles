@@ -1,11 +1,11 @@
 [submodule "install"]
-	path = install
+	path = .submodules/install
 	url = git@github.com:mihirlad55/arch-install
 [submodule "st"]
-	path = st
+	path = .submodules/st
 	url = git@github.com:mihirlad55/st
 [submodule "dwm"]
-	path = dwm
+	path = .submodules/dwm
 	url = git@github.com:mihirlad55/dwm
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
@@ -13,3 +13,6 @@
 [submodule ".config/Franz/recipes/dev/clickup"]
 	path = .config/Franz/recipes/dev/clickup
 	url = git@github.com:gengue/franz-recipe-clickup
+[submodule ".submodules/antigen"]
+	path = .submodules/antigen
+	url = git@github.com:zsh-users/antigen
