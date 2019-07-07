@@ -8,7 +8,7 @@ nitrogen --restore
 compton -b --config ~/.config/compton.conf &
 slack &
 mailspring &
-station &
+franz &
 lightscreen &
 sh ~/.submodules/install/polybar-spotify-controls/scripts/spotify/launchlistener.sh &
 sh ~/.submodules/install/launch-polybar.sh &
