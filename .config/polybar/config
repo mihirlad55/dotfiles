@@ -196,7 +196,7 @@ click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org
 [module/spotify]
 type = custom/ipc
 hook-0 = echo ""
-hook-1 = python3 ~/install/polybar-spotify-controls/scripts/spotify/spotify_status.py
+hook-1 = python3 ~/.submodules/install/polybar-spotify-controls/scripts/spotify/spotify_status.py
 initial = 1
 format-padding = 4
 format-underline = ${colors.spotify}
