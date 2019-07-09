@@ -1,14 +1,13 @@
 ! DWM !
 
-! TODO: Replace with definitions once fixed
 ! Normal Color
 dwm.normbordercolor:        #000000
-dwm.normbgcolor:            #1D1F21
-dwm.normfgcolor:            #C5C8C6
+dwm.normbgcolor:            bg
+dwm.normfgcolor:            c07
 
 ! Selected Color
-dwm.selbordercolor:         #3971ED
-dwm.selbgcolor:             #3971ED
-dwm.selfgcolor:             #C5C8C6
+dwm.selbordercolor:         c04
+dwm.selbgcolor:             c04
+dwm.selfgcolor:             c07
 
 ! vim:ft=xdefaults
