@@ -58,10 +58,11 @@
 !/.vim/autoload/
 !/.vim/autoload/*
 
-# Include .vifm/vifmrc
+# Include .vifm/{vifmrc,vifminfo}
 !/.vifm/
 /.vifm/*
 !/.vifm/vifmrc
+!/.vifm/vifminfo
 
 # Include oh-my-zsh
 !/.oh-my-zsh/
