@@ -79,7 +79,7 @@ font-4 = Segoe UI Symbol:pixelsize=10;1
 
 modules-left = i3
 ;modules-center = xwindow
-modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu updates wlan eth battery temperature date time powermenu
+modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu updates openvpn wlan eth battery temperature date time powermenu
 
 tray-position = right
 tray-padding = 2
@@ -353,7 +353,16 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-foreground = ${colors.icon}
 ramp-signal-padding-left = 0
-ramp-signal-padding-right = 7
+ramp-signal-padding-right = 2
+
+[module/openvpn]
+type = custom/script
+interval = 3.0
+
+exec-if = [ $(systemctl is-active openvpn-client@miami) = "active" ];
+format-foreground = ${colors.icon}
+format-prefix = "  "
+exec = systemctl list-units | grep openvpn-client | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
 
 
 [module/eth]
