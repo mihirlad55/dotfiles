@@ -360,7 +360,8 @@ type = custom/script
 interval = 3.0
 
 exec-if = [ $(systemctl is-active openvpn-client@miami) = "active" ];
-format-foreground = ${colors.icon}
+format-prefix-foreground = ${colors.icon}
+format-foreground = ${colors.foreground}
 format-prefix = "  "
 exec = systemctl list-units | grep openvpn-client | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
 
