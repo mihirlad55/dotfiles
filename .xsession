@@ -15,6 +15,7 @@ sh ~/.submodules/install/launch-polybar.sh &
 xbindkeys &
 redshift &
 dunst &
+ckb-next &
 insync start &
 insync show &
 
