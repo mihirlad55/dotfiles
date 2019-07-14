@@ -73,3 +73,7 @@ autocmd BufWritePost .Xresources,~/.Xresources.d/* !xrdb ~/.Xresources;
 
 " Relative line numbers
 set relativenumber
+
+" Set filetypes
+au BufRead,BufNewFile vifmrc		            set filetype=vim
+au BufRead,BufNewFile .config/polybar/config    set filetype=dosini
