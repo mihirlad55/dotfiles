@@ -1,4 +1,11 @@
 filetype .xopp xournalpp %c &
+" Open files using xdg-open
+>>>>>>> ca3e5d1... Add ge binding to unzip files
 filetype * xdg-open %c &
+
+"Set editor
 set vicmd=nvim
+
+" Mappings
 nnoremap bb :bmarks<cr>
+nnoremap ge :! unzip %c:p -d %d/%c:r<cr>
