@@ -3,9 +3,20 @@ filetype .xopp xournalpp %c &
 >>>>>>> ca3e5d1... Add ge binding to unzip files
 filetype * xdg-open %c &
 
-"Set editor
+" Set editor
 set vicmd=nvim
 
-" Mappings
+
+""" Mappings """
+" Open bookmarks
 nnoremap bb :bmarks<cr>
+" Extract zip file into directoru with zip file name
 nnoremap ge :! unzip %c:p -d %d/%c:r<cr>
+" Copy to other pane
+nnoremap yn yy<C-w>wp<C-w>w
+
+
+""" Custom commands """
+" Encrypt pdf
+command encryptpdf :! qpdf --encrypt %a %a 256 -- %%c:p %%c:p-2 && mv %c:p-2 %c:p
+
