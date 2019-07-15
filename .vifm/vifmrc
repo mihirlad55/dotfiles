@@ -1,3 +1,4 @@
+filetype .xopp xournalpp %c &
 filetype * xdg-open %c &
 set vicmd=nvim
 nnoremap bb :bmarks<cr>
