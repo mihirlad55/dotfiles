@@ -19,5 +19,8 @@ ckb-next -b &
 insync start &
 insync show &
 
+# Autolock
+xautolock -time 5 -locker 'physlock -l && betterlockscreen --lock' &
+
 # Disassociate terminal
 disown
