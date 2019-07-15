@@ -5,7 +5,8 @@ filetype * xdg-open %c &
 
 " Set editor
 set vicmd=nvim
-
+" Start with only one pane
+only
 
 """ Mappings """
 " Open bookmarks
@@ -20,3 +21,7 @@ nnoremap yn yy<C-w>wp<C-w>w
 " Encrypt pdf
 command encryptpdf :! qpdf --encrypt %a %a 256 -- %%c:p %%c:p-2 && mv %c:p-2 %c:p
 
+
+""" Colorscheme """
+highlight border cterm=none ctermfg=none ctermbg=none
+highlight Win cterm=none ctermfg=none ctermbg=none
