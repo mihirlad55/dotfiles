@@ -1,6 +1,10 @@
-filetype .xopp xournalpp %c &
+" Open .xopp files with xournal
+filetype *.xopp xournalpp %c &
+" Open .torrent files with transmission-cli
+filetype *.torrent st -e zsh -c 'transmission-cli %c;$SHELL' &
+" Extract zip file into directory with zip file name
+filetype *.zip unzip %c:p -d %d/%c:r > /dev/null
 " Open files using xdg-open
->>>>>>> ca3e5d1... Add ge binding to unzip files
 filetype * xdg-open %c &
 
 " Set editor
@@ -11,7 +15,7 @@ only
 """ Mappings """
 " Open bookmarks
 nnoremap bb :bmarks<cr>
-" Extract zip file into directoru with zip file name
+" Extract zip file into directory with zip file name
 nnoremap ge :! unzip %c:p -d %d/%c:r<cr>
 " Copy to other pane
 nnoremap yn yy<C-w>wp<C-w>w
