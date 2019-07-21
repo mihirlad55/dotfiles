@@ -80,6 +80,11 @@
 !/Backgrounds/
 !/Backgrounds/*
 
+# Include ssh config
+!/.ssh/
+/.ssh/*
+!/.ssh/config
+
 # Include these files in root
 !/
 !/.bashrc
