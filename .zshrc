@@ -2,6 +2,7 @@
 export PATH=$PATH
 export LANG=en_US.UTF-8
 export ZSH="/home/mihirlad55/.oh-my-zsh"
+export LPASS_CLIPBOARD_COMMAND="xclip -selection clipboard -in -l 2"
 
 # oh-my-zsh
 #ZSH_THEME="powerlevel10k/powerlevel10k"

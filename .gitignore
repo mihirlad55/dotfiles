@@ -72,6 +72,10 @@
 !/.submodules/
 !/.submodules/*
 
+# Include .scripts
+!/.scripts/
+!/.scripts/*
+
 # Include Backgrounds/
 !/Backgrounds/
 !/Backgrounds/*

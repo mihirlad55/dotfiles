@@ -1,5 +1,7 @@
 # .bashrc
 
+export LPASS_CLIPBOARD_COMMAND="xclip -selection clipboard -l 2"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

@@ -32,3 +32,7 @@
 # Lock Screen (Super_L + l)
 "physlock -l && betterlockscreen --lock"
     Mod4+l
+
+# Lastpass DMenu
+"/home/mihirlad55/lastpass-dmenu type"
+    Mod1+p
