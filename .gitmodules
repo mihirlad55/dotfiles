@@ -16,3 +16,6 @@
 [submodule ".submodules/antigen"]
 	path = .submodules/antigen
 	url = git@github.com:zsh-users/antigen
+[submodule ".submodules/surf"]
+	path = .submodules/surf
+	url = git@github.com:mihirlad55/surf
