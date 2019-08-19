@@ -18,6 +18,8 @@
 # Rofi
 "rofi -show drun"
    XF86Search
+"rofi -show run"
+    Mod1+s
 
 # Spotify
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
