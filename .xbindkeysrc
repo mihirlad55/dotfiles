@@ -36,3 +36,7 @@
 # Lastpass DMenu
 "/home/mihirlad55/.scripts/lastpass-dmenu type"
     Mod1+p
+
+# Rofi Finder
+"/home/mihirlad55/.scripts/rofi-finder"
+    Mod1+Control+f
