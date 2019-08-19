@@ -40,3 +40,7 @@
 # Rofi Finder
 "/home/mihirlad55/.scripts/rofi-finder"
     Mod1+Control+f
+
+# Rofi Calculator
+"/home/mihirlad55/.scripts/rofi-qalc"
+    Mod1+c
