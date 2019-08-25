@@ -52,6 +52,11 @@
 !/.config/Franz/recipes/dev/clickup/
 !/.config/Franz/recipes/dev/clickup/*
 
+# Include ckb-next config
+!/.config/ckb-next
+/.config/ckb-next/*
+!/.config/ckb-next/ckb-next.conf
+
 # Include .vim/autoload/*
 !/.vim/
 /.vim/*
