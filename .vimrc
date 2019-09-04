@@ -17,6 +17,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
+Plug 'lervag/vimtex'
 
 call plug#end() 
 
@@ -68,11 +69,38 @@ vnoremap gp "+p
 nnoremap gy "+y
 nnoremap gp "+p
 
+" Bind gdy to unnamedplus clipboard
+vnoremap gd "+d
+nnoremap gd "+d
+
+" No Arrow keys
+inoremap <up> <NOP>
+inoremap <down> <NOP>
+inoremap <left> <NOP>
+inoremap <right> <NOP>
+
+noremap <up> <NOP>
+noremap <down> <NOP>
+noremap <left> <NOP>
+noremap <right> <NOP>
+
 " Auto rebuild .Xresources
 autocmd BufWritePost .Xresources,~/.Xresources.d/* !xrdb ~/.Xresources;
 
 " Relative line numbers
 set relativenumber
+
+" Tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Use mouse
+set mouse=a
+
+" Map Caplock to Escape
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 " Set filetypes
 au BufRead,BufNewFile vifmrc		            set filetype=vim
