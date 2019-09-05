@@ -4,9 +4,12 @@
 
 
 \LoadClass{article}
+\RequirePackage[letterpaper, portrait, margin=1in]{geometry}
 \RequirePackage{enumitem}
 \RequirePackage{lmodern}
-\RequirePackage[letterpaper, portrait, margin=1in]{geometry}
+\RequirePackage{setspace}
+
+
 
 %% Document Options %%
 %% 'sans' option
@@ -19,33 +22,66 @@
   \renewcommand{\familydefault}{\rmdefault}
 }
 
+
+\newcommand{\defaultspace}
+
+%% 'doublespace' option
+\DeclareOption{doublespace}{
+    \renewcommand{\defaultspace}{\doublespacing}
+}
+
+%% 'singlespace' option
+\DeclareOption{singlespace}{
+    \renewcommand{\defaultspace}{\singlespacing}
+}
+
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ExecuteOptions{roman}
+\ExecuteOptions{roman, singlespace}
 \ProcessOptions\relax
 
 
-%% Define course and teacher command %%
+
+%% Define course, teacher, and subtitle command %%
+\newcommand{\@course}{}
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
-\newcommand{\@course}{\@latex@error{No \unexpand\course given}\@ehc}
+
+\newcommand{\@teacher}{}
 \newcommand{\teacher}[1]{\renewcommand{\@teacher}{#1}}
-\newcommand{\@teacher}{\@latex@error{No \unexpand\teacher given}\@ehc}
+
+\newcommand{\@subtitle}{}
+\newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
+
+% Define title details 
+\newcommand{\authorline}{\textbf{Submitted By:} \@author}
+\newcommand{\teacherline}{\textbf{Submitted To:} \@teacher}
+\newcommand{\dateline}{\textbf{Submitted On:} \@date}
+\newcommand{\courseline}{\textbf{Course Code:} \@course}
 
 
 %% Title page %%
 \renewcommand{\maketitle}{
         \clearpage
         \begin{titlepage}
-        \begin{center}
-            \fontsize{50}{60}\selectfont
-            \vspace*{\fill}
-            \@title
-            \vfill
-            \fontsize{12}{14.4}\selectfont
-            \textbf{Submitted To:} \@teacher\\
-            \textbf{Submitted By:} \@author\\
-            \textbf{Submitted On:} \@date\\
-            \textbf{Course Code:} \@course
-        \end{center}
+            \begin{singlespace}
+                \begin{center}
+                    \fontsize{36}{43.2}\selectfont
+                    \vspace*{\fill}
+                    \@title
+                    
+                    \fontsize{24}{28.8}\selectfont
+                    \@subtitle
+                    \vfill
+                    \fontsize{12}{14.4}\selectfont
+                    \teacherline
+
+                    \authorline
+
+                    \dateline
+
+                    \courseline
+                \end{center}
+            \end{singlespace}
         \thispagestyle{empty}
         \end{titlepage}
         \newpage
@@ -69,3 +105,4 @@
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{9in}
 \setcounter{secnumdepth}{0}
+\defaultspace
