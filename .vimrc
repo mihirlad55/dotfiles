@@ -63,6 +63,16 @@ hi Normal guibg=NONE ctermbg=NONE
 " Use powerline fonts
 let g:airline_powerline_fonts = 1
 
+" Use latexrun
+let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_compiler_latexrun = {
+    \ 'build_dir' : 'tmp/',
+    \ 'options' : [
+    \   '--clean-all',
+    \ ],
+    \}
+
+
 " Bind gy/gp to unnamedplus clipboard
 vnoremap gy "+y
 vnoremap gp "+p
