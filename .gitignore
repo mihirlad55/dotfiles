@@ -90,6 +90,10 @@
 /.ssh/*
 !/.ssh/config
 
+# Include custom tex classes
+!/texmf/
+!/texmf/*
+
 # Include these files in root
 !/
 !/.bashrc
