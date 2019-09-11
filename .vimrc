@@ -100,6 +100,10 @@ autocmd BufWritePost .Xresources,~/.Xresources.d/* !xrdb ~/.Xresources;
 " Relative line numbers
 set relativenumber
 
+" 80-character marker
+set colorcolumn=80
+highlight ColorColumn guibg=#373B41
+
 " Tabs
 set tabstop=4
 set shiftwidth=4
