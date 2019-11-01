@@ -9,6 +9,10 @@
 \RequirePackage{lmodern}
 \RequirePackage{setspace}
 
+\usepackage[english]{babel}
+\usepackage[autostyle=true, english=american]{csquotes}
+\MakeOuterQuote{"}
+
 
 
 %% Document Options %%
@@ -95,7 +99,7 @@
 
 %% Bold enumerate with first paragraph and label bolded %%
 \newenvironment{benumerate}{%
-  \enumerate[label=\bfseries\arabic*.]%
+    \enumerate[label=\bfseries\arabic*., listparindent=\parindent]%
   \let\realItem\item%
   \def\item##1\par{\realItem\textbf{##1}\par}}%
   {\endenumerate}
@@ -104,5 +108,5 @@
 \renewcommand{\normalsize}{\fontsize{12}{14.4}\selectfont}
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{9in}
-\setcounter{secnumdepth}{0}
 \defaultspace
+\hfuzz=1pt
