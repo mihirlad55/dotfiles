@@ -48,3 +48,7 @@
 # Rofi Calculator
 "/home/mihirlad55/.scripts/rofi-qalc"
     Mod1+c
+
+# Restart WiFi
+"sudo systemctl restart wpa_supplicant@wlp2s0.service"
+    Mod4+r
