@@ -1,5 +1,5 @@
 # Environment Variables
-export PATH=$PATH
+export PATH=$PATH:/opt/gcc-arm-none-eabi-8-2019-q3-update/bin
 export LANG=en_US.UTF-8
 export ZSH="/home/mihirlad55/.oh-my-zsh"
 export LPASS_CLIPBOARD_COMMAND="xclip -selection clipboard -in -l 2"
