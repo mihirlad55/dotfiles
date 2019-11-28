@@ -11,3 +11,4 @@ image/jpeg=sxiv.desktop
 
 [Added Associations]
 image/svg+xml=inkscape.desktop;
+text/plain=nvim.desktop;
