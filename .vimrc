@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'lervag/vimtex'
+Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end() 
 
@@ -63,14 +64,12 @@ hi Normal guibg=NONE ctermbg=NONE
 " Use powerline fonts
 let g:airline_powerline_fonts = 1
 
-" Use latexrun
-let g:vimtex_compiler_method = 'latexrun'
-let g:vimtex_compiler_latexrun = {
-    \ 'build_dir' : 'tmp/',
-    \ 'options' : [
-    \   '--clean-all',
-    \ ],
-    \}
+
+" Spellcheck
+autocmd BufRead,BufNewFile *.tex
+    \ :setlocal spell |
+    \ :set spelllang=en_us
+autocmd FileType *.tex inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
 " Bind gy/gp to unnamedplus clipboard
