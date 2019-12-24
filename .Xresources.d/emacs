@@ -1,0 +1,44 @@
+! emacs !
+!--COLORS--!
+! special
+emacs*foreground:   fg
+emacs*background:   bg
+emacs*cursorColor:  cc
+
+! black
+emacs*color0:       c00
+emacs*color8:       c08
+
+! green
+emacs*color1:       c01
+emacs*color9:       c09
+
+! red
+emacs*color2:       c02
+emacs*color10:      c10
+
+! yellow
+emacs*color5:       c05
+emacs*color13:      c13
+
+! blue
+emacs*color4:       c04
+emacs*color12:      c12
+
+! magenta
+emacs*color3:       c03
+emacs*color11:      c11
+
+! cyan
+emacs*color6:       c06
+emacs*color14:      c14
+
+! white
+emacs*color7:       c07
+emacs*color15:      c15
+
+!--FONT--!
+emacs*font: Source Code Pro-10.5
+
+!--BORDER--!
+Emacs*internalBorder:  30

@@ -1,5 +1,5 @@
 ! INCLUDE THEME !
-#include "/home/mihirlad55/.Xresources.d/themes/base16-google-dark"
+#include "/home/mihirlad55/.Xresources.d/themes/base16-flat"
 
 ! INCLUDE ROFI !
 #include "/home/mihirlad55/.Xresources.d/rofi"
@@ -18,3 +18,6 @@
 
 ! INCLUDE DUNST !
 #include "/home/mihirlad55/.Xresources.d/dunst"
+
+! INCLUDE EMACS !
+#include "/home/mihirlad55/.Xresources.d/emacs"

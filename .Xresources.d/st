@@ -1,42 +1,42 @@
 ! st !
 !--COLORS--!
 ! special
-*.foreground:   fg
-*.background:   bg
-*.cursorColor:  cc
-*.opacity:      87 
+st.foreground:   fg
+st.background:   bg
+st.cursorColor:  cc
+st.opacity:      87 
 
 ! black
-*.color0:       c00
-*.color8:       c08
+st.color0:       c00
+st.color8:       c08
 
 ! red
-*.color1:       c01
-*.color9:       c09
+st.color1:       c01
+st.color9:       c09
 
 ! green
-*.color2:       c02
-*.color10:      c10
+st.color2:       c02
+st.color10:      c10
 
 ! yellow
-*.color3:       c03
-*.color11:      c11
+st.color3:       c03
+st.color11:      c11
 
 ! blue
-*.color4:       c04
-*.color12:      c12
+st.color4:       c04
+st.color12:      c12
 
 ! magenta
-*.color5:       c05
-*.color13:      c13
+st.color5:       c05
+st.color13:      c13
 
 ! cyan
-*.color6:       c06
-*.color14:      c14
+st.color6:       c06
+st.color14:      c14
 
 ! white
-*.color7:       c07
-*.color15:      c15
+st.color7:       c07
+st.color15:      c15
 
 !--FONT--!
-*.font: Source Code Pro-10.5;Font Awesome-10.5;DejaVu Sans-10.5;
+st.font: Source Code Pro-10.5;Font Awesome-10.5;DejaVu Sans-10.5;

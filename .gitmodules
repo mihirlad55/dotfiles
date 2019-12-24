@@ -19,3 +19,6 @@
 [submodule ".submodules/surf"]
 	path = .submodules/surf
 	url = git@github.com:mihirlad55/surf
+[submodule ".emacs.d/custom/xresources-theme"]
+	path = .emacs.d/custom/xresources-theme
+	url = git@github.com:mihirlad55/xresources-theme

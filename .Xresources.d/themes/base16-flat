@@ -1,0 +1,44 @@
+#ifndef _BASE16_FLAT
+#define _BASE16_FLAT
+
+#define base00 #2c3e50
+#define base01 #34495e
+#define base02 #7f8c8d
+#define base03 #95a5a6
+#define base04 #bdc3c7
+#define base05 #e0e0e0
+#define base06 #f5f5f5
+#define base07 #ecf0f1
+#define base08 #e74c3c
+#define base09 #e67e22
+#define base0A #f1c40f
+#define base0B #2ecc71
+#define base0C #1abc9c
+#define base0D #3498db
+#define base0E #9b59b6
+#define base0F #be643c
+
+#define fg     base05
+#define bg     base00
+#define	cc     base05
+
+#define c00    base00
+#define	c01    base08
+#define c02    base0B
+#define c03    base0A
+#define c04    base0D
+#define c05    base0E
+#define c06    base0C
+#define c07    base05
+                     
+#define c08    base03
+#define c09    base09
+#define c10    base01
+#define c11    base02
+#define c12    base04
+#define c13    base06
+#define c14    base0F
+#define c15    base07
+
+
+#endif
