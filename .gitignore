@@ -57,6 +57,14 @@
 /.config/ckb-next/*
 !/.config/ckb-next/ckb-next.conf
 
+# Include emacs config
+!/.emacs.d/
+/.emacs.d/*
+!/.emacs.d/init.el
+!/.emacs.d/custom/
+!/.emacs.d/custom/*
+!/.emacs.d/custom/xresources-theme/
+
 # Include .vim/autoload/*
 !/.vim/
 /.vim/*
