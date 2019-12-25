@@ -42,7 +42,7 @@
 
 ;; Relative line numbers
 (display-line-numbers-mode)
-(setq-default display-line-numbers 'relative)
+(setq-default display-line-numbers-type 'relative)
 
 ;; Show column number
 (column-number-mode 1)
