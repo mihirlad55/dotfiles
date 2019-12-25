@@ -1,5 +1,5 @@
 ! INCLUDE THEME !
-#include "/home/mihirlad55/.Xresources.d/themes/base16-flat"
+#include "/home/mihirlad55/.Xresources.d/themes/base16-one-dark"
 
 ! INCLUDE ROFI !
 #include "/home/mihirlad55/.Xresources.d/rofi"
