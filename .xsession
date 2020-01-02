@@ -19,6 +19,9 @@ ckb-next -b &
 insync start &
 insync show &
 
+# Bind caps lock to escape
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape' &
+
 # Autolock
 xautolock -time 5 -locker 'physlock -l && betterlockscreen --lock' &
 

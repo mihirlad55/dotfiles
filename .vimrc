@@ -111,10 +111,6 @@ set expandtab
 " Use mouse
 set mouse=a
 
-" Map Caplock to Escape
-au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-
 " Set filetypes
 au BufRead,BufNewFile vifmrc		            set filetype=vim
 au BufRead,BufNewFile .config/polybar/config    set filetype=dosini
