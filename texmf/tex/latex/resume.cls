@@ -4,7 +4,7 @@
 \ProvidesClass{resume}[2019/12/25 Resume]
 
 \LoadClass{article}
-\RequirePackage[letterpaper, portrait, top=3.94cm, left=1in, right=1in]{geometry}
+\RequirePackage[letterpaper, portrait, top=3.94cm, left=1in, right=1in, bottom=1in]{geometry}
 \RequirePackage{enumitem}
 \RequirePackage{fancyhdr,xcolor}
 \RequirePackage[T1]{fontenc}
@@ -17,7 +17,7 @@
 \RequirePackage{titlesec}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ExecuteOptions{roman, singlespace}
+\ExecuteOptions{singlespace}
 \ProcessOptions\relax
 
 
@@ -83,6 +83,7 @@
           \setmainfont{Calibri-Light}%
           \uppercase\expandafter{\@lastname}
         }
+        \spaceskip=3\fontdimen2\font
         \fontsize{10}{12}\setmainfont{Roboto}\selectfont
         \center{\textls{\uppercase\expandafter{\@major}}}
       \end{minipage}%
@@ -107,14 +108,18 @@
 \newcommand\titlebar{%
  \tikz[overlay]{ \draw [sectioncolor,line width=.25ex] (-2ex,-1.0ex) -- (-2ex,2.5ex); }%
 }
+\titlespacing*\section{0pt}{12pt plus 4pt minus 2pt}{1pt plus 1pt minus 1pt}[0pt]
 \titleformat{\section}{\setmainfont{Roboto}\large\color{black}}{\titlebar}{0ex}{\MakeUppercase}
 
 
 %{Main Item}{Sub item}{Starting date}{Ending date}
 \newcommand{\jitem}[4]{%
   \textbf{#1}
-  \textbullet{}
-  \textbf{#2}
+  \if\relax\detokenize{#2}\relax
+  \else
+    \textbullet{}
+    \textbf{#2}
+  \fi
   \if\relax\detokenize{#3}\relax
   \else
     \if\relax\detokenize{#4}\relax
@@ -128,8 +133,8 @@
 
 
 %% Setup page %%
-\renewcommand{\normalsize}{\fontsize{12}{14.4}\selectfont}
+\renewcommand{\normalsize}{\fontsize{11}{13.2}\selectfont}
+\setmainfont{Roboto}
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{9in}
-\setmainfont{Roboto}
-\setlist[itemize,1]{leftmargin=*,labelsep=6.3mm,labelindent=6mm}
+\setlist[itemize,1]{leftmargin=*,labelsep=6.3mm,labelindent=6mm,itemsep=0em,topsep=0.4ex}
