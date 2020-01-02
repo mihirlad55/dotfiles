@@ -67,7 +67,7 @@
        :term
        ;;eshell            ; a consistent, cross-platform shell (WIP)
        ;;shell             ; a terminal REPL for Emacs
-       ;;term              ; terminals in Emacs
+       term              ; terminals in Emacs
        ;;vterm             ; another terminals in Emacs
 
        :tools

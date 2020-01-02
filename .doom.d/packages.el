@@ -44,3 +44,4 @@
 
 (package! base16-theme)
 (package! fill-column-indicator)
+(package! multi-term)

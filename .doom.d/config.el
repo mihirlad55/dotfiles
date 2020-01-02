@@ -60,3 +60,19 @@
  whitespace-style       '(face lines-tail))
 
 (add-hook 'prog-mode-hook #'whitespace-mode)
+
+(defun my-latex()
+  "Latex mode customizations"
+  (auto-fill-mode t)
+  (reftex-mode t)
+  (TeX-engine-set "luatex")
+  (setq TeX-PDF-mode t)
+  (add-to-list 'TeX-view-program-selection '(output-pdf "zathura"))
+  )
+(add-hook 'LaTeX-mode-hook 'my-latex)
+
+
+; Multi-term
+(map! :leader "zt" 'multi-term)
+(map! :leader "zn" 'multi-term-next)
+(map! :leader "zp" 'multi-term-prev)
