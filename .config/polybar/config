@@ -359,7 +359,7 @@ ramp-signal-padding-right = 2
 type = custom/script
 interval = 3.0
 
-exec-if = [ $(systemctl is-active openvpn-client@miami) = "active" ];
+exec-if = systemctl list-units | grep openvpn-client | grep running
 format-prefix-foreground = ${colors.icon}
 format-foreground = ${colors.foreground}
 format-prefix = "  "
