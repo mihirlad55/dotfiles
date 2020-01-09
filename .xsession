@@ -10,7 +10,7 @@ slack &
 mailspring &
 franz &
 lightscreen &
-sh ~/.submodules/install/polybar-spotify-controls/scripts/spotify/launchlistener.sh &
+python3 ~/.submodules/install/polybar-spotify-controls/scripts/spotify/py_spotify_listener.py &
 sh ~/.submodules/install/launch-polybar.sh &
 xbindkeys &
 redshift &
