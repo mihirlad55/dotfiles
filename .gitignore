@@ -98,6 +98,7 @@
 !/texmf/
 !/texmf/*
 
+
 # Include these files in root
 !/
 !/.bashrc
@@ -113,3 +114,6 @@
 !/.Xresources.d/
 !/.Xresources.d/*
 !/.purepower
+
+# Always ignore
+*.auctex-auto/
