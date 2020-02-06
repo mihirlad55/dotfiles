@@ -67,9 +67,17 @@
   (reftex-mode t)
   (TeX-engine-set "luatex")
   (setq TeX-PDF-mode t)
-  (add-to-list 'TeX-view-program-selection '(output-pdf "zathura"))
+  (add-to-list 'TeX-view-program-list '("Zathura" "zathura %o"))
+  (setq TeX-view-program-selection '((output-pdf "Zathura")))
   )
 (add-hook 'LaTeX-mode-hook 'my-latex)
+
+(defun compile-latex()
+  (setq TeX-command-force "LaTeX")
+  (TeX-command-master)
+)
+
+(add-hook 'after-save-hook 'compile-latex)
 
 
 ; Multi-term
