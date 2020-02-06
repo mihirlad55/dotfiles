@@ -56,11 +56,16 @@
 \newcommand{\@subtitle}{}
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
 
+
+\newcommand{\@studentid}{}
+\newcommand{\studentid}[1]{\renewcommand{\@studentid}{#1}}
+
 % Define title details 
 \newcommand{\authorline}{\textbf{Submitted By:} \@author}
 \newcommand{\teacherline}{\textbf{Submitted To:} \@teacher}
 \newcommand{\dateline}{\textbf{Submitted On:} \@date}
 \newcommand{\courseline}{\textbf{Course Code:} \@course}
+\newcommand{\studentidline}{\textbf{Student ID:} \@studentid}
 
 
 %% Title page %%
@@ -69,6 +74,7 @@
         \begin{titlepage}
             \begin{singlespace}
                 \begin{center}
+                    \parskip=0pt
                     \fontsize{36}{43.2}\selectfont
                     \vspace*{\fill}
                     \@title
@@ -77,13 +83,15 @@
                     \@subtitle
                     \vfill
                     \fontsize{12}{14.4}\selectfont
-                    \teacherline
+                    \teacherline{}
 
-                    \authorline
+                    \authorline{}
 
-                    \dateline
+                    \studentidline{}
 
-                    \courseline
+                    \dateline{}
+
+                    \courseline{}
                 \end{center}
             \end{singlespace}
         \thispagestyle{empty}
@@ -94,7 +102,7 @@
 \renewcommand{\section}{%
     \@startsection%
     {section}{1}{0pt}{-1.5ex plus -1ex minus -.2ex}% 
-    {1ex plus .2ex}{\normalsize\textbf}%
+    {1ex plus .2ex}{\normalsize\bfseries}%
 }
 
 %% Bold enumerate with first paragraph and label bolded %%
@@ -108,5 +116,5 @@
 \renewcommand{\normalsize}{\fontsize{12}{14.4}\selectfont}
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{9in}
-\defaultspace
+\defaultspace{}
 \hfuzz=1pt
