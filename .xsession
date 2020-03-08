@@ -11,7 +11,7 @@ mailspring &
 franz &
 lightscreen &
 python3 ~/.submodules/install/polybar-spotify-controls/scripts/spotify/py_spotify_listener.py &
-sh ~/.submodules/install/launch-polybar.sh &
+$(pkill polybar; sleep 4s && sh ~/.submodules/install/launch-polybar.sh) &
 xbindkeys &
 redshift &
 dunst &
