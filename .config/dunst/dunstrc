@@ -160,7 +160,7 @@
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 32
@@ -297,6 +297,37 @@
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
+
+[play_sound]
+    summary = "*"
+    script = "~/.config/dunst/alert.sh"
+
+[low_battery]
+    summary = "*Battery Low*"
+    urgency = critical
+    background = "#1D1F21"
+    foreground = "#CC342B"
+    frame_color = "#CC342B"
+    fullscreen = show
+    new_icon = ~/.config/dunst/low-battery-red.png
+
+[full_battery]
+    summary = "*Battery Full*"
+    urgency = normal
+    background = "#1D1F21"
+    foreground = "#76E56A"
+    frame_color = "#76E56A"
+    fullscreen = show
+    new_icon = ~/.config/dunst/full-battery-green.png
+
+[charging]
+    summary = "*Charging*"
+    urgency = normal
+    background = "#1D1F21"
+    foreground = "#FBA922"
+    frame_color = "#FBA922"
+    fullscreen = show
+    new_icon = ~/.config/dunst/charging-yellow.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
