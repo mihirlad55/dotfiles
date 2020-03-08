@@ -48,3 +48,9 @@ alias o="xdg-open"
 # Adding color
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mihirlad55/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mihirlad55/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mihirlad55/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mihirlad55/google-cloud-sdk/completion.zsh.inc'; fi
