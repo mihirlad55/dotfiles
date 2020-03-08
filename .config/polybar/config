@@ -51,6 +51,8 @@ spotify = #1db954
 
 [bar/main]
 monitor = ${env:MONITOR:}
+monitor-fallback = eDP1
+monitor-strict = false
 width = 60%
 height = 27
 offset-x = 40%
@@ -79,7 +81,7 @@ font-4 = Segoe UI Symbol:pixelsize=10;1
 
 modules-left = i3
 ;modules-center = xwindow
-modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu updates openvpn wlan eth battery temperature date time powermenu
+modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu updates openvpn wlan eth battery temperature date time restart powermenu
 
 tray-position = right
 tray-padding = 2
@@ -510,6 +512,12 @@ menu-4-0 = hibernate
 menu-4-0-exec = systemctl hibernate
 menu-4-1 = cancel
 menu-4-1-exec = menu-open-0
+
+[module/restart]
+type = custom/text
+
+content = ''
+click-left = polybar-msg cmd restart
 
 
 ; vim:ft=dosini
