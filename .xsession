@@ -18,6 +18,8 @@ dunst &
 ckb-next -b &
 insync start &
 insync show &
+# Personal scripts
+sh ~/.scripts/battery-check &
 
 # Bind caps lock to escape
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape' &

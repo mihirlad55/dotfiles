@@ -22,12 +22,12 @@ while true; do
         elif [ "$charge_level" -eq 100 ]; then
             notify-send "Battery Full" "Battery is currently at $charge_level%"
         fi
-    elif [ "$plugged_in" -eq 1 ]; then
-        if [ "$plugged_in" -ne "$last_plugged_in" ]; then
-            notify-send "Battery Charging" "Battery is currently at $charge_level%"
+    elif [ "$plugged_in" -ne "$last_plugged_in" ]; then
+        if [ "$plugged_in" -eq 1 ]; then
+            notify-send "Battery Charging" "Battery is now at $charge_level%"
         fi
     fi
-    sleep 5s
+    sleep 2s
 done
 
 
