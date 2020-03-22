@@ -1,0 +1,93 @@
+#!/usr/bin/sh
+
+function usage {
+    echo "usage: map-touch-to-screen [ -x x-offset -y y-offset -w width -h height ]"
+}
+
+function set_new_display {
+    screens=$(xrandr | egrep " connected" | egrep -o "[0-9]+x[0-9]+\+[0-9]+\+[0-9]+")
+
+    saved_screen=$(cat ~/.config/map-touch-to-screen/.config)
+    IFS=$'\n'
+
+    for screen in $screens; do
+        if [ "$screen" != "$saved_screen" ]; then
+            new_screen=$screen            
+            break
+        fi
+    done
+
+    width=$(echo $new_screen | cut -d'x' -f1)
+    height=$(echo $new_screen | cut -d'x' -f2 | cut -d'+' -f1)
+    x=$(echo $new_screen | cut -d'x' -f2 | cut -d'+' -f2)
+    y=$(echo $new_screen | cut -d'x' -f2 | cut -d'+' -f3)
+}
+
+function run {
+    pen_id=$(xinput list --id-only 'Wacom HID 4874 Pen Pen (0xec40005f)')
+    touch_id=$(xinput list --id-only 'Wacom HID 4874 Finger')
+    eraser_id=$(xinput list --id-only 'Wacom HID 4874 Pen Eraser (0xec40005f)')
+
+    screen_size=$(xdpyinfo | grep dimensions | awk '/dimensions/{print $2}')
+    screen_width=$(echo $screen_size | cut -d'x' -f1)
+    screen_height=$(echo $screen_size | cut -d'x' -f2)
+
+    a=$(echo $width / $screen_width | bc -l)
+    b=$(echo $x / $screen_width | bc -l)
+    c=$(echo $height / $screen_height | bc -l)
+    d=$(echo $y / $screen_height | bc -l)
+
+    current_screen="${width}x${height}+$x+$y"
+    mkdir -p ~/.config/map-touch-to-screen
+    echo $current_screen > ~/.config/map-touch-to-screen/.config
+
+    echo $a 0 $b
+    echo 0 $c $d
+    echo 0 0 1
+
+    xinput set-prop $pen_id --type=float "Coordinate Transformation Matrix" $a  0 $b \
+                                                                             0 $c $d \
+                                                                             0  0  1
+
+    xinput set-prop $touch_id --type=float "Coordinate Transformation Matrix" $a  0 $b \
+                                                                               0 $c $d \
+                                                                               0  0  1
+
+    xinput set-prop $eraser_id --type=float "Coordinate Transformation Matrix" $a  0 $b \
+                                                                                0 $c $d \
+                                                                                0  0  1
+}
+
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -x | --x-offset )   shift
+                            x=$1
+                            ;;
+        -y | --y-offset )   shift
+                            y=$1
+                            ;;
+        -w | --width )      shift
+                            width=$1
+                            ;;
+        -h | --height )     shift
+                            height=$1
+                            ;;
+        -c | --cycle )      cycle=1
+                            ;;
+        * )                 usage
+                            exit 1
+    esac
+    shift
+done
+
+echo $cycle
+
+if [ "$cycle" = 1 ]; then
+    set_new_display
+    run
+elif [ "$x" = "" ] || [ "$y" = "" ] || [ "$width" = "" ] || [ "$height" = "" ]; then
+    usage
+else
+    run
+fi
