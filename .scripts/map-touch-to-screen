@@ -24,7 +24,12 @@ function set_new_display {
 }
 
 function run {
-    pen_id=$(xinput list --id-only 'Wacom HID 4874 Pen Pen (0xec40005f)')
+    pen_id=$(xinput list --id-only 'Wacom HID 4874 Pen Pen (0)')
+    ret=$?
+    if [[ "$ret" -eq 1 ]]; then
+        pen_id=$(xinput list --id-only 'Wacom HID 4874 Pen Pen (0xec40005f)')
+    fi
+    echo $pen_id
     touch_id=$(xinput list --id-only 'Wacom HID 4874 Finger')
     eraser_id=$(xinput list --id-only 'Wacom HID 4874 Pen Eraser (0xec40005f)')
 
