@@ -56,3 +56,7 @@
 # Restart WiFi
 "sudo systemctl restart wpa_supplicant@wlp2s0.service"
     Mod4+r
+
+# Map to monitor
+"/home/mihirlad55/.scripts/map-touch-to-screen -c"
+    Mod4+p
