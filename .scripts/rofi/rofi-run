@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+rofi -show run -theme ~/.config/rofi/run.rasi

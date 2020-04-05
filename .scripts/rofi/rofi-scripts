@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+cd ~/.scripts
+sh "$(find . -type f | sed 's/^..//' | tail -n +2 | rofi -dmenu -p scripts -i)"

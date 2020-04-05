@@ -1,3 +1,0 @@
-#/bin/bash
-
-xdg-open "$({ find /home/mihirlad55/{Backgrounds,Desktop,Documents,Downloads,GoogleDrive,nfs,projects,Videos,.submodules} -not -path '*/.insync-trash*/*'; find /home/mihirlad55 -maxdepth 1; } | rofi -dmenu -p find -i -padding 230 -lines 15 -font 'System San Francisco 12')"

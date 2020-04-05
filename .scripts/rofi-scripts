@@ -1,3 +1,0 @@
-#!/usr/bin/sh
-
-sh "$(find /home/mihirlad55/.scripts | rofi -dmenu -p scripts -i -padding 230 -lines 15)"
