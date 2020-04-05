@@ -33,11 +33,11 @@
                      
 #define c08    base03
 #define c09    base09
-#define c10    base01
-#define c11    base02
-#define c12    base04
-#define c13    base06
-#define c14    base0F
+#define c10    base0B
+#define c11    base09
+#define c12    base0C
+#define c13    base0E
+#define c14    base0D
 #define c15    base07
 
 
