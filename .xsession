@@ -9,9 +9,8 @@ compton -b --config ~/.config/compton.conf &
 slack &
 mailspring &
 franz &
-lightscreen &
 python3 ~/.submodules/install/polybar-spotify-controls/scripts/spotify/py_spotify_listener.py &
-$(pkill polybar; sleep 4s && sh ~/.submodules/install/launch-polybar.sh) &
+$(pkill polybar; sleep 4s && sh ~/.scripts/launch-polybar) &
 xbindkeys &
 redshift &
 dunst &
@@ -25,7 +24,7 @@ sh ~/.scripts/battery-check &
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape' &
 
 # Autolock
-xautolock -time 5 -locker 'physlock -l && betterlockscreen --lock' &
+xautolock -time 1 -locker ~/.scripts/lock &
 
 # Disassociate terminal
 disown
