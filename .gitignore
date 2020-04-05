@@ -42,6 +42,10 @@
 /.config/gtk-3.0/*
 !/.config/gtk-3.0/settings.ini
 
+# Include .config/rofi
+!/.config/rofi
+!/.config/rofi/*
+
 # Include clickup integration for franz
 !/.config/Franz/
 /.config/Franz/*
@@ -97,6 +101,7 @@
 # Include custom tex classes
 !/texmf/
 !/texmf/*
+
 
 
 # Include these files in root
