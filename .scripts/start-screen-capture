@@ -1,0 +1,22 @@
+#!/usr/bin/sh
+
+path="$HOME/Videos/Captures"
+mkdir -p $path
+
+filename=$(date +%Y-%m-%d-%H-%M-%S.mp4)
+
+summary="Starting screen capture..."
+body="Launch stop-screen-capture to stop capturing. File will be saved at $filename"
+
+notify-send -u normal "$summary" "$body"
+
+ffmpeg -f x11grab -an -s hd1080 -r 25 \
+-v:b 23000 -i :0.0 -g 1 -q:v 0.1 \
+-vcodec libxvid $path/$filename
+
+summary="Screen capture saved"
+body="Screen capture saved at $path/$filename"
+
+echo $msg
+notify-send -u normal "$summary" "$body"
+
