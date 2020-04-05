@@ -2,7 +2,7 @@
 #include "/home/mihirlad55/.Xresources.d/themes/base16-one-dark"
 
 ! INCLUDE ROFI !
-#include "/home/mihirlad55/.Xresources.d/rofi"
+!#include "/home/mihirlad55/.Xresources.d/rofi"
 
 ! INCLUDE POLYBAR !
 #include "/home/mihirlad55/.Xresources.d/polybar"
