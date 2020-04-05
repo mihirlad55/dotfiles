@@ -19,6 +19,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'lervag/vimtex'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'chrisbra/Colorizer'
 
 call plug#end() 
 
