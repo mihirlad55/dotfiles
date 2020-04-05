@@ -1,4 +1,7 @@
 #!/usr/bin/sh
 
 cd ~/.scripts
-sh "$(find . -type f | sed 's/^..//' | tail -n +2 | rofi -dmenu -p scripts -i)"
+script="$(find . -type f | sed 's/^..//' | tail -n +2 | rofi -dmenu -p scripts -i)"
+args=$(rofi -dmenu -p args)
+
+~/.scripts/$script $args
