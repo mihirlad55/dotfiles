@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+ffmpeg -f x11grab -an -s hd1080 -r 25 \
+-v:b 23000 -i :0.0 -g 1 -q:v 0.1 \
+-vcodec libxvid $1
