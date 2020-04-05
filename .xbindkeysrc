@@ -16,10 +16,31 @@
    XF86MonBrightnessDown
 
 # Rofi
-"rofi -show drun"
+"sh ~/.scripts/rofi/drun"
+    Mod1+d
+"sh ~/.scripts/rofi/drun"
    XF86Search
-"rofi -show run"
+"sh ~/.scripts/rofi/rofi-run"
     Mod1+s
+
+# Rofi Finder
+"/home/mihirlad55/.scripts/rofi/rofi-finder"
+    Mod1+Control+f
+
+# Rofi Scripts
+"/home/mihirlad55/.scripts/rofi/rofi-scripts"
+    Mod1+Control+s
+
+# Rofi Calculator
+"/home/mihirlad55/.scripts/rofi/rofi-qalc"
+    Mod1+c
+
+
+# Screenshot region
+"sh ~/.scripts/screenshot-region"
+    m:0x1 + c:107
+    Shift + Print
+
 
 # Spotify
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
@@ -32,26 +53,14 @@
 	XF86AudioPrev
 
 # Lock Screen (Super_L + l)
-"physlock -l && betterlockscreen --lock"
+"sh ~/.scripts/lock"
     Mod4+l
 
-# Lastpass DMenu
-"/home/mihirlad55/.scripts/lastpass-dmenu type"
+# Rofi lastpass
+"~/.scripts/rofi/rofi-lastpass type"
     Mod1+p
-"/home/mihirlad55/.scripts/lastpass-dmenu copy"
+"~/.scripts/rofi/rofi-lastpass copy"
     Mod1+Shift+p
-
-# Rofi Finder
-"/home/mihirlad55/.scripts/rofi-finder"
-    Mod1+Control+f
-
-# Rofi Scripts
-"/home/mihirlad55/.scripts/rofi-scripts"
-    Mod1+Control+s
-
-# Rofi Calculator
-"/home/mihirlad55/.scripts/rofi-qalc"
-    Mod1+c
 
 # Restart WiFi
 "sudo systemctl restart wpa_supplicant@wlp2s0.service"
