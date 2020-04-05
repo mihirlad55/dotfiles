@@ -1,14 +1,80 @@
 #!/usr/bin/sh
 
-vlc \
-    --no-video-deco \
-    --no-embedded-video \
-    --screen-fps=20 \
-    --screen-top=0 \
-    --screen-left=1920 \
-    --screen-width=1920 \
-    --screen-height=1000 \
-    --qt-start-minimized \
-    screen:// &
+function run {
+    vlc \
+        --no-video-deco \
+        --no-embedded-video \
+        --screen-fps=20 \
+        --screen-top=$y \
+        --screen-left=$x \
+        --screen-width=$width \
+        --screen-height=$height \
+        --qt-start-minimized \
+        screen://
+}
 
-disown
+function rofi_select_display {
+    screens=$(xrandr | egrep " connected")
+
+    echo "$screens"
+    selected=$(echo "$screens" | rofi -dmenu -p display)
+    echo $selected
+}
+
+function set_display {
+    screens=$(xrandr | egrep " connected")
+
+    IFS=$'\n'
+
+    for screen in $screens; do
+        name=$(echo $screen | cut -d ' ' -f1)
+        selected_name=$(echo $selected | cut -d' ' -f1)
+        dimensions=$(echo $screen | egrep -o "[0-9]+x[0-9]+\+[0-9]+\+[0-9]+")
+        
+        if [[ "$name" = "$selected_name" ]]; then
+            echo "Yes"
+            width=$(echo $screen | cut -d'x' -f1)
+            height=$(echo $screen | cut -d'x' -f2 | cut -d'+' -f1)
+            x=$(echo $screen | cut -d'x' -f2 | cut -d'+' -f2)
+            y=$(echo $screen | cut -d'x' -f2 | cut -d'+' -f3)
+            break
+        fi
+    done
+}
+
+while [[ "$1" != "" ]]; do
+    case $1 in
+        -d | --display )    shift
+                            selected=$1
+                            ;;
+        -x | --x-offset )   shift
+                            x=$1
+                            ;;
+        -y | --y-offset )   shift
+                            y=$1
+                            ;;
+        -w | --width )      shift
+                            width=$1
+                            ;;
+        -h | --height )     shift
+                            height=$1
+                            ;;
+        -c | --cycle )      cycle=1
+                            ;;
+        * )                 usage
+                            exit 1
+    esac
+    shift
+done
+
+if [[ "$selected" != "" ]]; then
+    set_display
+    run
+elif [ "$x" = "" ] || [ "$y" = "" ] || [ "$width" = "" ] || [ "$height" = "" ]; then
+    rofi_select_display
+    set_display
+    run
+else
+    run
+fi
+
