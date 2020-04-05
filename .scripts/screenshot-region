@@ -8,8 +8,10 @@ sleep 0.2s
 filename=$(scrot -s $format -e "echo \$f")
 res=$?
 
-if [[ $res -ne 2 ]]; then
+if [[ $res -eq 0 ]]; then
     mv $filename $directory
+
+    xclip -t image/png -selection clipboard -i ~/Documents/Screenshots/$filename
 
     summary="Screenshot Taken"
     body="Screenshot saved at $directory$filename"

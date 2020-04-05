@@ -1,5 +1,0 @@
-#!/usr/bin/sh
-
-file=$(ls -t ~/Documents/Screenshots/ | head -n1)
-
-xclip -t image/jpeg -selection clipboard -i ~/Documents/Screenshots/$file
