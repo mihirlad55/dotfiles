@@ -1,0 +1,79 @@
+#!/usr/bin/sh
+
+function interactive {
+    if [ "$msg" = "" ]; then
+        echo -n "Enter the message: "
+        read msg
+    fi
+
+    if [ "$style" = "" ]; then
+        echo "Enter the number of the style you'd like to use:"
+        echo "1. Basic"
+        echo "2. Magic"
+        echo "3. Heart"
+        echo "4. Yeezy"
+
+        read style_num
+    fi
+
+    if [ "$style_num" = "1" ]; then
+        style="BASIC"
+    elif [ "$style_num" = "2" ]; then
+        style="MAGIC"
+    elif [ "$style_num" = "3" ]; then
+        style="HEART"
+    elif [ "$style_num" = "4" ]; then
+        style="YEEZY"
+    fi
+}
+
+
+function run {
+    resp=$(curl https://bigassmessage.com/BAM-save.php -d "inputMsg=$msg" -d "inputStyle=$style")
+    code=$(echo $resp | grep -o -e "[a-zA-Z0-9]\{5\}")
+    echo $code
+
+    DISPLAY=$disp xset dpms force on
+    DISPLAY=$disp sudo -S chromium --no-sandbox --app="https://bigassmessage.com/$code"
+}
+
+function usage {
+    echo "usage: message [ -m message [ -s style ] [ -d display ] | [-h]"
+}
+
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -m | --message )            shift
+                                    msg=$1 
+                                    ;;
+        -s | --style )              shift
+                                    style=$1
+                                    ;;
+        -d | --display )            shift
+                                    disp=$1
+                                    ;;
+        -h | --help )               usage
+                                    exit
+                                    ;;
+        * )                         usage
+                                    exit 1
+    esac
+    shift
+done
+
+if [ "$style" = "" ]; then
+    style="BASIC"
+fi
+
+if [ "$disp" = "" ]; then
+    disp=":0"
+fi
+
+if [ "$msg" = "" ]; then
+    interactive
+fi
+
+run
+
+
