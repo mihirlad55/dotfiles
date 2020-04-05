@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+physlock -l && betterlockscreen --lock
+
