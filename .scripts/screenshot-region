@@ -1,0 +1,19 @@
+#!/usr/bin/sh
+
+format="%Y-%m-%d-%H-%M-%S.png"
+directory="$HOME/Documents/Screenshots/"
+
+# Sleep to avoid 'couldn't grab keyboard error' with xbindkeys
+sleep 0.2s
+filename=$(scrot -s $format -e "echo \$f")
+res=$?
+
+if [[ $res -ne 2 ]]; then
+    mv $filename $directory
+
+    summary="Screenshot Taken"
+    body="Screenshot saved at $directory$filename"
+
+    echo $body
+    notify-send -u low "$summary" "$body"
+fi
