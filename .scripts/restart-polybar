@@ -1,3 +1,14 @@
 #!/usr/bin/sh
 
-polybar-msg cmd restart
+pgrep "polybar --reload main" | grep -v $$
+res=$?
+
+echo $res
+
+if [[ "$res" -eq 1 ]]; then
+    echo Launching polybar
+    sh $HOME/.scripts/launch-polybar
+else
+    echo Restarting polybar
+    polybar-msg cmd restart
+fi
