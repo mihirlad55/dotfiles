@@ -5,7 +5,7 @@ directory="$HOME/Documents/Screenshots/"
 
 # Sleep to avoid 'couldn't grab keyboard error' with xbindkeys
 sleep 0.2s
-filename=$(scrot -s $format -e "echo \$f")
+filename=$(scrot -s -f $format -e "echo \$f")
 res=$?
 
 if [[ $res -eq 0 ]]; then
