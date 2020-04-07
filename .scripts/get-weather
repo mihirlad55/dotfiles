@@ -1,0 +1,135 @@
+#!/usr/bin/sh
+
+FIREFOX_LOCATION_API='https://location.services.mozilla.com/v1/geolocate?key=geoclue'
+OPEN_WEATHER_MAP_API='https://api.openweathermap.org/data/2.5/weather'
+
+API_KEY_PATH="$HOME/.apikeys/openweathermap.key"
+
+OPEN_WEATHER_MAP_API_KEY=$(cat $API_KEY_PATH)
+
+units="metric"
+degree="°"
+
+
+function usage {
+    echo "get-weather [ -c city | -u units ]"
+}
+
+get_icon() {
+    case $1 in
+        01d) icon="";;
+        01n) icon="";;
+        02d) icon="";;
+        02n) icon="";;
+        03*) icon="";;
+        04*) icon="";;
+        09d) icon="";;
+        09n) icon="";;
+        10d) icon="";;
+        10n) icon="";;
+        11d) icon="";;
+        11n) icon="";;
+        13d) icon="";;
+        13n) icon="";;
+        50d) icon="";;
+        50n) icon="";;
+        *) icon="";
+    esac
+
+    echo $icon
+}
+
+function is_vpn_on {
+    pgrep openvpn | grep -v $$ > /dev/null
+}
+
+function get_coord {
+    local r=$(curl -s -X GET "$FIREFOX_LOCATION_API" 2> /dev/null)
+    lat=$(echo $r | egrep -o '"lat": -?[0-9]*\.[0-9]*' | cut -d' ' -f2)
+    lng=$(echo $r | egrep -o '"lng": -?[0-9]*\.[0-9]*' | cut -d' ' -f2)
+
+    up=$(cat /proc/uptime | cut -d' ' -f1)
+
+    if is_vpn_on && [[ ! -f "/tmp/get-weather-notification-sent" ]]; then
+        notify-send -u normal "Warning: Weather may be Inaccurate" "Weather may be inaccurate if you are using openvpn"
+        touch /tmp/get-weather-notification-sent
+    elif ! is_vpn_on; then
+        rm -f /tmp/get-weather-notification-sent
+    fi
+}
+
+function get_weather_coord {
+    local r=$(curl -s -X GET "$OPEN_WEATHER_MAP_API?appid=$OPEN_WEATHER_MAP_API_KEY&lat=$lat&lon=$lng&units=$units" 2> /dev/null)
+
+    get_result "$r"
+}
+
+function get_weather_city {
+    local r=$(curl -s -X GET "$OPEN_WEATHER_MAP_API?appid=$OPEN_WEATHER_MAP_API_KEY&id=$city&units=$units" 2> /dev/null)
+
+    echo $r
+    get_result "$r"
+}
+
+function get_result {
+    r=$1
+    icon_f=$(echo $r | egrep -o '"icon":"..."' | cut -d':' -f2 | sed 's/"//g')
+    icon=$(get_icon $icon_f)
+
+    temp=$(echo $r | egrep -o '"temp":-?[0-9]*\.[0-9]*' | cut -d':' -f2)
+    # Round
+    temp=$(echo $temp | awk '{print int($1)}')
+
+    if [[ $units = "metric" ]]; then
+        temp="$temp${degree}C"
+    elif [[ $units = "imperial" ]]; then
+        temp="$temp${degree}F"
+    fi
+
+    if [[ "$get_temp_only" -eq 1 ]]; then
+        echo $temp
+    elif [[ "$get_icon_only" -eq 1 ]]; then
+        echo $icon
+    else
+        echo $icon $temp
+    fi
+}
+
+city=""
+lat=""
+lng=""
+
+while [[ "$1" != "" ]]; do
+    case $1 in
+        -c | --city-id )        shift
+                                city=$1
+                                ;;
+        --lat )                 shift
+                                lat=$1
+                                ;;
+        --lng )                 shift
+                                lon=$1
+                                ;;
+        -u | --units )          shift
+                                units=$1
+                                ;;
+        --icon-only )           get_icon_only=1
+                                ;;
+        --temp-only )           get_temp_only=1
+                                ;;
+        * )                     usage
+                                ;;
+    esac
+    shift
+done
+
+
+if [[ $city = "" ]] && [[ $lat = "" ]] && [[ $lng == "" ]]; then
+    get_coord
+    get_weather_coord
+elif [[ $lat != "" ]] && [[ $lng != "" ]]; then
+    get_weather_coord
+elif [[ $city != "" ]]; then
+    get_weather_city
+fi
+
