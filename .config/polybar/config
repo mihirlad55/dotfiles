@@ -80,7 +80,7 @@ font-3 = FontAwesome:size=10;1
 font-4 = Segoe UI Symbol:pixelsize=10;1
 font-5 = Weather Icons:size=10;1
 
-modules-left = i3
+;modules-left = i3
 ;modules-center = xwindow
 modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
 
@@ -231,7 +231,10 @@ type = internal/pulseaudio
 format-volume-margin = 2
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+format-volume-prefix = 
+format-volume-prefix-foreground = ${colors.icon}
+format-volume-prefix-padding-right = 1
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
@@ -308,7 +311,9 @@ type = internal/xbacklight
 
 format-margin = 2
 format = <label> <bar>
-label = BL
+label = 
+label-foreground = ${colors.icon}
+label-padding-right = 1
 
 bar-width = 10
 bar-indicator = |
@@ -370,6 +375,7 @@ ramp-signal-2 = 
 ramp-signal-foreground = ${colors.icon}
 ramp-signal-padding-left = 0
 ramp-signal-padding-right = 2
+
 
 [module/openvpn]
 type = custom/script
@@ -442,7 +448,7 @@ animation-charging-framerate = 750
 type = internal/temperature
 thermal-zone = 1
 warn-temperature = 60
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input
 
 format-margin = 2
 format-warn-margin = 2
