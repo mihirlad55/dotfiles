@@ -1,3 +1,3 @@
 #/bin/bash
 
-xdg-open "$({ find /home/mihirlad55/{Backgrounds,Desktop,Documents,Downloads,GoogleDrive,nfs,projects,Videos,.submodules} -not -path '*/.insync-trash*/*'; find /home/mihirlad55 -maxdepth 1; } | grep -o '.\{90\}$' | rofi -dmenu -p find -i -theme ~/.config/rofi/finder.rasi)"
+xdg-open "$({ find $HOME/{Backgrounds,Desktop,Documents,Downloads,GoogleDrive,nfs,projects,Videos,.submodules} -not -path '*/.insync-trash*/*'; find $HOME -maxdepth 1; } | grep -o '.\{90\}$' | rofi -dmenu -p find -i -theme ~/.config/rofi/finder.rasi)"
