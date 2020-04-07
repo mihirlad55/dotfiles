@@ -53,12 +53,12 @@ spotify = #1db954
 monitor = ${env:MONITOR:}
 monitor-fallback = eDP1
 monitor-strict = false
-width = 60%
+width = 70%
 height = 27
-offset-x = 40%
+offset-x = 30%
 ;offset-y = 1%
 radius = 0
-fixed-center = false
+fixed-center = true
 
 enable-ipc = true
 background = ${colors.background}
@@ -67,21 +67,22 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+#module-margin-left = 1
+#module-margin-right = 2
 
 font-0 = roboto:pixelsize=10;1
 font-1 = Font Awesome 5 Free:size=10;1
 font-2 = Font Awesome 5 Free Solid:size=10;1
 font-3 = FontAwesome:size=10;1
 font-4 = Segoe UI Symbol:pixelsize=10;1
+font-5 = Weather Icons:size=10;1
 
 modules-left = i3
 ;modules-center = xwindow
-modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu updates openvpn wlan eth battery temperature date time restart lock powermenu
+modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
 
 tray-position = right
 tray-padding = 2
@@ -158,6 +159,7 @@ type = custom/script
 interval = 5
 format = "%{T3}<label>"
 format-padding = 5
+format-margin = 2
 ; Previous song icon
 exec = echo ""
 ; Check if spotify is running before displaying the icon
@@ -172,6 +174,7 @@ type = custom/script
 interval = 5 
 format = "%{T3}<label>"
 format-padding = 5
+format-margin = 2
 ; Next song icon
 exec = echo ""
 ; Check if spotify is running before displaying the icon
@@ -201,6 +204,7 @@ hook-0 = echo ""
 hook-1 = python3 ~/.submodules/install/polybar-spotify-controls/scripts/spotify/spotify_status.py
 initial = 1
 format-padding = 4
+format-margin = 2
 format-underline = ${colors.spotify}
 line-size = 1
 ; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
@@ -223,6 +227,8 @@ label-song-ellipsis = true
 
 [module/pulseaudio]
 type = internal/pulseaudio
+
+format-volume-margin = 2
 
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
@@ -260,6 +266,7 @@ tail = true
 
 label = %output%
 
+format-margin = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.icon}
 format-prefix-background = ${colors.background}
@@ -279,6 +286,9 @@ interval = 25
 
 mount-0 = /
 
+format-mounted-margin = 2
+format-unmounted-margin = 2
+
 format-mounted-prefix = 
 format-mounted-prefix-foreground = ${colors.icon}
 format-mounted-underline = ${colors.primary}
@@ -296,6 +306,7 @@ format-unmounted-underline = ${colors.primary}
 [module/xbacklight]
 type = internal/xbacklight
 
+format-margin = 2
 format = <label> <bar>
 label = BL
 
@@ -315,6 +326,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 type = internal/memory
 interval = 2
 
+format-margin = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.icon}
 format-underline = ${colors.secondary}
@@ -328,6 +340,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.icon}
 format-underline = ${colors.tertiary}
+format-margin = 2
 
 label = %percentage:2%%
 label-foreground = ${colors.foreground}
@@ -338,6 +351,7 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
+format-connected-margin = 2
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.quaternary}
 
@@ -365,6 +379,7 @@ exec-if = systemctl list-units | grep openvpn-client | grep running
 format-prefix-foreground = ${colors.icon}
 format-foreground = ${colors.foreground}
 format-prefix = "  "
+format-margin = 2
 exec = systemctl list-units | grep openvpn-client | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
 
 
@@ -373,6 +388,7 @@ type = internal/network
 interface = enp3s0
 interval = 3.0
 
+format-connected-margin = 2
 format-connected-underline = ${colors.quaternary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.icon}
@@ -393,12 +409,15 @@ battery = BAT0
 adapter = ADP1
 full-at = 100 
 
+format-charging-margin = 2
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.quinary}
 
+format-discharging-margin = 2
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
+format-full-margin = 2
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.icon}
 format-full-underline = ${self.format-charging-underline}
@@ -425,6 +444,8 @@ thermal-zone = 1
 warn-temperature = 60
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 
+format-margin = 2
+format-warn-margin = 2
 format = <ramp> <label>
 format-underline = ${colors.primary}
 format-warn = <ramp> <label-warn>
@@ -448,6 +469,7 @@ interval = 5
 
 date = " %m-%d-%Y"
 
+format-margin = 2
 format-prefix =   
 format-prefix-padding = 2
 format-prefix-foreground = ${colors.icon}
@@ -462,6 +484,7 @@ interval = 5
 
 time = %I:%M %p
 
+format-margin = 2
 format-prefix =  
 format-prefix-padding = 2
 format-prefix-foreground = ${colors.icon}
@@ -469,10 +492,43 @@ format-underline = ${colors.tertiary}
 
 label = %time%
 
+[module/weather-icon]
+type = custom/script
+
+exec = ~/.scripts/get-weather --icon-only
+tail = true
+
+label = %output%
+label-margin-left = 2
+
+format = <label>
+format-foreground = ${colors.icon}
+format-background = ${colors.background}
+format-font = 6
+
+interval = 1800
+
+[module/weather-temp]
+type = custom/script
+
+exec = ~/.scripts/get-weather --temp-only
+tail = false
+
+label = %output%
+
+label-margin-right = 2
+label-padding-left = 1
+format = <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+interval = 1800
+
 
 [module/powermenu]
 type = custom/text
 
+content-margin = 2
 content = 
 content-foreground = ${colors.alert}
 
@@ -481,12 +537,14 @@ click-left = ~/.scripts/rofi/powermenu
 [module/restart]
 type = custom/text
 
+content-margin = 2
 content = 
 click-left = polybar-msg cmd restart
 
 [module/lock]
 type = custom/text
 
+content-margin = 2
 content = 
 click-left = ~/.scripts/lock
 
