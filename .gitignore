@@ -46,6 +46,11 @@
 !/.config/rofi
 !/.config/rofi/*
 
+# Include .config/nitrogen/bg-saved.cfg
+!/.config/nitrogen
+/.config/nitrogen/*
+!/.config/nitrogen/bg-saved.cfg
+
 # Include clickup integration for franz
 !/.config/Franz/
 /.config/Franz/*
