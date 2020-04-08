@@ -2,6 +2,5 @@
 
 cd ~/.scripts
 script="$(find . -type f | sed 's/^..//' | tail -n +2 | rofi -dmenu -p scripts -i)"
-args=$(rofi -dmenu -p args)
 
-~/.scripts/$script $args
+~/.scripts/$script
