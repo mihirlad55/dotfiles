@@ -1,24 +1,9 @@
-[submodule "install"]
-	path = .submodules/install
-	url = git@github.com:mihirlad55/arch-install
-[submodule "st"]
-	path = .submodules/st
-	url = git@github.com:mihirlad55/st
-[submodule "dwm"]
-	path = .submodules/dwm
-	url = git@github.com:mihirlad55/dwm
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh
 [submodule ".config/Franz/recipes/dev/clickup"]
 	path = .config/Franz/recipes/dev/clickup
 	url = git@github.com:gengue/franz-recipe-clickup
-[submodule ".submodules/antigen"]
-	path = .submodules/antigen
-	url = git@github.com:zsh-users/antigen
-[submodule ".submodules/surf"]
-	path = .submodules/surf
-	url = git@github.com:mihirlad55/surf
 [submodule ".emacs.d/custom/xresources-theme"]
 	path = .emacs.d/custom/xresources-theme
 	url = git@github.com:mihirlad55/xresources-theme
