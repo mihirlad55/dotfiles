@@ -5,7 +5,7 @@ polybar.background-alt:         c08
 polybar.foreground:             c15
 polybar.foreground-alt:         c07
 
-polybar.icon:                   c06
+polybar.icon:                   c04
 polybar.alert:                  c01
 
 polybar.ws-focused-background:  c08
