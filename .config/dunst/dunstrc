@@ -300,7 +300,7 @@
 
 [play_sound]
     summary = "*"
-    script = "~/.config/dunst/alert.sh"
+    script = "~/.scripts/dunst/alert"
 
 [low_battery]
     summary = "*Battery Low*"
@@ -309,7 +309,7 @@
     foreground = "#CC342B"
     frame_color = "#CC342B"
     fullscreen = show
-    new_icon = ~/.config/dunst/low-battery-red.png
+    new_icon = ~/.scripts/dunst/battery-check/low-battery-red.png
 
 [full_battery]
     summary = "*Battery Full*"
@@ -318,7 +318,7 @@
     foreground = "#76E56A"
     frame_color = "#76E56A"
     fullscreen = show
-    new_icon = ~/.config/dunst/full-battery-green.png
+    new_icon = ~/.scripts/dunst/battery-check/full-battery-green.png
 
 [charging]
     summary = "*Charging*"
@@ -327,7 +327,7 @@
     foreground = "#FBA922"
     frame_color = "#FBA922"
     fullscreen = show
-    new_icon = ~/.config/dunst/charging-yellow.png
+    new_icon = ~/.scripts/dunst/battery-check/charging-yellow.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
