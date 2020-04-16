@@ -1,0 +1,19 @@
+#!/usr/bin/sh
+
+total_num=$(yay -Qu | wc -l)
+pacman_num=$(pacman -Qu | wc -l)
+yay_num=$(( $total_num - $pacman_num ))
+
+summary="Package Updates Available"
+body="There are $total_num total updates available:
+-    $yay_num user package updates
+-    $pacman_num system package updates"
+
+pacman -Qu linux
+res=$?
+if [[ "$res" = 0 ]]; then
+    linux_update=$(pacman -Qu linux | cut -d' ' -f2-)
+    body="$body\n Also, there is a kernel update: $linux_update" 
+fi
+
+notify-send -u normal "$summary" "$body"
