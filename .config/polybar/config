@@ -155,33 +155,27 @@ label = %title:0:30:...%
 
 
 [module/previous]
-type = custom/script
-interval = 5
-format = "%{T3}<label>"
+type = custom/ipc
+format-font = 2
 format-padding = 5
 format-margin = 2
-; Previous song icon
-exec = echo ""
-; Check if spotify is running before displaying the icon
-exec-if = "pgrep spotify"
+hook-0 = echo ""
+hook-1 = echo ""
 format-underline = ${colors.spotify}
 line-size = 1
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+click-left = "spotifyctl -q previous"
 
 
 [module/next]
-type = custom/script
-interval = 5 
-format = "%{T3}<label>"
+type = custom/ipc
+format-font = 2
 format-padding = 5
 format-margin = 2
-; Next song icon
-exec = echo ""
-; Check if spotify is running before displaying the icon
-exec-if = "pgrep spotify"
+hook-0 = echo ""
+hook-1 = echo ""
 format-underline = ${colors.spotify}
 line-size = 1
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+click-left = "spotifyctl -q next"
 
 
 [module/playpause]
@@ -195,13 +189,13 @@ hook-2 = echo ""
 initial = 1
 format-underline = ${colors.spotify}
 line-size = 1
-click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+click-left = "spotifyctl playpause"
 
 
 [module/spotify]
 type = custom/ipc
 hook-0 = echo ""
-hook-1 = python3 ~/.submodules/install/polybar-spotify-controls/scripts/spotify/spotify_status.py
+hook-1 = spotifyctl -q status
 initial = 1
 format-padding = 4
 format-margin = 2
