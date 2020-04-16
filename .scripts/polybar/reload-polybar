@@ -7,7 +7,7 @@ echo $res
 
 if [[ "$res" -eq 1 ]]; then
     echo Launching polybar
-    sh $HOME/.scripts/launch-polybar
+    sh $HOME/.scripts/polybar/launch-polybar
 else
     echo Restarting polybar
     polybar-msg cmd restart
