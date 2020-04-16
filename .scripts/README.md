@@ -97,6 +97,10 @@ spotify.
     - **rofi-scripts**: Rofi script selector from `~/.scripts`
     
 
+- **resume-spotify**: Launch and resume spotify.
+
+    Requirements: `spotify dbus`
+
 - **screen-share**: Streams a particular monitor in VLC, so that only that
 monitor is shared. Rofi can be used to select monitor.
 
