@@ -66,6 +66,15 @@
 /.config/ckb-next/*
 !/.config/ckb-next/ckb-next.conf
 
+# Include .local/share/fonts
+!/.local/
+/.local/*
+!/.local/share/
+/.local/share/*
+!/.local/share/fonts
+/.local/share/fonts/**/*.uuid
+
+
 # Include emacs config
 !/.doom.d/
 !/.doom.d/*
