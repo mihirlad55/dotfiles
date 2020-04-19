@@ -76,7 +76,7 @@ function get_result {
     icon_f=$(echo $r | egrep -o '"icon":"..."' | cut -d':' -f2 | sed 's/"//g')
     icon=$(get_icon $icon_f)
 
-    temp=$(echo $r | egrep -o '"temp":-?[0-9]*\.[0-9]*' | cut -d':' -f2)
+    temp=$(echo $r | egrep -o '"temp":-?[0-9]*\.?[0-9]*' | cut -d':' -f2)
     # Round
     temp=$(echo $temp | awk '{print int($1)}')
 
