@@ -25,7 +25,7 @@ sh ~/.scripts/dunst/update-notification &
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape' &
 
 # Autolock
-xautolock -time 1 -locker ~/.scripts/lock &
+xautolock -time 3 -locker ~/.scripts/lock &
 
 # Reset background (visual glitches with compton on multiple monitor displays)
 (sleep 3s; nitrogen --restore) &
