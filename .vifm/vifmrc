@@ -27,6 +27,9 @@ nnoremap s :shell<cr>
 " Encrypt pdf
 command encryptpdf :! qpdf --encrypt %a %a 256 -- %%c:p %%c:p-2 && mv %c:p-2 %c:p
 
+" Decrypt pdf
+command decryptpdf :! qpdf --decrypt --password=%a %c:p "$(echo %c:p | sed 's/\.pdf//') - decrypted.pdf"
+
 
 """ Colorscheme """
 highlight border cterm=none ctermfg=none ctermbg=none
