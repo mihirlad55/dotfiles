@@ -1,0 +1,13 @@
+! i3 Lock Color !
+i3lock.insidecolor:         #00000000
+i3lock.ringcolor:           c08
+i3lock.keyhlcolor:          c04
+i3lock.bshlcolor:           c01
+i3lock.separatorcolor:      #00000000
+i3lock.insidevercolor:      #00000000
+i3lock.insidewrongcolor:    c01
+i3lock.ringvercolor:        c03
+i3lock.ringwrongcolor:      c01
+i3lock.verifcolor:          #FFFFFFFF
+i3lock.timecolor:           #FFFFFFFF
+i3lock.datecolor:           #FFFFFFFF

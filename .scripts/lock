@@ -1,4 +1,103 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 
-physlock -l && betterlockscreen --lock
+IMAGE_PATH="$HOME/Backgrounds/lockscreen.png"
+SOURCE_IMAGE="$HOME/Backgrounds/99000X-04.png"
 
+insidecolor=#00000000
+ringcolor=#ffffffff
+keyhlcolor=#d23c3dff
+bshlcolor=#d23c3dff
+separatorcolor=#00000000
+insidevercolor=#00000000
+insidewrongcolor=#d23c3dff
+ringvercolor=#ffffffff
+ringwrongcolor=#ffffffff
+verifcolor=#ffffffff
+timecolor=#ffffffff
+datecolor=#ffffffff
+boxcolor=#00000066
+
+function get_color_from_xres() {
+    xres="$(xrdb -query)"
+    xres_prefix="i3lock"
+    res_name="$xres_prefix.$1"
+    color=$(echo "$xres" | grep -o "$res_name.*$" | sed -e "s/$res_name:[\t ]*#//")
+    
+    len=${#color}
+
+    if [[ $len -eq 6 ]]; then
+        color="${color}FF"
+    elif [[ $color = "" ]]; then
+        echo $2
+    fi
+
+    echo $color
+}
+
+function get_xresources() {
+    xres_prefix="i3lock"
+
+    insidecolor=$(get_color_from_xres insidecolor 00000000)
+    ringcolor=$(get_color_from_xres ringcolor ffffffff)
+    keyhlcolor=$(get_color_from_xres keyhlcolor d23c3dff)
+    bshlcolor=$(get_color_from_xres bshlcolor d23c3dff)
+    separatorcolor=$(get_color_from_xres separatorcolor 00000000)
+    insidevercolor=$(get_color_from_xres insidevercolor 00000000)
+    insidewrongcolor=$(get_color_from_xres insidewrongcolor 23c3dff)
+    ringvercolor=$(get_color_from_xres ringvercolor ffffffff)
+    ringwrongcolor=$(get_color_from_xres ringwrongcolor ffffffff)
+    verifcolor=$(get_color_from_xres verifcolor ffffffff)
+    timecolor=$(get_color_from_xres timecolor ffffffff)
+    datecolor=$(get_color_from_xres datecolor ffffffff)
+}
+
+function prelock() {
+    physlock -l
+
+	if [ ! -z "$(pidof dunst)" ]; then
+		pkill -u "$USER" -USR1 dunst
+	fi
+}
+
+function postlock() {
+    physlock -L
+
+	if [ ! -z "$(pidof dunst)" ] ; then
+		pkill -u "$USER" -USR2 dunst
+	fi
+}
+
+function lock() {
+    i3lock \
+        --timestr="%I:%M %p" \
+        -t -i $IMAGE_PATH \
+        --timepos='x+960:h-680' --time-align 0 \
+        --time-font="Roboto" --timesize="80" \
+        --datepos='x+960:h-645' --date-align 0 --datestr="%A, %B %d, %Y" \
+        --date-font="Roboto" --datesize="24" \
+        --clock \
+        --insidecolor=$insidecolor --ringcolor=$ringcolor --line-uses-inside \
+        --keyhlcolor=$keyhlcolor --bshlcolor=$bshlcolor --separatorcolor=$separatorcolor \
+        --insidevercolor=$insidevercolor --insidewrongcolor=$insidewrongcolor \
+        --ringvercolor=$ringvercolor --ringwrongcolor=$ringwrongcolor --indpos='x+960:h-575' \
+        --radius=20 --ring-width=4 --veriftext='' --wrongtext='' \
+        --verifcolor="$verifcolor" --timecolor="$timecolor" --datecolor="$datecolor" \
+        --noinputtext='' --force-clock
+}
+
+function create_image() {
+    convert $SOURCE_IMAGE -resize 1920x1080 -quality 100 -extent 1920x2160 \
+        \( +repage +clone -crop 1920x1080+0+0 +repage \) \
+        -geometry 1920x1080+0+1080 -composite \
+        -draw "fill $boxcolor roundrectangle 700,300,1220,550 15,15" \
+        $IMAGE_PATH
+}
+
+if [[ "$1" = "update" ]]; then
+    create_image
+else
+    get_xresources
+    prelock
+    lock
+    postlock
+fi

@@ -21,3 +21,6 @@
 
 ! INCLUDE EMACS !
 #include "/home/mihirlad55/.Xresources.d/emacs"
+
+! INCLUDE i3LOCK !
+#include "/home/mihirlad55/.Xresources.d/i3lock"
