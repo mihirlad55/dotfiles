@@ -3,6 +3,7 @@ export PATH=$PATH:/opt/gcc-arm-none-eabi-8-2019-q3-update/bin
 export LANG=en_US.UTF-8
 export ZSH="/home/mihirlad55/.oh-my-zsh"
 export LPASS_CLIPBOARD_COMMAND="xclip -selection clipboard -in -l 2"
+export EDITOR=nvim
 
 # oh-my-zsh
 #ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -11,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Antigen
-source ~/.submodules/antigen/antigen.zsh
+source ~/.antigen/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -44,6 +45,10 @@ alias SS="sudo systemctl"
 alias se="sudoedit"
 alias g="git"
 alias o="xdg-open"
+alias srm="trash-put"
+
+# Always output termdown to /tmp/termdown for polybar
+alias termdown="termdown -o '/tmp/termdown'"
 
 # Adding color
 alias grep="grep --color=auto"
