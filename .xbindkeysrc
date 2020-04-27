@@ -50,9 +50,13 @@
 "/home/mihirlad55/.scripts/rofi/rofi-scripts"
     Mod1+Control+s
 
-# Rofi Calculator
-"/home/mihirlad55/.scripts/rofi/rofi-qalc"
+# Rofi Calculator Right
+"/home/mihirlad55/.scripts/rofi/rofi-qalc-right"
     Mod1+c
+
+# Rofi Calculator Left
+"/home/mihirlad55/.scripts/rofi/rofi-qalc-left"
+    Mod1+Shift+c
 
 
 # Screenshot region
