@@ -1,0 +1,29 @@
+#!/usr/bin/sh
+
+i=0
+possible=$(cat /sys/devices/system/cpu/possible)
+num_of_cores=$(($(echo $possible | cut -d'-' -f2) + 1))
+total_sum=0
+
+while [[ "$i" -lt 10 ]]; do
+    freqs=$(cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq)
+
+    IFS=$'\n'
+
+    sum=0
+    for freq in $freqs; do
+        sum=$(($sum + $freq))
+    done
+
+    IFS=$' \t\n'
+
+    ghz=$(( $sum / $num_of_cores ))
+
+    total_sum=$(( $total_sum + $ghz ))
+
+    sleep 0.1s
+    i=$(($i+1))
+done
+
+avg_freq=$(echo "$total_sum / 10 / 10^6" | bc -l)
+printf "%1.1fGHz\n" "$avg_freq"

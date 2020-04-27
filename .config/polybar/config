@@ -82,7 +82,7 @@ font-5 = Weather Icons:size=10;1
 
 ;modules-left = i3
 ;modules-center = xwindow
-modules-right = spotify previous playpause next termdown xbacklight pulseaudio filesystem memory cpu temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
+modules-right = spotify previous playpause next termdown xbacklight pulseaudio filesystem memory cpu cpu-speed temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
 
 tray-position = right
 tray-padding = 2
@@ -346,6 +346,22 @@ format-margin = 2
 
 label = %percentage:2%%
 label-foreground = ${colors.foreground}
+
+
+[module/cpu-speed]
+type=custom/script
+interval = 1
+format-margin = 2
+format-prefix = ""
+format-prefix-font = 2
+format-prefix-padding-right = 2
+format-prefix-foreground = ${colors.icon}
+
+label = %output%
+
+
+exec = ~/.scripts/cpu-speed
+
 
 
 [module/wlan]

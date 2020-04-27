@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+freq=$(echo "$1 * 1000000" | bc -l)
+echo $freq | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq
+
