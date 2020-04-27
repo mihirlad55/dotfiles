@@ -111,6 +111,11 @@
 /.ssh/*
 !/.ssh/config
 
+# Include xournalpp settings
+!/.xournalpp/
+/.xournalpp/*
+!/.xournalpp/settings.xml
+
 # Include custom tex classes
 !/texmf/
 !/texmf/*
