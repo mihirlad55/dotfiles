@@ -27,5 +27,8 @@ xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape' &
 # Autolock
 xautolock -time 1 -locker ~/.scripts/lock &
 
+# Reset background (visual glitches with compton on multiple monitor displays)
+(sleep 3s; nitrogen --restore) &
+
 # Disassociate terminal
 disown
