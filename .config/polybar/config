@@ -282,7 +282,7 @@ interval = 90
 type = internal/fs
 interval = 25
 
-mount-0 = /
+mount-0 = /home
 
 format-mounted-margin = 2
 format-unmounted-margin = 2
