@@ -82,7 +82,7 @@ font-5 = Weather Icons:size=10;1
 
 ;modules-left = i3
 ;modules-center = xwindow
-modules-right = spotify previous playpause next xbacklight pulseaudio filesystem memory cpu temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
+modules-right = spotify previous playpause next termdown xbacklight pulseaudio filesystem memory cpu temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
 
 tray-position = right
 tray-padding = 2
@@ -203,6 +203,7 @@ format-underline = ${colors.spotify}
 line-size = 1
 ; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
 click-left = i3-msg '[class="Spotify"] focus'
+
 
 
 [module/mpd]
@@ -525,6 +526,25 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 interval = 1800
+
+
+[module/termdown]
+type = custom/script
+
+exec-if = [[ -f "/tmp/termdown" ]]
+exec = cat /tmp/termdown
+tail = false
+
+label = %output%
+
+format-prefix = 
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.icon}
+format = <label>
+
+format-padding = 2
+
+interval = 1
 
 
 [module/powermenu]
