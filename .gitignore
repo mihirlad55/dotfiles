@@ -89,6 +89,8 @@
 !/.vifm/
 /.vifm/*
 !/.vifm/vifmrc
+!/.vifm/scripts
+!/.vifm/scripts/*
 
 # Include oh-my-zsh
 !/.oh-my-zsh/

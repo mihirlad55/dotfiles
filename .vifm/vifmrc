@@ -21,6 +21,9 @@ nnoremap ge :! unzip %c:p -d %d/%c:r<cr>
 nnoremap yn yy<C-w>wp<C-w>w
 " Open shell in current directory
 nnoremap s :shell<cr>
+" Remap v to :view
+unmap v
+nnoremap v :view<cr>
 
 
 """ Custom commands """
@@ -53,8 +56,44 @@ set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mk
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 
 
-""" Uberzug Image Viewer """
-fileviewer *.jpg,*.jpeg,*.png
-           \ vifmimg draw %px %py %pw %ph %c
-           \ %pc
-           \ vifmimg clear
+""" uberzug image viewer """
+" PDFs
+filextype *.pdf zathura %c %i &
+fileviewer *.pdf
+        \ vifmimg pdf %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+" ePUBs
+filextype *.epub zathura %c %i &
+fileviewer *.epub
+        \ vifmimg epub %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+" Fonts
+fileviewer *.otf,*.ttf,*.woff
+        \ vifmimg font %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+" Audios
+filetype <audio/*> vlc %c %i &
+fileviewer <audio/*>
+        \ vifmimg audio %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+" Videos
+filetype <video/*> vlc %c %i &
+fileviewer <video/*>
+        \ vifmimg video %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+" Images
+filextype <image/*> sxiv %c %i &
+fileviewer <image/*>
+        \ vifmimg image %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
