@@ -45,6 +45,7 @@ alias SS="sudo systemctl"
 alias se="sudoedit"
 alias g="git"
 alias o="xdg-open"
+alias vifm="$HOME/.vifm/scripts/vifmrun"
 alias srm="trash-put"
 
 # Always output termdown to /tmp/termdown for polybar
