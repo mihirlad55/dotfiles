@@ -17,8 +17,7 @@
 
 # Include .config/redshift/redshift.conf
 !/.config/redshift
-/.config/redshift/*
-!/.config/redshift/redshift.conf
+!/.config/redshift/*
 
 # Include .config/betterlockscreenrc
 !/.config/betterlockscreenrc
