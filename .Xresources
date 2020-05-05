@@ -1,26 +1,26 @@
 ! INCLUDE THEME !
-#include "/home/mihirlad55/.Xresources.d/themes/base16-one-dark"
+#include ".Xresources.d/themes/base16-one-dark"
 
 ! INCLUDE ROFI !
-!#include "/home/mihirlad55/.Xresources.d/rofi"
+!#include ".Xresources.d/rofi"
 
 ! INCLUDE POLYBAR !
-#include "/home/mihirlad55/.Xresources.d/polybar"
+#include ".Xresources.d/polybar"
 
 ! INCLUDE ST !
-#include "/home/mihirlad55/.Xresources.d/st"
+#include ".Xresources.d/st"
 
 ! INCLUDE i3 !
-#include "/home/mihirlad55/.Xresources.d/i3"
+#include ".Xresources.d/i3"
 
 ! INCLUDE DWM !
-#include "/home/mihirlad55/.Xresources.d/dwm"
+#include ".Xresources.d/dwm"
 
 ! INCLUDE DUNST !
-#include "/home/mihirlad55/.Xresources.d/dunst"
+#include ".Xresources.d/dunst"
 
 ! INCLUDE EMACS !
-#include "/home/mihirlad55/.Xresources.d/emacs"
+#include ".Xresources.d/emacs"
 
 ! INCLUDE i3LOCK !
-#include "/home/mihirlad55/.Xresources.d/i3lock"
+#include ".Xresources.d/i3lock"

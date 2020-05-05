@@ -43,19 +43,19 @@
     Mod1+s
 
 # Rofi Finder
-"/home/mihirlad55/.scripts/rofi/rofi-finder"
+"~/.scripts/rofi/rofi-finder"
     Mod1+Control+f
 
 # Rofi Scripts
-"/home/mihirlad55/.scripts/rofi/rofi-scripts"
+"~/.scripts/rofi/rofi-scripts"
     Mod1+Control+s
 
 # Rofi Calculator Right
-"/home/mihirlad55/.scripts/rofi/rofi-qalc-right"
+"~/.scripts/rofi/rofi-qalc-right"
     Mod1+c
 
 # Rofi Calculator Left
-"/home/mihirlad55/.scripts/rofi/rofi-qalc-left"
+"~/.scripts/rofi/rofi-qalc-left"
     Mod1+Shift+c
 
 
@@ -90,5 +90,5 @@
     Mod4+r
 
 # Map to monitor
-"/home/mihirlad55/.scripts/map-touch-to-screen -c"
+"~/.scripts/map-touch-to-screen -c"
     Mod4+p

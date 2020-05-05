@@ -1,7 +1,7 @@
 # Environment Variables
 export PATH=$PATH:/opt/gcc-arm-none-eabi-8-2019-q3-update/bin
 export LANG=en_US.UTF-8
-export ZSH="/home/mihirlad55/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export LPASS_CLIPBOARD_COMMAND="xclip -selection clipboard -in -l 2"
 export EDITOR=nvim
 
@@ -56,7 +56,7 @@ alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mihirlad55/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mihirlad55/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/mihirlad55/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mihirlad55/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
