@@ -1,0 +1,4 @@
+#!/bin/sh
+
+virsh --connect=qemu:///system start win10
+
