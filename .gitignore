@@ -107,11 +107,6 @@
 !/Backgrounds/
 !/Backgrounds/*
 
-# Include ssh config
-!/.ssh/
-/.ssh/*
-!/.ssh/config
-
 # Include xournalpp settings
 !/.xournalpp/
 /.xournalpp/*
@@ -131,7 +126,6 @@
 !/.vimrc
 !/.zshrc
 !/.xinitrc
-!/.gitconfig
 !/.xsession
 !/.xbindkeysrc
 !/.Xresources
