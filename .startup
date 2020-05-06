@@ -1,7 +1,6 @@
 #!/usr/bin/sh
 
 # Trigger udev rules
-sudo udevadm trigger &
-
+sudo udevadm trigger &&
 # Map keyboard
-xmodmap ~/.Xmodmap &
+xmodmap ~/.Xmodmap
