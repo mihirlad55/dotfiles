@@ -1,6 +1,21 @@
 # /home
 /home/*/.arduino15
 /home/*/.cache
+/home/*/.config/Slack/Cache
+/home/*/.config/discord/Cache
+/home/*/.config/Slack/Service\ Worker/CacheStorage
+/home/*/.config/chromium/Default/Application Cache/
+/home/*/.config/Franz/Partitions
+/home/*/.config/Mailspring/Cache
+/home/*/.config/Mailspring/mailsync-*.log
+/home/*/.npm/_cacache
+/home/*/.local/lib
+/home/*/.local/bin
+/home/*/.local/share/Steam/steamapps
+/home/*/.local/share/Steam/ubuntu*
+/home/*/.local/share/Steam/package
+/home/*/.local/share/Steam/appcache
+/home/*/.local/share/Steam/tenfoot
 
 # /etc
 /etc/at.deny
