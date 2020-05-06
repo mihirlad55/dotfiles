@@ -1,0 +1,31 @@
+# /home
+/home/*/.arduino15
+/home/*/.cache
+
+# /etc
+/etc/at.deny
+/etc/brlapi.key
+/etc/crypttab
+/etc/gshadow
+/etc/gshadow-
+/etc/libaudit.conf
+/etc/shadow
+/etc/shadow-
+/etc/sudoers
+/etc/sudoers.d
+/etc/tcsd.conf
+
+# root
+/bin
+/dev
+/lib
+/lib64
+/lost+found
+/proc
+/run
+/sbin
+/share
+/sys
+/tmp
+/usr
+/var
