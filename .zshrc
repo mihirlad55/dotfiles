@@ -33,6 +33,14 @@ eval $(thefuck --alias)
 # vi mode
 bindkey -v
 
+vi-append-x-selection () { RBUFFER=$(xclip -selection clipboard -o < /dev/null)$RBUFFER; }
+vi-yank-x-selection () { print -rn -- $CUTBUFFER | xclip -selection clipboard -i; }
+zle -N vi-append-x-selection
+bindkey -a '^X' vi-append-x-selection
+zle -N vi-yank-x-selection
+bindkey -a '^Y' vi-yank-x-selection
+
+
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #export PROMPT=$'%{\e[0;31m%}%n %{\e[0;36m%}%~ %% '
