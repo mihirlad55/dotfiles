@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Antigen
-source ~/.antigen/antigen/antigen.zsh
+source ~/.antigen/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
