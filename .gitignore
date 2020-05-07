@@ -132,6 +132,7 @@
 !/.Xresources.d/
 !/.Xresources.d/*
 !/.purepower
+!/.Xmodmap
 
 # Always ignore
 *.auctex-auto/
