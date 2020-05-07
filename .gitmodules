@@ -7,3 +7,6 @@
 [submodule ".emacs.d/custom/xresources-theme"]
 	path = .emacs.d/custom/xresources-theme
 	url = https://github.com/mihirlad55/xresources-theme
+[submodule ".antigen"]
+	path = .antigen
+	url = https://github.com/zsh-users/antigen
