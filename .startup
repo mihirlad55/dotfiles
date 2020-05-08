@@ -3,4 +3,6 @@
 # Trigger udev rules
 sudo udevadm trigger &&
 # Map keyboard
-xmodmap ~/.Xmodmap
+xmodmap ~/.Xmodmap &&
+# Rebuild Xresources
+xrdb ~/.Xresources
