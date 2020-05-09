@@ -503,6 +503,7 @@ label = %time%
 [module/weather-icon]
 type = custom/script
 
+exec-if = ls ~/.apikeys/openweathermap.key
 exec = ~/.scripts/get-weather --icon-only
 tail = true
 
@@ -519,6 +520,7 @@ interval = 1800
 [module/weather-temp]
 type = custom/script
 
+exec-if = ls ~/.apikeys/openweathermap.key
 exec = ~/.scripts/get-weather --temp-only
 tail = false
 
