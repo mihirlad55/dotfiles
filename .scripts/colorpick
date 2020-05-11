@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+hex="$(colorpicker --short --one-shot)"
+
+SUMMARY="colorpicker"
+BODY="Color "$hex" copied to clipboard"
+
+convert -size 128x128 xc:${hex} /tmp/color.png
+
+echo "$hex" | xclip -selection clipboard -i
+
+notify-send "$SUMMARY" "$BODY" -i "/tmp/color.png"
+
