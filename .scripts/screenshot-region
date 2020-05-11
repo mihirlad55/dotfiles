@@ -1,20 +1,21 @@
 #!/usr/bin/sh
 
 format="%Y-%m-%d-%H-%M-%S.png"
-directory="$HOME/Documents/Screenshots/"
+directory="$HOME/Documents/Screenshots"
 
 # Sleep to avoid 'couldn't grab keyboard error' with xbindkeys
 sleep 0.2s
 filename=$(scrot -s -f $format -e "echo \$f")
 res=$?
 
+mkdir -p $directory
 if [[ $res -eq 0 ]]; then
     mv $filename $directory
 
-    xclip -t image/png -selection clipboard -i ~/Documents/Screenshots/$filename
+    xclip -t image/png -selection clipboard -i $directory/$filename
 
     summary="Screenshot Taken"
-    body="Screenshot saved at $directory$filename"
+    body="Screenshot saved at $directory/$filename"
 
     echo $body
     notify-send -u low "$summary" "$body"
