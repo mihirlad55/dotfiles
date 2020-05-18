@@ -1,0 +1,30 @@
+#!/usr/bin/sh
+
+BASE_DIR="$( readlink -f "$(dirname "$0")" )"
+ICON_PATH="$BASE_DIR/archlinux.png"
+
+total_num=$(yay -Qu | wc -l)
+pacman_num=$(pacman -Qu | wc -l)
+yay_num=$(( $total_num - $pacman_num ))
+
+summary="Package Updates Available"
+body="There are $total_num total updates available:"
+
+if [[ "$yay_num" -gt 0 ]]; then
+    body="$body
+•    $yay_num user package updates"
+fi
+
+if [[ "$pacman_num" -gt 0 ]]; then
+    body="$body
+•    $pacman_num system package updates"
+fi
+
+pacman -Qu linux
+res=$?
+if [[ "$res" = 0 ]]; then
+    linux_update=$(pacman -Qu linux | cut -d' ' -f2-)
+    body="$body\n Also, there is a kernel update: $linux_update" 
+fi
+
+notify-send -u normal "$summary" "$body" -i "$ICON_PATH"
