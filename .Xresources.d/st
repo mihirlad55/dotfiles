@@ -4,7 +4,8 @@
 st.foreground:   fg
 st.background:   bg
 st.cursorColor:  cc
-st.opacity:      87 
+st.opacity:      0.87 
+st.borderpx:     30
 
 ! black
 st.color0:       c00
