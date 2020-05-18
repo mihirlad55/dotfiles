@@ -17,7 +17,7 @@ while true; do
     st_forked_commit="$(git ls-remote "$ST_FORKED_URL" --heads suckless-master | cut -f1)"
     st_forked_commit_short="$(get_short_id "$st_forked_commit")"
 
-    dwm_forked_commit="$(git ls-remote "$DWM_FORKED_URL" --heads master | cut -f1)"
+    dwm_forked_commit="$(git ls-remote "$DWM_FORKED_URL" --heads suckless-master | cut -f1)"
     dwm_forked_commit_short="$(get_short_id "$dwm_forked_commit")"
 
     st_orig_commit="$(git ls-remote "$ST_ORIG_URL" refs/heads/master | cut -f1 | head -n1)"
