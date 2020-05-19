@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+SERVER_PATH="/etc/openvpn/client"
+export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
+
+mapfile -t servers < <(sudo --askpass ls "$SERVER_PATH" | grep -v 'login.conf' | sed 's/\.conf//')
+
+chosen="$(printf "%s\n" "${servers[@]}" | rofi -dmenu -p "OpenVPN Server")"
+
+sudo --askpass systemctl start openvpn-client@${chosen}.service

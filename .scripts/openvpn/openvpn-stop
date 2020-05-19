@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
+
+server="$(systemctl list-units | \
+    grep openvpn-client | \
+    grep running | \
+    awk '{print $1};' | \
+    cut -d '@' -f2 | \
+    cut -d '.' -f1)"
+
+if [[ "$server" != "" ]]; then
+    echo "Stopping openvpn-client@${server}.service..."
+    sudo --askpass systemctl stop openvpn-client@${server}.service
+else
+    echo "No openvpn service is running"
+fi
