@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+rofi -dmenu -p askpass -disable-history -password
