@@ -394,7 +394,7 @@ format-prefix-foreground = ${colors.icon}
 format-foreground = ${colors.foreground}
 format-prefix = "  "
 format-margin = 2
-exec = systemctl list-units | grep openvpn-client | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
+exec = systemctl list-units | grep openvpn-client | grep running | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
 
 
 [module/eth]
