@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 SERVER_PATH="/etc/openvpn/client"
+BASE_DIR="$( readlink -f "$(dirname "$0")" )"
+ICON_PATH="$BASE_DIR/openvpn.png"
+
 export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
 
 mapfile -t servers < <(sudo --askpass ls "$SERVER_PATH" | grep -v 'login.conf' | sed 's/\.conf//')
@@ -7,3 +10,13 @@ mapfile -t servers < <(sudo --askpass ls "$SERVER_PATH" | grep -v 'login.conf' |
 chosen="$(printf "%s\n" "${servers[@]}" | rofi -dmenu -p "OpenVPN Server")"
 
 sudo --askpass systemctl start openvpn-client@${chosen}.service
+res="$?"
+
+if [[ "$res" -eq 0 ]]; then
+    summary="OpenVPN ($chosen)"
+    body="OpenVPN client started"
+
+    notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
+fi
+
+unset SUDO_ASKPASS
