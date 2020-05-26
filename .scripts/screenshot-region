@@ -16,7 +16,8 @@ if [[ $res -eq 0 ]]; then
 
     summary="Screenshot Taken"
     body="Screenshot saved at $directory/$filename"
+    icon_path="$directory/$filename"
 
     echo $body
-    notify-send -u low "$summary" "$body"
+    notify-send -u low "$summary" "$body" -i "$icon_path"
 fi
