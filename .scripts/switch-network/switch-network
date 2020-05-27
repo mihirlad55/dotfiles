@@ -1,0 +1,33 @@
+#!/usr/bin/bash
+BASE_DIR="$( readlink -f "$(dirname "$0")" )"
+ICON_PATH="$BASE_DIR/wifi-icon.png"
+
+export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
+
+
+interface="$(systemctl list-units | \
+    grep -o "wpa_supplicant@[a-zA-Z0-9]*\.service" | \
+    sed -e 's/wpa_supplicant@//' -e 's/\.service//')"
+
+sudo --askpass wpa_cli -i"$interface" list_networks > /tmp/networks
+
+ssids="$(tail -n-1 /tmp/networks | cut -f2)"
+
+chosen="$(printf "%s\n" "${ssids[@]}" | rofi -dmenu -p "Network")"
+
+id="$(echo "${networks[@]}" | grep "$chosen" | cut -f1)"
+
+sudo --askpass wpa_cli -i"$interface" select_network "$id"
+
+res="$?"
+
+if [[ "$res" -eq 0 ]]; then
+    summary="WPA Supplicant"
+    body="Connecting to $chosen"
+
+    notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
+fi
+
+rm -f /tmp/networks
+
+unset SUDO_ASKPASS
