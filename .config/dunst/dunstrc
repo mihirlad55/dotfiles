@@ -300,7 +300,7 @@
 
 [play_sound]
     summary = "*"
-    script = "~/.scripts/dunst/alert"
+    script = "~/.scripts/notifications/ringtone/alert"
 
 [low_battery]
     summary = "*Battery Low*"
@@ -315,14 +315,14 @@
     urgency = normal
     foreground = "#76E56A"
     fullscreen = show
-    new_icon = ~/.scripts/dunst/battery-check/full-battery-green.png
+    new_icon = ~/.scripts/notifications/battery-check/full-battery-green.png
 
 [charging]
     summary = "*Charging*"
     urgency = normal
     foreground = "#FBA922"
     fullscreen = show
-    new_icon = ~/.scripts/dunst/battery-check/charging-yellow.png
+    new_icon = ~/.scripts/notifications/battery-check/charging-yellow.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

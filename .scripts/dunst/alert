@@ -1,4 +1,0 @@
-#!/usr/bin/sh
-
-sox -v 0.3 ~/.scripts/dunst/light.wav -d &
-
