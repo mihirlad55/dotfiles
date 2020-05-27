@@ -14,7 +14,7 @@ configuration {
 
 * {
     background:                     #00000000;
-    background-color:               #000000A0;
+    background-color:               #282c34CD;
     background-entry:               #00000033;
     background-alt:                 #61afefA0;
     foreground:                     #f2f2f2EE;
@@ -86,7 +86,7 @@ mainbox {
     background-color:               @background-color;
     children:                       [ inputbar, message, listview ];
     spacing:                        15px;
-    padding:                        30px 25px 15px 25px;
+    padding:                        40px;
 }
 
 element {
