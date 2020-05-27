@@ -5,7 +5,12 @@ ICON_PATH="$BASE_DIR/openvpn.png"
 
 export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
 
-mapfile -t servers < <(sudo --askpass ls "$SERVER_PATH" | grep -v 'login.conf' | sed 's/\.conf//')
+sudo --askpass ls "$SERVER_PATH" | \
+    grep -v 'login.conf' | \
+    sed 's/\.conf//' \
+    > /tmp/servers
+
+mapfile -t servers < /tmp/servers
 
 chosen="$(printf "%s\n" "${servers[@]}" | rofi -dmenu -p "OpenVPN Server")"
 
@@ -18,5 +23,7 @@ if [[ "$res" -eq 0 ]]; then
 
     notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
 fi
+
+rm -f /tmp/servers
 
 unset SUDO_ASKPASS
