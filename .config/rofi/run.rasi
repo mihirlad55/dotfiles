@@ -48,7 +48,7 @@ inputbar {
     background-color:               @background-alt;
     text-color:                     @foreground;
     expand:                         false;
-    border-radius:                  6px;
+    border-radius:                  0px;
     margin:                         0px 0px 0px 0px;
     padding:                        10px 10px 10px 10px;
     position:                       center;
@@ -93,7 +93,7 @@ element {
     background-color:               @background;
     text-color:                     @foreground;
     orientation:                    vertical;
-    border-radius:                  6px;
+    border-radius:                  0px;
     padding:                        10px 10px 10px 10px;
 }
 
@@ -113,7 +113,7 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  9px;
+    border-radius:                  0px;
 }
 
 element normal.active,
