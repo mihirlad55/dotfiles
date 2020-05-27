@@ -13,32 +13,29 @@ function get_short_id() {
     echo "$1" | grep -o -P -e '^.{7}'
 }
 
-while true; do
-    st_forked_commit="$(git ls-remote "$ST_FORKED_URL" --heads suckless-master | cut -f1)"
-    st_forked_commit_short="$(get_short_id "$st_forked_commit")"
+st_forked_commit="$(git ls-remote "$ST_FORKED_URL" --heads suckless-master | cut -f1)"
+st_forked_commit_short="$(get_short_id "$st_forked_commit")"
 
-    dwm_forked_commit="$(git ls-remote "$DWM_FORKED_URL" --heads suckless-master | cut -f1)"
-    dwm_forked_commit_short="$(get_short_id "$dwm_forked_commit")"
+dwm_forked_commit="$(git ls-remote "$DWM_FORKED_URL" --heads suckless-master | cut -f1)"
+dwm_forked_commit_short="$(get_short_id "$dwm_forked_commit")"
 
-    st_orig_commit="$(git ls-remote "$ST_ORIG_URL" refs/heads/master | cut -f1 | head -n1)"
-    st_orig_commit_short="$(get_short_id "$st_orig_commit")"
+st_orig_commit="$(git ls-remote "$ST_ORIG_URL" refs/heads/master | cut -f1 | head -n1)"
+st_orig_commit_short="$(get_short_id "$st_orig_commit")"
 
-    dwm_orig_commit="$(git ls-remote "$DWM_ORIG_URL" --heads master | cut -f1)"
-    dwm_orig_commit_short="$(get_short_id "$dwm_orig_commit")"
+dwm_orig_commit="$(git ls-remote "$DWM_ORIG_URL" --heads master | cut -f1)"
+dwm_orig_commit_short="$(get_short_id "$dwm_orig_commit")"
 
-    echo "Forked st Commit: $st_forked_commit_short"
-    echo "Suckless st Commit: $st_orig_commit_short"
-    echo "Forked dwm Commit: $dwm_forked_commit_short"
-    echo "Suckless dwm Commit: $dwm_orig_commit_short"
+echo "Forked st Commit: $st_forked_commit_short"
+echo "Suckless st Commit: $st_orig_commit_short"
+echo "Forked dwm Commit: $dwm_forked_commit_short"
+echo "Suckless dwm Commit: $dwm_orig_commit_short"
 
-    if [[ "$st_forked_commit" != "$st_orig_commit" ]]; then
-        summary="Suckless Git St"
-        body="Your repository of st is currently behind that of Suckless's repository. You should rebase suckless's repository onto yours."
-    elif [[ "$dwm_forked_commit" != "$dwm_orig_commit" ]]; then
-        summary="Suckless Git DWM"
-        body="Your repository of DWM is currently behind that of Suckless's repository. You should rebase suckless's repository onto yours."
-    fi
-    notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
+if [[ "$st_forked_commit" != "$st_orig_commit" ]]; then
+    summary="Suckless Git St"
+    body="Your repository of st is currently behind that of Suckless's repository. You should rebase suckless's repository onto yours."
+elif [[ "$dwm_forked_commit" != "$dwm_orig_commit" ]]; then
+    summary="Suckless Git DWM"
+    body="Your repository of DWM is currently behind that of Suckless's repository. You should rebase suckless's repository onto yours."
+fi
 
-    sleep 3600s
-done
+notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
