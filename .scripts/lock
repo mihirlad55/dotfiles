@@ -51,6 +51,67 @@ function get_xresources() {
     datecolor=$(get_color_from_xres datecolor ffffffff)
 }
 
+function mpris_get_status() {
+    local dest status reply
+    dest="$1"
+
+    reply="$(dbus-send \
+        --session \
+        --dest="$dest" \
+        --type=method_call \
+        --print-reply=literal \
+        /org/mpris/MediaPlayer2 \
+        org.freedesktop.DBus.Properties.Get \
+        string:'org.mpris.MediaPlayer2.Player' \
+        string:'PlaybackStatus')"
+
+    if echo "$reply" | grep -q "variant"; then
+        status="$(echo "$reply" | tr -s ' ' | sed 's/ *//' | cut -d' ' -f2)"
+        echo "$status"
+        return 0
+    else
+        return 1
+    fi
+}
+
+function dbus_dest_exists() {
+    local dest names
+    dest="$1"
+
+    mapfile -t names < <(dbus-send --session \
+        --print-reply=literal \
+        --dest=org.freedesktop.DBus \
+        /org/freedesktop/DBus \
+        org.freedesktop.DBus.ListNames)
+
+    if echo "${names[@]}" | grep -q -F "$dest"; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function is_chromium_playing() {
+    local pids p status dest
+
+    mapfile -t pids < <(pgrep chromium)
+
+    for p in "${pids[@]}"; do
+        dest="org.mpris.MediaPlayer2.chromium.instance$p"
+
+        if dbus_dest_exists "$dest"; then
+            status="$(mpris_get_status "$dest")"
+            if [[ "$status" == "Playing" ]]; then
+                return 0
+            else
+                return 1
+            fi
+        fi
+    done
+
+    return 1
+}
+
 function prelock() {
     physlock -l
 
@@ -95,7 +156,17 @@ function create_image() {
 
 if [[ "$1" = "update" ]]; then
     create_image
-else
+elif [[ "$1" = "autolock" ]]; then
+    if ! is_chromium_playing; then
+        get_xresources
+        prelock
+        lock
+        postlock
+    else
+        echo "Not locking screen. Chromium is playing"
+        exit 1
+    fi
+else 
     get_xresources
     prelock
     lock

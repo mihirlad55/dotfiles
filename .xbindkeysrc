@@ -35,11 +35,11 @@
     Shift+Mod4 + minus
 
 # Rofi
-"sh ~/.scripts/rofi/drun"
+"~/.scripts/rofi/drun"
     Mod1+d
-"sh ~/.scripts/rofi/drun"
+"~/.scripts/rofi/drun"
    XF86Search
-"sh ~/.scripts/rofi/rofi-run"
+"~/.scripts/rofi/rofi-run"
     Mod1+s
 
 # Rofi Finder
@@ -60,7 +60,7 @@
 
 
 # Screenshot region
-"sh ~/.scripts/screenshot-region"
+"~/.scripts/screenshot-region"
     m:0x1 + c:107
     Shift + Print
 
@@ -76,7 +76,7 @@
 	XF86AudioPrev
 
 # Lock Screen (Super_L + l)
-"sh ~/.scripts/lock"
+"~/.scripts/lock"
     Mod4+l
 
 # Rofi lastpass
