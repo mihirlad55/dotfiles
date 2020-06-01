@@ -79,6 +79,10 @@
 "~/.scripts/lock"
     Mod4+l
 
+# Toggle xautolock (Super_L + Shift + l)
+"~/.scripts/lock toggle"
+    Mod4+Shift+l
+
 # Rofi lastpass
 "~/.scripts/rofi/rofi-lastpass type"
     Mod1+p

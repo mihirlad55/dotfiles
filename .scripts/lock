@@ -112,6 +112,34 @@ function is_chromium_playing() {
     return 1
 }
 
+function enable() {
+    xautolock -enable
+    notify-send "Xautolock" "Xautolock is enabled" -u normal
+}
+
+function disable() {
+    xautolock -disable
+    notify-send "Xautolock" "Xautolock is disabled" -u critical
+    touch /tmp/.xautolock-disabled
+}
+
+function toggle() {
+    if [[ -f "/tmp/.xautolock-disabled" ]]; then
+        rm -f /tmp/.xautolock-disabled
+        enable
+    else
+        disable
+    fi
+}
+
+function status() {
+    if [[ -f "/tmp/.xautolock-disabled" ]]; then
+        echo "$DISABLED_ICON"
+    else
+        echo "$ENABLED_ICON"
+    fi
+}
+
 function prelock() {
     physlock -l
 
@@ -154,21 +182,40 @@ function create_image() {
         $IMAGE_PATH
 }
 
-if [[ "$1" = "update" ]]; then
-    create_image
-elif [[ "$1" = "autolock" ]]; then
-    if ! is_chromium_playing; then
+case "$1" in
+    update)
+        create_image
+        ;;
+    autolock)
+        if ! is_chromium_playing; then
+            get_xresources
+            prelock
+            lock || true
+            postlock
+        else
+            echo "Not locking screen. Chromium is playing"
+            exit 1
+        fi
+        ;;
+    disable)
+        disable
+        ;;
+    enable)
+        enable
+        ;;
+    toggle)
+        toggle
+        ;;
+    status)
+        DISABLED_ICON="$2"
+        ENABLED_ICON="$3"
+        status
+        ;;
+    "")
         get_xresources
         prelock
         lock || true
         postlock
-    else
-        echo "Not locking screen. Chromium is playing"
-        exit 1
-    fi
-else 
-    get_xresources
-    prelock
-    lock || true
-    postlock
-fi
+        ;;
+
+esac

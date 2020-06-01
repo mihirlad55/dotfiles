@@ -571,10 +571,16 @@ content = 
 click-left = polybar-msg cmd restart
 
 [module/lock]
-type = custom/text
+type = custom/script
 
-content-margin = 2
-content = 
+exec = ~/.scripts/lock status  
+tail = false
+
+label = %output%
+format = <label>
+format-padding = 2
 click-left = ~/.scripts/lock
+
+interval = 1
 
 ; vim:ft=dosini
