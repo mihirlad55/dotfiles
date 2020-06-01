@@ -129,7 +129,7 @@ function postlock() {
 }
 
 function lock() {
-    i3lock \
+    i3lock -n \
         --timestr="%I:%M %p" \
         -t -i $IMAGE_PATH \
         --timepos='x+960:h-680' --time-align 0 \
@@ -160,7 +160,7 @@ elif [[ "$1" = "autolock" ]]; then
     if ! is_chromium_playing; then
         get_xresources
         prelock
-        lock
+        lock || true
         postlock
     else
         echo "Not locking screen. Chromium is playing"
@@ -169,6 +169,6 @@ elif [[ "$1" = "autolock" ]]; then
 else 
     get_xresources
     prelock
-    lock
+    lock || true
     postlock
 fi
