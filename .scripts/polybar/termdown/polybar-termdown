@@ -1,0 +1,39 @@
+#!/usr/bin/bash
+
+BASE_DIR="$( readlink -f "$(dirname "$0")" )"
+ICON_PATH="$BASE_DIR/timer.png"
+OUTPUT_FILE="/tmp/termdown"
+
+if [[ "$1" = "" ]]; then
+    time="$(rofi -dmenu -p "Time")"
+else
+    time="$1"
+fi
+
+if [[ $time = "" ]]; then
+    notify-send "Stopwatch Started" -u normal -i "$ICON_PATH"
+else
+    is_countdown=1
+    notify-send "Countdown Started" \
+        "You will be notified when time is up in $time" \
+        -u normal \
+        -i "$ICON_PATH"
+fi
+
+$(st -e termdown "$time" -o "$OUTPUT_FILE") &
+
+(
+    sleep 2s;
+
+    while pgrep termdown; do
+        sleep 1s;
+    done
+
+    if [[ -n "$is_countdown" ]]; then
+        notify-send "Countdown Finished!" -u normal -i "$ICON_PATH"
+    fi
+    rm -rf /tmp/termdown
+) &
+
+disown
+
