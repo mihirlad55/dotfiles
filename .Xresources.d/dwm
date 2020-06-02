@@ -1,13 +1,13 @@
 ! DWM !
 
 ! Normal Color
-dwm.normbordercolor:        #000000
+dwm.normbordercolor:        bg
 dwm.normbgcolor:            bg
-dwm.normfgcolor:            c07
+dwm.normfgcolor:            c15
 
 ! Selected Color
 dwm.selbordercolor:         base02
 dwm.selbgcolor:             base02
-dwm.selfgcolor:             fg
+dwm.selfgcolor:             c15
 
 ! vim:ft=xdefaults
