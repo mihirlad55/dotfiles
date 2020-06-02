@@ -80,7 +80,7 @@ font-3 = Font Awesome 5 Brands:size=10;2
 font-4 = Weather Icons:size=10;2
 font-5 = Material Icons:size=11;4
 
-modules-right = spotify previous playpause next sep termdown sep updates sep weather-icon weather-temp sep xbacklight sep pulseaudio sep filesystem sep memory sep cpu cpu-speed sep temperature sep openvpn wlan eth sep battery sep date time restart lock notifications powermenu
+modules-right = spotify previous playpause next pad termdown updates pad weather-icon weather-temp pad xbacklight pulseaudio memory pad cpu cpu-speed pad temperature wlan eth openvpn battery date time restart lock notifications powermenu
 
 tray-position = right
 tray-padding = 2
@@ -110,6 +110,7 @@ format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.icon}
 
 format-padding = 1
+format-margin = 1
 format-background = ${colors.background-alt}
 format-overline = ${colors.background}
 format-underline = ${colors.background}
@@ -188,7 +189,9 @@ format-prefix-padding-right = 1
 format-prefix-font = 6
 format-prefix-foreground = ${colors.icon}
 format-prefix-background = ${colors.background-alt}
+
 format-padding = 1
+format-margin = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background-alt}
 format-overline = ${colors.background}
@@ -251,6 +254,7 @@ label = %percentage%%
 
 format = <ramp><label>
 format-padding = 1
+format-margin = 1
 format-background = ${colors.background-alt}
 format-overline = ${colors.background}
 format-underline = ${colors.background}
@@ -273,6 +277,7 @@ label-volume-foreground = ${colors.foreground}
 
 format-volume = <ramp-volume><label-volume>
 format-volume-padding = 1
+format-volume-margin = 1
 format-volume-background = ${colors.background-alt}
 format-volume-overline = ${colors.background}
 format-volume-underline = ${colors.background}
@@ -284,6 +289,7 @@ format-muted-prefix-padding-right = 1
 format-muted-prefix-foreground = ${colors.alert}
 
 format-muted-padding = 1
+format-muted-margin = 1
 format-muted-foreground = ${colors.alert}
 format-muted-background = ${colors.background-alt}
 format-muted-overline = ${colors.background}
@@ -291,32 +297,34 @@ format-muted-underline = ${colors.background}
 
 
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-mount-0 = /home
+;[module/filesystem]
+;type = internal/fs
+;interval = 25
+;mount-0 = /home
 
-label-mounted = "%percentage_used%%"
-label-mounted-foreground = ${colors.foreground}
+;label-mounted = "%percentage_used%%"
+;label-mounted-foreground = ${colors.foreground}
 
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.icon}
+;label-unmounted = %mountpoint% not mounted
+;label-unmounted-foreground = ${colors.icon}
 
-format-unmounted-padding = 1
-format-unmounted-background= ${colors.background-alt}
-format-unmounted-overline = ${colors.background}
-format-unmounted-underline = ${colors.background}
-format-unmounted-foreground = ${colors.foreground}
+;format-unmounted-padding = 1
+;format-unmounted-margin = 1
+;format-unmounted-background= ${colors.background-alt}
+;format-unmounted-overline = ${colors.background}
+;format-unmounted-underline = ${colors.background}
+;format-unmounted-foreground = ${colors.foreground}
 
-format-mounted-prefix = 
-format-mounted-prefix-foreground = ${colors.icon}
-format-mounted-prefix-padding-right = 1
+;format-mounted-prefix = 
+;format-mounted-prefix-foreground = ${colors.icon}
+;format-mounted-prefix-padding-right = 1
 
-format-mounted-padding = 1
-format-mounted-background= ${colors.background-alt}
-format-mounted-overline = ${colors.background}
-format-mounted-underline = ${colors.background}
-format-mounted-foreground = ${colors.foreground}
+;;format-mounted-padding = 1
+;format-mounted-margin = 1
+;format-mounted-background= ${colors.background-alt}
+;format-mounted-overline = ${colors.background}
+;format-mounted-underline = ${colors.background}
+;format-mounted-foreground = ${colors.foreground}
 
 
 
@@ -332,6 +340,7 @@ format-prefix-font = 2
 format-prefix-foreground = ${colors.icon}
 
 format-padding = 1
+format-margin = 1
 format-background = ${colors.background-alt}
 format-underline = ${colors.background}
 format-overline = ${colors.background}
@@ -393,6 +402,7 @@ label = %temperature-c%
 
 format = <ramp> <label>
 format-padding = 1
+format-margin = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background-alt}
 format-underline = ${colors.background}
@@ -403,24 +413,11 @@ label-warn-foreground = ${colors.alert}
 
 format-warn = <ramp> <label-warn>
 format-warn-padding = 1
+format-warn-margin = 1
 format-warn-foreground = ${colors.foreground}
 format-warn-background = ${colors.background-alt}
 format-warn-underline = ${colors.background}
 format-warn-overline = ${colors.background}
-
-
-
-[module/openvpn]
-type = custom/script
-interval = 3.0
-
-exec = systemctl list-units | grep openvpn-client | grep running | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
-exec-if = systemctl list-units | grep openvpn-client | grep running
-
-format-prefix = "  "
-format-prefix-font = 6
-format-prefix-foreground = ${colors.icon}
-format-foreground = ${colors.foreground}
 
 
 
@@ -443,7 +440,9 @@ format-connected-prefix = 
 format-connected-prefix-font = 6
 format-connected-prefix-padding-right = 1
 format-connected-prefix-foreground = ${colors.icon}
+
 format-connected-padding = 1
+format-connected-margin = 1
 format-connected-underline = ${colors.background}
 format-connected-overline = ${colors.background}
 format-connected-background = ${colors.background-alt}
@@ -452,7 +451,9 @@ format-packetloss-prefix = 
 format-packetloss-prefix-font = 6
 format-packetloss-prefix-padding-right = 1
 format-packetloss-prefix-foreground = ${colors.icon}
+
 format-packetloss-padding = 1
+format-packetloss-margin = 1
 format-packetloss-underline = ${colors.background}
 format-packetloss-overline = ${colors.background}
 format-packetloss-background = ${colors.background-alt}
@@ -474,12 +475,14 @@ label-packetloss-foreground = ${colors.foreground}
 
 label-disconnected =
 
-format-connected = <label-connected>
 format-connected-prefix = 
 format-connected-prefix-font = 6
 format-connected-prefix-padding-right = 1
 format-connected-prefix-foreground = ${colors.icon}
+
+format-connected = <label-connected>
 format-connected-padding = 1
+format-connected-margin = 1
 format-connected-underline = ${colors.background}
 format-connected-overline = ${colors.background}
 format-connected-background = ${colors.background-alt}
@@ -488,11 +491,33 @@ format-packetloss-prefix = 
 format-packetloss-prefix-font = 6
 format-packetloss-prefix-padding-right = 1
 format-packetloss-prefix-foreground = ${colors.icon}
+
+format-packetloss = <label-connected>
 format-packetloss-padding = 1
+format-packetloss-margin = 1
 format-packetloss-underline = ${colors.background}
 format-packetloss-overline = ${colors.background}
 format-packetloss-background = ${colors.background-alt}
-format-packetloss = <label-connected>
+
+
+
+[module/openvpn]
+type = custom/script
+interval = 3.0
+
+exec = systemctl list-units | grep openvpn-client | grep running | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
+exec-if = systemctl list-units | grep openvpn-client | grep running
+
+format-prefix = "  "
+format-prefix-font = 6
+format-prefix-foreground = ${colors.icon}
+
+format-padding = 1
+format-margin = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
 
 
 
@@ -519,23 +544,27 @@ animation-charging-font = 2
 animation-charging-foreground = ${colors.icon}
 animation-charging-framerate = 750
 
-format-full = <label-full>
 format-full-prefix = 
 format-full-prefix-foreground = ${colors.icon}
 format-full-prefix-padding-right = 1
 format-full-prefix-padding-left = 0
+
+format-full = <label-full>
+format-full-margin = 1
 format-full-padding = 1
 format-full-underline = ${colors.background}
 format-full-overline = ${colors.background}
 format-full-background = ${colors.background-alt}
 
 format-charging = <animation-charging> <label-charging>
+format-charging-margin = 1
 format-charging-padding = 1
 format-charging-underline = ${colors.background}
 format-charging-overline = ${colors.background}
 format-charging-background = ${colors.background-alt}
 
 format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-margin = 1
 format-discharging-padding = 1
 format-discharging-underline = ${colors.background}
 format-discharging-overline = ${colors.background}
@@ -554,7 +583,9 @@ format-prefix = 
 format-prefix-font = 6
 format-prefix-padding-right = 1
 format-prefix-padding-left = 0
+
 format-padding = 1
+format-margin = 1
 format-underline = ${colors.background}
 format-overline = ${colors.background}
 format-prefix-foreground = ${colors.icon}
@@ -569,10 +600,15 @@ interval = 5
 
 label = %time%
 
-format-margin = 2
 format-prefix = 
 format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.icon}
+
+format-padding = 1
+format-margin = 1
+format-underline = ${colors.background}
+format-overline = ${colors.background}
+format-background = ${colors.background-alt}
 
 
 
@@ -628,10 +664,10 @@ click-left = ~/.scripts/rofi/powermenu
 
 
 
-[module/sep]
+[module/pad]
 type = custom/text
 
-content = "  "
+content = " "
 content-background = ${colors.background}
 content-padding = 0
 
