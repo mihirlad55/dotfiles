@@ -28,6 +28,8 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
+
+
 [colors]
 background = ${xrdb:polybar.background} 
 background-alt = ${xrdb:polybar.background-alt}
@@ -49,12 +51,14 @@ ws-focused-underline = ${xrdb:polybar.ws-focused-underline}
 
 spotify = #1db954
 
+
+
 [bar/main]
 monitor = ${env:MONITOR:}
 monitor-fallback = eDP1
 monitor-strict = false
 width = 70%
-height = 35
+height = 36
 offset-x = 30%
 ;offset-y = 1%
 radius = 0
@@ -64,406 +68,266 @@ enable-ipc = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = #f00
+line-size = 6
+line-color = ${colors.icon}
 
-padding-left = 2
-padding-right = 2
+padding-left = 1
+padding-right = 1
 
-#module-margin-left = 1
-#module-margin-right = 2
-
-font-0 = roboto:pixelsize=10;2
+font-0 = Liberation Mono:size=9;2
 font-1 = Font Awesome 5 Free:size=10;2
 font-2 = Font Awesome 5 Free Solid:size=10;2
-font-3 = FontAwesome:size=10;2
-font-4 = Segoe UI Symbol:pixelsize=10;2
-font-5 = Weather Icons:size=10;2
+font-3 = Font Awesome 5 Brands:size=10;2
+font-4 = Weather Icons:size=10;2
+font-5 = Material Icons:size=11;4
 
-;modules-left = i3
-;modules-center = xwindow
 modules-right = spotify previous playpause next termdown xbacklight pulseaudio filesystem memory cpu cpu-speed temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
 
 override-redirect = true
-
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-pin-workspaces = true
-wrapping-scroll = false
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;4
-ws-icon-4 = 5;5
-ws-icon-5 = 6;6
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-default = 
+[module/termdown]
+type = custom/script
+interval = 1
 
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+exec-if = [[ -f "/tmp/termdown" ]]
+exec = cat /tmp/termdown
+tail = false
 
-; focused = Active workspace on focused monitor
-label-focused = %icon%
-label-focused-background = ${colors.ws-focused-background}
-label-focused-underline= ${colors.ws-focused-underline}
-label-focused-padding = 2
+label = %output%
 
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon% 
-label-unfocused-padding = 2
+format = <label>
 
-; visible = Active workspace on unfocused monitor
-label-visible = %icon% 
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
+format-prefix = 
+format-prefix-font = 6
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.icon}
 
-; urgent = Workspace with urgency hint set
-label-urgent = %icon%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+format-padding = 1
+format-margin = 1
+format-background = ${colors.background-alt}
+format-overline = ${colors.background}
+format-underline = ${colors.background}
 
-; Separator in between workspaces
-; label-separator = |
-
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
-
-[module/previous]
-type = custom/ipc
-format-font = 2
-format-padding = 5
-format-margin = 2
-hook-0 = echo ""
-hook-1 = echo ""
-format-underline = ${colors.spotify}
-line-size = 1
-click-left = "spotifyctl -q previous"
-
-
-[module/next]
-type = custom/ipc
-format-font = 2
-format-padding = 5
-format-margin = 2
-hook-0 = echo ""
-hook-1 = echo ""
-format-underline = ${colors.spotify}
-line-size = 1
-click-left = "spotifyctl -q next"
-
-
-[module/playpause]
-type = custom/ipc
-; Default
-hook-0 = echo ""
-; Playing
-hook-1 = echo ""
-; Paused
-hook-2 = echo ""
-initial = 1
-format-underline = ${colors.spotify}
-line-size = 1
-click-left = "spotifyctl playpause"
 
 
 [module/spotify]
 type = custom/ipc
+
 hook-0 = echo ""
 hook-1 = spotifyctl -q status
 initial = 1
-format-padding = 4
-format-margin = 2
-format-underline = ${colors.spotify}
-line-size = 1
-; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
-click-left = i3-msg '[class="Spotify"] focus'
+
+format-prefix = 
+format-prefix-padding-right = 1
+format-prefix-font = 2
+
+format-padding = 1
+format-margin = 1
 
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+[module/previous]
+type = custom/ipc
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+click-left = "spotifyctl -q previous"
+hook-0 = echo
+hook-1 = echo 
 
-label-song-maxlen = 25
-label-song-ellipsis = true
+format-font = 6
+format-padding = 1
+format-margin = 1
 
 
-[module/pulseaudio]
-type = internal/pulseaudio
 
-format-volume-margin = 2
+[module/playpause]
+type = custom/ipc
 
-format-volume = <label-volume>
-format-volume-prefix = 
-format-volume-prefix-foreground = ${colors.icon}
-format-volume-prefix-padding-right = 1
-label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
+click-left = "spotifyctl playpause"
+; Default
+hook-0 = echo
+; Playing
+hook-1 = echo 
+; Paused
+hook-2 = echo 
+initial = 1
 
-label-muted = 🔇 muted
-label-muted-foreground = ${colors.alert}
-
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.icon}
-bar-volume-foreground-1 = ${colors.icon}
-bar-volume-foreground-2 = ${colors.icon}
-bar-volume-foreground-3 = ${colors.icon}
-bar-volume-foreground-4 = ${colors.icon}
-bar-volume-foreground-5 = ${colors.icon}
-bar-volume-foreground-6 = ${colors.icon}
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = ${colors.icon}
-bar-volume-fill = ─
-bar-volume-fill-foreground = ${colors.icon}
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+format-font = 6
 
 
-[module/updates]
-type=custom/script
 
-exec = echo $(yay -Pu | wc -l)
-exec-if = [  $(yay -Pu | wc -l) -ne "0" ]
-tail = true
+[module/next]
+type = custom/ipc
 
-label = %output%
+click-left = "spotifyctl -q next"
+hook-0 = echo
+hook-1 = echo 
 
-format-margin = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.icon}
-format-prefix-background = ${colors.background}
-
-format = <label>
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-click-left = st sh -c 'yay -Syyu; sh'
-
-interval = 90
-
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /home
-
-format-mounted-margin = 2
-format-unmounted-margin = 2
-
-format-mounted-prefix = 
-format-mounted-prefix-foreground = ${colors.icon}
-format-mounted-foreground = ${colors.foreground}
-
-label-mounted = " %percentage_used%%"
-label-mounted-foreground = ${colors.foreground}
-
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.icon}
+format-font = 6
+format-padding = 1
+format-margin = 1
 
 
 
 [module/xbacklight]
 type = internal/xbacklight
 
-format-margin = 2
-format = <label>
-format-prefix = 
-label = %percentage%%
-format-prefix-padding-right = 1
-format-prefix-foreground = ${colors.icon}
-label-padding-right = 1
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = ${colors.icon} 
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = ${colors.icon}
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+ramp-font = 6
+ramp-foreground = ${colors.icon}
+ramp-padding-right = 1
+
+label = %percentage%%
+
+format = <ramp><label>
+format-margin = 1
+format-padding = 1
+format-background = ${colors.background-alt}
+format-overline = ${colors.background}
+format-underline = ${colors.background}
+
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+ramp-volume-foreground = ${colors.icon}
+ramp-volume-font = 6
+ramp-volume-padding-right = 1
+
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+format-volume = <ramp-volume><label-volume>
+format-volume-padding = 1
+format-volume-margin = 1
+format-volume-background = ${colors.background-alt}
+format-volume-overline = ${colors.background}
+format-volume-underline = ${colors.background}
+
+label-muted = %percentage%%
+
+format-muted-prefix = 
+format-muted-prefix-padding-right = 1
+format-muted-prefix-foreground = ${colors.alert}
+
+format-muted-padding = 1
+format-muted-margin = 1
+format-muted-foreground = ${colors.alert}
+format-muted-background = ${colors.background-alt}
+format-muted-overline = ${colors.background}
+format-muted-underline = ${colors.background}
+
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /home
+
+label-mounted = "%percentage_used%%"
+label-mounted-foreground = ${colors.foreground}
+
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.icon}
+
+format-unmounted-margin = 1
+format-unmounted-padding = 1
+format-unmounted-background= ${colors.background-alt}
+format-unmounted-overline = ${colors.background}
+format-unmounted-underline = ${colors.background}
+format-unmounted-foreground = ${colors.foreground}
+
+format-mounted-prefix = 
+format-mounted-prefix-foreground = ${colors.icon}
+format-mounted-prefix-padding-right = 1
+
+format-mounted-margin = 1
+format-mounted-padding = 1
+format-mounted-background= ${colors.background-alt}
+format-mounted-overline = ${colors.background}
+format-mounted-underline = ${colors.background}
+format-mounted-foreground = ${colors.foreground}
+
 
 
 [module/memory]
 type = internal/memory
 interval = 2
 
-format-margin = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.icon}
 label = %percentage_used%%
 label-foreground = ${colors.foreground}
+
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${colors.icon}
+
+format-margin = 1
+format-padding = 1
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
 
 
 [module/cpu]
 type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.icon}
-format-margin = 2
+interval = 1
 
 label = %percentage:2%%
 label-foreground = ${colors.foreground}
+
+format-prefix = 
+font-prefix-font = 6
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.icon}
+
+format-margin = 1
+format-padding = 1
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
+
 
 
 [module/cpu-speed]
 type=custom/script
 interval = 1
-format-margin = 2
-format-prefix = ""
-format-prefix-font = 2
-format-prefix-padding-right = 2
-format-prefix-foreground = ${colors.icon}
-
-label = %output%
-
 
 exec = ~/.scripts/cpu-speed
 
+label = %output%
 
-
-[module/wlan]
-type = internal/network
-interface = wlp2s0
-interval = 3.0
-
-format-connected-margin = 2
-format-connected = <ramp-signal> <label-connected>
-
-label-connected = %essid%: %local_ip%
-label-connected-foreground = ${colors.foreground}
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-foreground = ${colors.icon}
-ramp-signal-padding-left = 0
-ramp-signal-padding-right = 2
-
-
-[module/openvpn]
-type = custom/script
-interval = 3.0
-
-exec-if = systemctl list-units | grep openvpn-client | grep running
+format-prefix = 
+format-prefix-font = 6
+format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.icon}
-format-foreground = ${colors.foreground}
-format-prefix = "  "
-format-margin = 2
-exec = systemctl list-units | grep openvpn-client | grep running | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
+format-margin = 1
+format-padding = 1
+format-background = ${colors.background-alt}
+format-overline = ${colors.background}
+format-underline = ${colors.background}
 
-
-[module/eth]
-type = internal/network
-interface = enp3s0
-interval = 3.0
-
-format-connected-margin = 2
-format-connected-underline = ${colors.quaternary}
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.icon}
-
-label-connected = %local_ip%
-label-connected-foreground = ${colors.foreground}
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 100 
-
-format-charging-margin = 2
-format-charging = <animation-charging> <label-charging>
-
-format-discharging-margin = 2
-format-discharging = <ramp-capacity> <label-discharging>
-
-format-full-margin = 2
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.icon}
-
-ramp-capacity-0 = 
-ramp-capacity-1 =  
-ramp-capacity-2 =  
-ramp-capacity-3 =  
-ramp-capacity-4 = l
-ramp-capacity-foreground = ${colors.icon}
-
-animation-charging-0 = 
-animation-charging-1 =  
-animation-charging-2 =  
-animation-charging-3 =  
-animation-charging-4 = l
-animation-charging-foreground = ${colors.icon} 
-animation-charging-framerate = 750
 
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 1
+thermal-zone = 4
 warn-temperature = 60
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input
-
-format-margin = 2
-format-warn-margin = 2
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.alert}
 
 ramp-0 = 
 ramp-1 = 
@@ -471,37 +335,60 @@ ramp-2 = 
 ramp-3 = 
 ramp-4 = 
 ramp-foreground = ${colors.icon}
+ramp-font = 3
+
+label = %temperature-c%
+
+format = <ramp> <label>
+format-margin = 1
+format-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
+
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+format-warn = <ramp> <label-warn>
+format-warn-margin = 1
+format-warn-padding = 1
+format-warn-foreground = ${colors.foreground}
+format-warn-background = ${colors.background-alt}
+format-warn-underline = ${colors.background}
+format-warn-overline = ${colors.background}
 
 
-[module/date]
-type = internal/date
-interval = 5
 
-date = " %m-%d-%Y"
+[module/updates]
+type = custom/script
+interval = 90
 
-format-margin = 2
-format-prefix =   
-format-prefix-padding = 2
+click-left = st sh -c 'yay -Syyu; sh'
+exec = echo $(yay -Pu | wc -l)
+exec-if = [  $(yay -Pu | wc -l) -ne "0" ]
+tail = true
+
+label = %output%
+
+format = <label>
+format-prefix = 
+format-prefix-padding-right = 1
+format-prefix-font = 6
 format-prefix-foreground = ${colors.icon}
+format-prefix-background = ${colors.background-alt}
+format-margin = 1
+format-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-alt}
+format-overline = ${colors.background}
+format-underline = ${colors.background}
 
-label = %date%
 
-
-[module/time]
-type = internal/date
-interval = 5
-
-time = %I:%M %p
-
-format-margin = 2
-format-prefix =  
-format-prefix-padding = 2
-format-prefix-foreground = ${colors.icon}
-
-label = %time%
 
 [module/weather-icon]
 type = custom/script
+interval = 1800
 
 exec-if = ls ~/.apikeys/openweathermap.key
 exec = ~/.scripts/get-weather --icon-only
@@ -512,13 +399,16 @@ label-margin-left = 2
 
 format = <label>
 format-foreground = ${colors.icon}
-format-background = ${colors.background}
-format-font = 6
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
+format-font = 5
 
-interval = 1800
+
 
 [module/weather-temp]
 type = custom/script
+interval = 1800
 
 exec-if = ls ~/.apikeys/openweathermap.key
 exec = ~/.scripts/get-weather --temp-only
@@ -526,61 +416,222 @@ tail = false
 
 label = %output%
 
-label-margin-right = 2
-label-padding-left = 1
 format = <label>
+format-padding = 1
 format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
 
-interval = 1800
 
 
-[module/termdown]
+[module/openvpn]
 type = custom/script
+interval = 3.0
 
-exec-if = [[ -f "/tmp/termdown" ]]
-exec = cat /tmp/termdown
-tail = false
+exec = systemctl list-units | grep openvpn-client | grep running | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
+exec-if = systemctl list-units | grep openvpn-client | grep running
 
-label = %output%
+format-prefix = "  "
+format-prefix-font = 6
+format-margin = 2
+format-prefix-foreground = ${colors.icon}
+format-foreground = ${colors.foreground}
 
-format-prefix = 
+
+
+[module/eth]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+ping-interval = 3.0
+
+label-connected = %essid%: %local_ip%
+label-connected-foreground = ${colors.foreground}
+
+label-packetloss = %essid%: %local_ip%
+label-packetloss-foreground = ${colors.foreground}
+
+label-disconnected =
+
+format-connected = <label-connected>
+format-connected-prefix = 
+format-connected-prefix-font = 6
+format-connected-prefix-padding-right = 1
+format-connected-prefix-foreground = ${colors.icon}
+format-connected-margin = 1
+format-connected-padding = 1
+format-connected-underline = ${colors.background}
+format-connected-overline = ${colors.background}
+format-connected-background = ${colors.background-alt}
+
+format-packetloss-prefix = 
+format-packetloss-prefix-font = 6
+format-packetloss-prefix-padding-right = 1
+format-packetloss-prefix-foreground = ${colors.icon}
+format-packetloss-margin = 1
+format-packetloss-padding = 1
+format-packetloss-underline = ${colors.background}
+format-packetloss-overline = ${colors.background}
+format-packetloss-background = ${colors.background-alt}
+format-packetloss = <label-connected>
+
+
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+ping-interval = 3.0
+
+label-connected = %essid%: %local_ip%
+label-connected-foreground = ${colors.foreground}
+
+label-packetloss = %essid%: %local_ip%
+label-packetloss-foreground = ${colors.foreground}
+
+label-disconnected =
+
+format-connected = <label-connected>
+format-connected-prefix = 
+format-connected-prefix-font = 6
+format-connected-prefix-padding-right = 1
+format-connected-prefix-foreground = ${colors.icon}
+format-connected-margin = 1
+format-connected-padding = 1
+format-connected-underline = ${colors.background}
+format-connected-overline = ${colors.background}
+format-connected-background = ${colors.background-alt}
+
+format-packetloss-prefix = 
+format-packetloss-prefix-font = 6
+format-packetloss-prefix-padding-right = 1
+format-packetloss-prefix-foreground = ${colors.icon}
+format-packetloss-margin = 1
+format-packetloss-padding = 1
+format-packetloss-underline = ${colors.background}
+format-packetloss-overline = ${colors.background}
+format-packetloss-background = ${colors.background-alt}
+format-packetloss = <label-connected>
+
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 99 
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-font = 2
+format-capacity-foreground = ${colors.icon}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-font = 2
+animation-charging-foreground = ${colors.icon}
+animation-charging-framerate = 750
+
+format-full = <label-full>
+format-full-prefix = 
+format-full-prefix-foreground = ${colors.icon}
+format-full-prefix-padding-right = 1
+format-full-prefix-padding-left = 0
+format-full-margin = 1
+format-full-padding = 1
+format-full-underline = ${colors.background}
+format-full-overline = ${colors.background}
+format-full-background = ${colors.background-alt}
+
+format-charging = <animation-charging> <label-charging>
+format-charging-margin = 1
+format-charging-padding = 1
+format-charging-underline = ${colors.background}
+format-charging-overline = ${colors.background}
+format-charging-background = ${colors.background-alt}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-margin = 1
+format-discharging-padding = 1
+format-discharging-underline = ${colors.background}
+format-discharging-overline = ${colors.background}
+format-discharging-background = ${colors.background-alt}
+
+
+
+[module/date]
+type = internal/date
+date = "%m-%d-%Y"
+interval = 5
+
+label = %date%
+
+format-prefix = 
+format-prefix-font = 6
+format-prefix-padding-right = 1
+format-prefix-padding-left = 0
+format-padding = 1
+format-margin = 1
+format-underline = ${colors.background}
+format-overline = ${colors.background}
+format-prefix-foreground = ${colors.icon}
+format-background = ${colors.background-alt}
+
+
+
+[module/time]
+type = internal/date
+time = %I:%M %p
+interval = 5
+
+label = %time%
+
+format-margin = 2
+format-prefix = 
 format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.icon}
-format = <label>
-
-format-padding = 2
-
-interval = 1
 
 
-[module/powermenu]
-type = custom/text
-
-content-margin = 2
-content = 
-content-foreground = ${colors.alert}
-
-click-left = ~/.scripts/rofi/powermenu
 
 [module/restart]
 type = custom/text
 
-content-margin = 2
 content = 
+content-margin = 1
+
 click-left = polybar-msg cmd restart
+
+
 
 [module/lock]
 type = custom/script
+interval = 1
 
+click-left = ~/.scripts/lock
 exec = ~/.scripts/lock status  
 tail = false
 
 label = %output%
 format = <label>
-format-padding = 2
-click-left = ~/.scripts/lock
+format-padding = 1
 
-interval = 1
+
+
+[module/powermenu]
+type = custom/text
+
+content = 
+content-foreground = ${colors.alert}
+content-margin = 1
+content-font = 6
+
+click-left = ~/.scripts/rofi/powermenu
 
 ; vim:ft=dosini
