@@ -113,6 +113,7 @@ function is_chromium_playing() {
 }
 
 function enable() {
+    rm -f /tmp/.xautolock-disabled
     xautolock -enable
     notify-send "Xautolock" "Xautolock is enabled" -u normal
 }
@@ -125,7 +126,6 @@ function disable() {
 
 function toggle() {
     if [[ -f "/tmp/.xautolock-disabled" ]]; then
-        rm -f /tmp/.xautolock-disabled
         enable
     else
         disable
@@ -143,15 +143,19 @@ function status() {
 function prelock() {
     physlock -l
 
-	if [ ! -z "$(pidof dunst)" ]; then
+    # Disable dunst
+	if [[ -n "$(pidof dunst)" ]]; then
 		pkill -u "$USER" -USR1 dunst
+        touch /tmp/.dunst-disabled
 	fi
 }
 
 function postlock() {
     physlock -L
 
-	if [ ! -z "$(pidof dunst)" ] ; then
+    # Enable dunst
+	if [[ -n "$(pidof dunst)" ]]; then
+        rm -f /tmp/.dunst-disabled
 		pkill -u "$USER" -USR2 dunst
 	fi
 }
