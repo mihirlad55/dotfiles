@@ -1,11 +1,11 @@
 ! Polybar !
 polybar.background:             c00 
-polybar.background-alt:         c08
+polybar.background-alt:         base01
 
 polybar.foreground:             c15
 polybar.foreground-alt:         c07
 
-polybar.icon:                   c04
+polybar.icon:                   c15
 polybar.alert:                  c01
 
 polybar.ws-focused-background:  c08

@@ -6,8 +6,8 @@ dwm.normbgcolor:            bg
 dwm.normfgcolor:            c07
 
 ! Selected Color
-dwm.selbordercolor:         c04
-dwm.selbgcolor:             c04
-dwm.selfgcolor:             c07
+dwm.selbordercolor:         base02
+dwm.selbgcolor:             base02
+dwm.selfgcolor:             fg
 
 ! vim:ft=xdefaults
