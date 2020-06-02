@@ -80,7 +80,7 @@ font-3 = Font Awesome 5 Brands:size=10;2
 font-4 = Weather Icons:size=10;2
 font-5 = Material Icons:size=11;4
 
-modules-right = spotify previous playpause next sep termdown sep updates sep weather-icon weather-temp sep xbacklight sep pulseaudio sep filesystem sep memory sep cpu cpu-speed sep temperature sep openvpn wlan eth sep battery sep date time restart lock powermenu
+modules-right = spotify previous playpause next sep termdown sep updates sep weather-icon weather-temp sep xbacklight sep pulseaudio sep filesystem sep memory sep cpu cpu-speed sep temperature sep openvpn wlan eth sep battery sep date time restart lock notifications powermenu
 
 tray-position = right
 tray-padding = 2
@@ -596,6 +596,22 @@ tail = false
 
 label = %output%
 format = <label>
+format-padding = 1
+
+
+
+[module/notifications]
+type = custom/script
+interval = 1
+
+click-left = ~/.scripts/notifications/dunst/dunstctl toggle
+exec = ~/.scripts/notifications/dunst/dunstctl status  
+tail = false
+
+label = %output%
+
+format = <label>
+format-font = 6
 format-padding = 1
 
 
