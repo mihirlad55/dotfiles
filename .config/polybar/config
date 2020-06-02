@@ -71,8 +71,7 @@ foreground = ${colors.foreground}
 line-size = 6
 line-color = ${colors.icon}
 
-padding-left = 1
-padding-right = 1
+padding= 1
 
 font-0 = Liberation Mono:size=9;2
 font-1 = Font Awesome 5 Free:size=10;2
@@ -81,7 +80,7 @@ font-3 = Font Awesome 5 Brands:size=10;2
 font-4 = Weather Icons:size=10;2
 font-5 = Material Icons:size=11;4
 
-modules-right = spotify previous playpause next termdown xbacklight pulseaudio filesystem memory cpu cpu-speed temperature updates weather-icon weather-temp openvpn wlan eth battery date time restart lock powermenu
+modules-right = spotify previous playpause next sep termdown sep updates sep weather-icon weather-temp sep xbacklight sep pulseaudio sep filesystem sep memory sep cpu cpu-speed sep temperature sep openvpn wlan eth sep battery sep date time restart lock powermenu
 
 tray-position = right
 tray-padding = 2
@@ -111,7 +110,6 @@ format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.icon}
 
 format-padding = 1
-format-margin = 1
 format-background = ${colors.background-alt}
 format-overline = ${colors.background}
 format-underline = ${colors.background}
@@ -130,7 +128,6 @@ format-prefix-padding-right = 1
 format-prefix-font = 2
 
 format-padding = 1
-format-margin = 1
 
 
 
@@ -143,7 +140,6 @@ hook-1 = echo 
 
 format-font = 6
 format-padding = 1
-format-margin = 1
 
 
 
@@ -172,7 +168,70 @@ hook-1 = echo 
 
 format-font = 6
 format-padding = 1
-format-margin = 1
+
+
+
+[module/updates]
+type = custom/script
+interval = 3600
+
+click-left = st sh -c 'yay -Syu; sh'
+exec = echo $(yay -Pu | wc -l)
+exec-if = [  $(yay -Pu | wc -l) -ne "0" ]
+tail = true
+
+label = %output%
+
+format = <label>
+format-prefix = 
+format-prefix-padding-right = 1
+format-prefix-font = 6
+format-prefix-foreground = ${colors.icon}
+format-prefix-background = ${colors.background-alt}
+format-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-alt}
+format-overline = ${colors.background}
+format-underline = ${colors.background}
+
+
+
+[module/weather-icon]
+type = custom/script
+interval = 1800
+
+exec-if = ls ~/.apikeys/openweathermap.key
+exec = ~/.scripts/get-weather --icon-only
+tail = true
+
+label = %output%
+label-padding-left = 1
+label-font = 5
+
+format = <label>
+format-foreground = ${colors.icon}
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
+
+
+
+[module/weather-temp]
+type = custom/script
+interval = 1800
+
+exec-if = ls ~/.apikeys/openweathermap.key
+exec = ~/.scripts/get-weather --temp-only
+tail = false
+
+label = %output%
+
+format = <label>
+format-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
 
 
 
@@ -191,7 +250,6 @@ ramp-padding-right = 1
 label = %percentage%%
 
 format = <ramp><label>
-format-margin = 1
 format-padding = 1
 format-background = ${colors.background-alt}
 format-overline = ${colors.background}
@@ -215,7 +273,6 @@ label-volume-foreground = ${colors.foreground}
 
 format-volume = <ramp-volume><label-volume>
 format-volume-padding = 1
-format-volume-margin = 1
 format-volume-background = ${colors.background-alt}
 format-volume-overline = ${colors.background}
 format-volume-underline = ${colors.background}
@@ -227,7 +284,6 @@ format-muted-prefix-padding-right = 1
 format-muted-prefix-foreground = ${colors.alert}
 
 format-muted-padding = 1
-format-muted-margin = 1
 format-muted-foreground = ${colors.alert}
 format-muted-background = ${colors.background-alt}
 format-muted-overline = ${colors.background}
@@ -246,7 +302,6 @@ label-mounted-foreground = ${colors.foreground}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.icon}
 
-format-unmounted-margin = 1
 format-unmounted-padding = 1
 format-unmounted-background= ${colors.background-alt}
 format-unmounted-overline = ${colors.background}
@@ -257,7 +312,6 @@ format-mounted-prefix = 
 format-mounted-prefix-foreground = ${colors.icon}
 format-mounted-prefix-padding-right = 1
 
-format-mounted-margin = 1
 format-mounted-padding = 1
 format-mounted-background= ${colors.background-alt}
 format-mounted-overline = ${colors.background}
@@ -277,7 +331,6 @@ format-prefix = " "
 format-prefix-font = 2
 format-prefix-foreground = ${colors.icon}
 
-format-margin = 1
 format-padding = 1
 format-background = ${colors.background-alt}
 format-underline = ${colors.background}
@@ -296,7 +349,6 @@ font-prefix-font = 6
 format-prefix-padding-right = 1
 format-prefix-foreground = ${colors.icon}
 
-format-margin = 1
 format-padding = 1
 format-background = ${colors.background-alt}
 format-underline = ${colors.background}
@@ -312,11 +364,11 @@ exec = ~/.scripts/cpu-speed
 
 label = %output%
 
-format-prefix = 
-format-prefix-font = 6
-format-prefix-padding-right = 1
-format-prefix-foreground = ${colors.icon}
-format-margin = 1
+;format-prefix = 
+;format-prefix-font = 6
+;format-prefix-padding-right = 1
+;format-prefix-foreground = ${colors.icon}
+
 format-padding = 1
 format-background = ${colors.background-alt}
 format-overline = ${colors.background}
@@ -326,7 +378,7 @@ format-underline = ${colors.background}
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 4
+thermal-zone = 10
 warn-temperature = 60
 
 ramp-0 = 
@@ -340,7 +392,6 @@ ramp-font = 3
 label = %temperature-c%
 
 format = <ramp> <label>
-format-margin = 1
 format-padding = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background-alt}
@@ -351,77 +402,11 @@ label-warn = %temperature-c%
 label-warn-foreground = ${colors.alert}
 
 format-warn = <ramp> <label-warn>
-format-warn-margin = 1
 format-warn-padding = 1
 format-warn-foreground = ${colors.foreground}
 format-warn-background = ${colors.background-alt}
 format-warn-underline = ${colors.background}
 format-warn-overline = ${colors.background}
-
-
-
-[module/updates]
-type = custom/script
-interval = 90
-
-click-left = st sh -c 'yay -Syyu; sh'
-exec = echo $(yay -Pu | wc -l)
-exec-if = [  $(yay -Pu | wc -l) -ne "0" ]
-tail = true
-
-label = %output%
-
-format = <label>
-format-prefix = 
-format-prefix-padding-right = 1
-format-prefix-font = 6
-format-prefix-foreground = ${colors.icon}
-format-prefix-background = ${colors.background-alt}
-format-margin = 1
-format-padding = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background-alt}
-format-overline = ${colors.background}
-format-underline = ${colors.background}
-
-
-
-[module/weather-icon]
-type = custom/script
-interval = 1800
-
-exec-if = ls ~/.apikeys/openweathermap.key
-exec = ~/.scripts/get-weather --icon-only
-tail = true
-
-label = %output%
-label-margin-left = 2
-
-format = <label>
-format-foreground = ${colors.icon}
-format-background = ${colors.background-alt}
-format-underline = ${colors.background}
-format-overline = ${colors.background}
-format-font = 5
-
-
-
-[module/weather-temp]
-type = custom/script
-interval = 1800
-
-exec-if = ls ~/.apikeys/openweathermap.key
-exec = ~/.scripts/get-weather --temp-only
-tail = false
-
-label = %output%
-
-format = <label>
-format-padding = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background-alt}
-format-underline = ${colors.background}
-format-overline = ${colors.background}
 
 
 
@@ -434,7 +419,6 @@ exec-if = systemctl list-units | grep openvpn-client | grep running
 
 format-prefix = "  "
 format-prefix-font = 6
-format-margin = 2
 format-prefix-foreground = ${colors.icon}
 format-foreground = ${colors.foreground}
 
@@ -459,7 +443,6 @@ format-connected-prefix = 
 format-connected-prefix-font = 6
 format-connected-prefix-padding-right = 1
 format-connected-prefix-foreground = ${colors.icon}
-format-connected-margin = 1
 format-connected-padding = 1
 format-connected-underline = ${colors.background}
 format-connected-overline = ${colors.background}
@@ -469,7 +452,6 @@ format-packetloss-prefix = 
 format-packetloss-prefix-font = 6
 format-packetloss-prefix-padding-right = 1
 format-packetloss-prefix-foreground = ${colors.icon}
-format-packetloss-margin = 1
 format-packetloss-padding = 1
 format-packetloss-underline = ${colors.background}
 format-packetloss-overline = ${colors.background}
@@ -497,7 +479,6 @@ format-connected-prefix = 
 format-connected-prefix-font = 6
 format-connected-prefix-padding-right = 1
 format-connected-prefix-foreground = ${colors.icon}
-format-connected-margin = 1
 format-connected-padding = 1
 format-connected-underline = ${colors.background}
 format-connected-overline = ${colors.background}
@@ -507,7 +488,6 @@ format-packetloss-prefix = 
 format-packetloss-prefix-font = 6
 format-packetloss-prefix-padding-right = 1
 format-packetloss-prefix-foreground = ${colors.icon}
-format-packetloss-margin = 1
 format-packetloss-padding = 1
 format-packetloss-underline = ${colors.background}
 format-packetloss-overline = ${colors.background}
@@ -544,21 +524,18 @@ format-full-prefix = 
 format-full-prefix-foreground = ${colors.icon}
 format-full-prefix-padding-right = 1
 format-full-prefix-padding-left = 0
-format-full-margin = 1
 format-full-padding = 1
 format-full-underline = ${colors.background}
 format-full-overline = ${colors.background}
 format-full-background = ${colors.background-alt}
 
 format-charging = <animation-charging> <label-charging>
-format-charging-margin = 1
 format-charging-padding = 1
 format-charging-underline = ${colors.background}
 format-charging-overline = ${colors.background}
 format-charging-background = ${colors.background-alt}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-margin = 1
 format-discharging-padding = 1
 format-discharging-underline = ${colors.background}
 format-discharging-overline = ${colors.background}
@@ -568,7 +545,7 @@ format-discharging-background = ${colors.background-alt}
 
 [module/date]
 type = internal/date
-date = "%m-%d-%Y"
+date = "%a %m-%d-%Y"
 interval = 5
 
 label = %date%
@@ -578,7 +555,6 @@ format-prefix-font = 6
 format-prefix-padding-right = 1
 format-prefix-padding-left = 0
 format-padding = 1
-format-margin = 1
 format-underline = ${colors.background}
 format-overline = ${colors.background}
 format-prefix-foreground = ${colors.icon}
@@ -633,5 +609,14 @@ content-margin = 1
 content-font = 6
 
 click-left = ~/.scripts/rofi/powermenu
+
+
+
+[module/sep]
+type = custom/text
+
+content = "  "
+content-background = ${colors.background}
+content-padding = 0
 
 ; vim:ft=dosini
