@@ -33,9 +33,12 @@ echo "Suckless dwm Commit: $dwm_orig_commit_short"
 if [[ "$st_forked_commit" != "$st_orig_commit" ]]; then
     summary="Suckless Git St"
     body="Your repository of st is currently behind that of Suckless's repository. You should rebase suckless's repository onto yours."
+
+    notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
 elif [[ "$dwm_forked_commit" != "$dwm_orig_commit" ]]; then
     summary="Suckless Git DWM"
     body="Your repository of DWM is currently behind that of Suckless's repository. You should rebase suckless's repository onto yours."
+
+    notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
 fi
 
-notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
