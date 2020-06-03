@@ -80,7 +80,7 @@ font-3 = Font Awesome 5 Brands:size=10;2
 font-4 = Weather Icons:size=10;2
 font-5 = Material Icons:size=11;4
 
-modules-right = termdown updates pad weather-icon weather-temp pad spotify previous playpause next memory pad cpu cpu-speed pad temperature wlan eth openvpn battery xbacklight pulseaudio date restart lock notifications powermenu
+modules-right = termdown updates pad weather-icon weather-temp pad spotify previous playpause next memory pad cpu cpu-speed pad temperature wlan eth openvpn battery xbacklight pulseaudio date restart lock notifications redshift powermenu
 
 tray-position = right
 tray-padding = 2
@@ -235,65 +235,6 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background-alt}
 format-underline = ${colors.background}
 format-overline = ${colors.background}
-
-
-
-[module/xbacklight]
-type = internal/xbacklight
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-
-ramp-font = 6
-ramp-foreground = ${colors.icon}
-ramp-padding-right = 1
-
-label = %percentage%%
-
-format = <ramp><label>
-format-padding = 1
-format-margin = 1
-format-background = ${colors.background-alt}
-format-overline = ${colors.background}
-format-underline = ${colors.background}
-
-
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-ramp-volume-foreground = ${colors.icon}
-ramp-volume-font = 6
-ramp-volume-padding-right = 1
-
-label-volume = %percentage%%
-label-volume-foreground = ${colors.foreground}
-
-format-volume = <ramp-volume><label-volume>
-format-volume-padding = 1
-format-volume-margin = 1
-format-volume-background = ${colors.background-alt}
-format-volume-overline = ${colors.background}
-format-volume-underline = ${colors.background}
-
-label-muted = %percentage%%
-
-format-muted-prefix = 
-format-muted-prefix-padding-right = 1
-format-muted-prefix-foreground = ${colors.alert}
-
-format-muted-padding = 1
-format-muted-margin = 1
-format-muted-foreground = ${colors.alert}
-format-muted-background = ${colors.background-alt}
-format-muted-overline = ${colors.background}
-format-muted-underline = ${colors.background}
 
 
 
@@ -572,6 +513,65 @@ format-discharging-background = ${colors.background-alt}
 
 
 
+[module/xbacklight]
+type = internal/xbacklight
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+
+ramp-font = 6
+ramp-foreground = ${colors.icon}
+ramp-padding-right = 1
+
+label = %percentage%%
+
+format = <ramp><label>
+format-padding = 1
+format-margin = 1
+format-background = ${colors.background-alt}
+format-overline = ${colors.background}
+format-underline = ${colors.background}
+
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+ramp-volume-foreground = ${colors.icon}
+ramp-volume-font = 6
+ramp-volume-padding-right = 1
+
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+format-volume = <ramp-volume><label-volume>
+format-volume-padding = 1
+format-volume-margin = 1
+format-volume-background = ${colors.background-alt}
+format-volume-overline = ${colors.background}
+format-volume-underline = ${colors.background}
+
+label-muted = %percentage%%
+
+format-muted-prefix = 
+format-muted-prefix-padding-right = 1
+format-muted-prefix-foreground = ${colors.alert}
+
+format-muted-padding = 1
+format-muted-margin = 1
+format-muted-foreground = ${colors.alert}
+format-muted-background = ${colors.background-alt}
+format-muted-overline = ${colors.background}
+format-muted-underline = ${colors.background}
+
+
+
 [module/date]
 type = internal/date
 date = "%a %m-%d-%Y"
@@ -631,6 +631,23 @@ label = %output%
 format = <label>
 format-font = 6
 format-padding = 1
+
+
+
+[module/redshift]
+type = custom/script
+interval = 1
+
+exec-if = [[ -f "/tmp/.redshift-period" ]]
+exec = ~/.scripts/polybar/redshift-period   
+tail = false
+
+label = %output%
+
+format = <label>
+
+format-margin = 1
+format-background = ${colors.background}
 
 
 

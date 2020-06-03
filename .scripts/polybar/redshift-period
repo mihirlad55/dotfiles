@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+period="$(cat /tmp/.redshift-period)"
+
+DAYTIME_ICON="$1"
+TRANSITION_ICON="$2"
+NIGHT_ICON="$3"
+
+
+case "$period" in
+    daytime)
+        echo "$DAYTIME_ICON"
+        ;;
+    transition)
+        echo "$TRANSITION_ICON"
+        ;;
+    night)
+        echo "$NIGHT_ICON"
+        ;;
+    *)
+        echo
+        ;;
+esac
