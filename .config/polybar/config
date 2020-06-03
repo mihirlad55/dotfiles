@@ -80,7 +80,7 @@ font-3 = Font Awesome 5 Brands:size=10;2
 font-4 = Weather Icons:size=10;2
 font-5 = Material Icons:size=11;4
 
-modules-right = spotify previous playpause next pad termdown updates pad weather-icon weather-temp pad xbacklight pulseaudio memory pad cpu cpu-speed pad temperature wlan eth openvpn battery date time restart lock notifications powermenu
+modules-right = termdown updates pad weather-icon weather-temp pad spotify previous playpause next memory pad cpu cpu-speed pad temperature wlan eth openvpn battery xbacklight pulseaudio date restart lock notifications powermenu
 
 tray-position = right
 tray-padding = 2
@@ -575,9 +575,10 @@ format-discharging-background = ${colors.background-alt}
 [module/date]
 type = internal/date
 date = "%a %m-%d-%Y"
+time = %I:%M %p
 interval = 5
 
-label = %date%
+label = %date%  %time%
 
 format-prefix = 
 format-prefix-font = 6
@@ -589,25 +590,6 @@ format-margin = 1
 format-underline = ${colors.background}
 format-overline = ${colors.background}
 format-prefix-foreground = ${colors.icon}
-format-background = ${colors.background-alt}
-
-
-
-[module/time]
-type = internal/date
-time = %I:%M %p
-interval = 5
-
-label = %time%
-
-format-prefix = 
-format-prefix-padding-right = 1
-format-prefix-foreground = ${colors.icon}
-
-format-padding = 1
-format-margin = 1
-format-underline = ${colors.background}
-format-overline = ${colors.background}
 format-background = ${colors.background-alt}
 
 
@@ -670,5 +652,6 @@ type = custom/text
 content = " "
 content-background = ${colors.background}
 content-padding = 0
+
 
 ; vim:ft=dosini
