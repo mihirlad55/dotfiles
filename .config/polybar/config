@@ -328,7 +328,7 @@ format-underline = ${colors.background}
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 10
+hwmon-path = ${env:HWMON_PATH}
 warn-temperature = 60
 
 ramp-0 = 
