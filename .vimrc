@@ -20,6 +20,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'lervag/vimtex'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'chrisbra/Colorizer'
+Plug 'joshdick/onedark.vim'
 
 call plug#end() 
 
@@ -55,8 +56,10 @@ set ic
 set rtp+=~/.fzf
 
 " Colors
-colorscheme base16-google-dark "base16-brewer base16-atelier-heath base16-atelier-forest base16-eighties 
-let g:airline_theme='base16_google' "'base16_brewer' 'base16_atelierheath' 'base16_atelierforest' 'base16_eighties'
+"colorscheme base16-google-dark "base16-brewer base16-atelier-heath base16-atelier-forest base16-eighties 
+"let g:airline_theme='base16_google' "'base16_brewer' 'base16_atelierheath' 'base16_atelierforest' 'base16_eighties'
+colorscheme onedark
+let g:airline_scheme='onedark'
 
 
 " Keep background of terminal
