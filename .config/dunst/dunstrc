@@ -324,6 +324,10 @@
     fullscreen = show
     new_icon = ~/.scripts/notifications/battery-check/charging-yellow.png
 
+[slack]
+    desktop_entry = "Slack"
+    new_icon = ~/.config/dunst/slack/slack.png
+
 [slack-purplefire]
     summary = "\[purplefire\]*"
     new_icon = ~/.config/dunst/slack/purplefire.png
