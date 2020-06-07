@@ -7,14 +7,24 @@ lines=()
 # Last line does not have newline character
 while IFS=$'\n' read -r line || [[ -n "$line" ]]; do
     # Try to parse different properties
-    # Label parse is not perfect since it can contain any character
-    label="$(echo "$line" | grep -o -P '^#.+?\b' | sed 's/^#//')"
-    # This may not work if label has parantheses
-    summary="$(echo "$line" | grep -o -P '\(.+?\)' | sed 's/[)(]//g')"
-    # This should always work
-    nid="$(echo "$line" | grep -o -P '\[\d+?,.*\]$' | sed 's/[][]//g' | cut -d',' -f1)"
-    # This should always work
-    action="$(echo "$line" | grep -o -P '\[\d+?,.*\]$' | sed 's/[][]//g' | cut -d',' -f2)"
+    # Format: #<action label> (<summary>) [<notification id>,<action>]
+    # The below may not work if there is a '(' in the label
+    label="$(echo "$line" | sed -E 's/\(.*\) \[[0-9]+?,.*\]$//' | sed 's/^#//')"
+    summary="$(echo "$line" \
+        | grep -o -P '\(.*\) \[\d+?,.*\]$' \
+        | sed -E 's/ \[[0-9]+?,.*\]$//' \
+        | sed 's/^(//' \
+        | sed 's/)$//')"
+    nid="$(echo "$line" \
+        | grep -o -P '\(.*\) \[\d+?,.*\]$' \
+        | grep -o -P '\[\d+?,.*\]$' \
+        | sed 's/[][]//g' \
+        | cut -d',' -f1)"
+    action="$(echo "$line" \
+        | grep -o -P '\(.*\) \[\d+?,.*\]$' \
+        | grep -o -P '\[\d+?,.*\]$' \
+        | sed 's/[][]//g' \
+        | cut -d',' -f2)"
 
     # Associate notification summaries with their id
     summaries[nid]="$summary"
