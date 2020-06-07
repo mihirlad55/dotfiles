@@ -1,0 +1,46 @@
+#!/usr/bin/bash
+
+options=()
+summaries=()
+lines=()
+
+# Last line does not have newline character
+while IFS=$'\n' read -r line || [[ -n "$line" ]]; do
+    # Try to parse different properties
+    # Label parse is not perfect since it can contain any character
+    label="$(echo "$line" | grep -o -P '^#.+?\b' | sed 's/^#//')"
+    # This may not work if label has parantheses
+    summary="$(echo "$line" | grep -o -P '\(.+?\)' | sed 's/[)(]//g')"
+    # This should always work
+    nid="$(echo "$line" | grep -o -P '\[\d+?,.*\]$' | sed 's/[][]//g' | cut -d',' -f1)"
+    # This should always work
+    action="$(echo "$line" | grep -o -P '\[\d+?,.*\]$' | sed 's/[][]//g' | cut -d',' -f2)"
+
+    # Associate notification summaries with their id
+    summaries[nid]="$summary"
+
+    # Get list of newline separated options for notification
+    options[nid]="${options[nid]}\n$label"
+
+    # Get list of lines for notification
+    lines[nid]="${lines[nid]}\n$line"
+done
+
+for i in "${!summaries[@]}"; do
+    # Get summary of notification with ID i
+    summary="${summaries[i]}"
+    # Get labels of notification with ID i
+    labels="${options[i]}"
+
+    # Display rofi with $labels as options and get selection
+    sel="$(echo -e "$labels" | rofi -dmenu -p "$summary")"
+
+    # If an option was selected...
+    if [[ "$sel" != "" ]]; then
+        # Find the line given by dunst associated with this option
+        echo -e "${lines[i]}" | grep "#$sel"
+
+        # Further responses will be ignored by dunst
+        exit 0
+    fi
+done
