@@ -324,6 +324,18 @@
     fullscreen = show
     new_icon = ~/.scripts/notifications/battery-check/charging-yellow.png
 
+[slack-purplefire]
+    summary = "\[purplefire\]*"
+    new_icon = ~/.config/dunst/slack/purplefire.png
+
+[slack-floridapoly]
+    summary = "\[floridapoly\]*"
+    new_icon = ~/.config/dunst/slack/floridapoly.jpg
+
+[slack-robotisllc]
+    summary = "\[robotisllc\]*"
+    new_icon = ~/.config/dunst/slack/robotisllc.png
+
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #
