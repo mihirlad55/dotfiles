@@ -2,5 +2,5 @@
 
 BASE_DIR="$( readlink -f "$(dirname "$0")" )"
 
-sox -v 0.3 "$BASE_DIR/light.wav" -d &
+sox -q -v 0.3 "$BASE_DIR/light.wav" -d &
 
