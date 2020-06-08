@@ -608,7 +608,7 @@ click-left = polybar-msg cmd restart
 type = custom/script
 interval = 1
 
-click-left = ~/.scripts/lock
+click-left = xautolock -locknow
 exec = ~/.scripts/lock status  
 tail = false
 

@@ -76,7 +76,7 @@
 	XF86AudioPrev
 
 # Lock Screen (Super_L + l)
-"~/.scripts/lock"
+"xautolock -locknow"
     Mod4+l
 
 # Toggle xautolock (Super_L + Shift + l)
