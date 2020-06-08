@@ -28,6 +28,10 @@
 # Include .config/mimeapps.list
 !/.config/mimeapps.list
 
+# Include .config/autostart desktop files
+!/.config/autostart
+!/.config/autostart/*
+
 # Include .config/polybar
 !/.config/polybar
 !/.config/polybar/*
