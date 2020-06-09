@@ -145,7 +145,7 @@ function prelock() {
 
     # Disable dunst
 	if [[ -n "$(pidof dunst)" ]]; then
-		pkill -u "$USER" -USR1 dunst
+		pkill -x -u "$USER" -USR1 dunst
         touch /tmp/.dunst-disabled
 	fi
 }
@@ -156,7 +156,7 @@ function postlock() {
     # Enable dunst
 	if [[ -n "$(pidof dunst)" ]]; then
         rm -f /tmp/.dunst-disabled
-		pkill -u "$USER" -USR2 dunst
+		pkill -x -u "$USER" -USR2 dunst
 	fi
 }
 
