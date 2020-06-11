@@ -80,7 +80,7 @@ font-3 = Font Awesome 5 Brands:size=10;2
 font-4 = Weather Icons:size=10;2
 font-5 = Material Icons:size=11;4
 
-modules-right = termdown updates pad weather-icon weather-temp pad spotify previous playpause next memory pad cpu cpu-speed pad temperature wlan eth openvpn battery xbacklight pulseaudio date restart lock notifications redshift powermenu
+modules-right = termdown updates spotify previous playpause next pad weather-icon weather-temp pad memory pad cpu cpu-speed pad temperature wlan eth openvpn battery xbacklight pulseaudio date restart lock notifications redshift powermenu
 
 tray-position = right
 tray-padding = 2
@@ -121,7 +121,7 @@ format-underline = ${colors.background}
 type = custom/ipc
 
 hook-0 = echo ""
-hook-1 = spotifyctl -q status
+hook-1 = spotifyctl -q status --format '%artist%: %title%' --max-length 30 --max-title-length 20 --max-artist-length 10 --trunc '...'
 initial = 1
 
 format-prefix = 
