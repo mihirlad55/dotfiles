@@ -28,6 +28,9 @@
 # Include .config/mimeapps.list
 !/.config/mimeapps.list
 
+# Include .config/chromium-flags.conf
+!/.config/chromium-flags.conf
+
 # Include .config/autostart desktop files
 !/.config/autostart
 !/.config/autostart/*
