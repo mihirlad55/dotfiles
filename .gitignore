@@ -54,16 +54,6 @@
 /.config/nitrogen/*
 !/.config/nitrogen/bg-saved.cfg
 
-# Include clickup integration for franz
-!/.config/Franz/
-/.config/Franz/*
-!/.config/Franz/recipes/
-/.config/Franz/recipes/*
-!/.config/Franz/recipes/dev/
-/.config/Franz/recipes/dev/*
-!/.config/Franz/recipes/dev/clickup/
-!/.config/Franz/recipes/dev/clickup/*
-
 # Include ckb-next config
 !/.config/ckb-next
 /.config/ckb-next/*
