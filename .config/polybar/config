@@ -176,7 +176,7 @@ format-padding = 1
 type = custom/script
 interval = 3600
 
-click-left = st sh -c 'yay -Syu; read -p " :: Press enter to continue ::"'
+click-left = ~/.scripts/update &
 exec = echo $(yay -Pu | wc -l)
 exec-if = [  $(yay -Pu | wc -l) -ne "0" ]
 tail = true
