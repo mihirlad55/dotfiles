@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+st sh -c 'yay -Syu; read -p " :: Press enter to continue ::"'
