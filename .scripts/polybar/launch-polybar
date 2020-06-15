@@ -9,6 +9,8 @@ for path in /sys/class/hwmon/hwmon*/temp*_label; do
     fi
 done
 
+export BACKLIGHT_CARD="$(ls /sys/class/backlight | head -n1)"
+
 # Remove old IPC
 rm -rf /tmp/polybar_mqueue.*
 
