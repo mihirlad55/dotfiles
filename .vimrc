@@ -38,11 +38,8 @@ let g:airline_scheme='onedark'
 " Keep background of terminal
 hi Normal guibg=NONE ctermbg=NONE
 
-" Use powerline fonts
-let g:airline_powerline_fonts = 1
 
-
-" Spellcheck
+" Spellcheck for LaTeX
 autocmd BufRead,BufNewFile *.tex
     \ :setlocal spell |
     \ :set spelllang=en_us
