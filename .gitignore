@@ -10,10 +10,11 @@
 /.config/*
 !/.config/i3/
 
-# Include .config/nvim/init.vim
+# Include .config/nvim/init.vim and coc-settings.json
 !/.config/nvim/
 /.config/nvim/*
 !/.config/nvim/init.vim 
+!/.config/nvim/coc-settings.json
 
 # Include .config/redshift/redshift.conf
 !/.config/redshift
