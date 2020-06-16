@@ -49,15 +49,22 @@ autocmd BufRead,BufNewFile *.tex
 autocmd FileType *.tex inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
+" Set leader
+let mapleader = "\<space>"
+
+
 " Bind gy/gp to unnamedplus clipboard
-vnoremap gy "+y
-vnoremap gp "+p
-nnoremap gy "+y
-nnoremap gp "+p
+noremap <leader>y "+y
+vnoremap <leader>p "+p
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
 
 " Bind gdy to unnamedplus clipboard
-vnoremap gd "+d
-nnoremap gd "+d
+vnoremap <leader>d "+d
+nnoremap <leader>d "+d
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " No Arrow keys
 inoremap <up> <NOP>
