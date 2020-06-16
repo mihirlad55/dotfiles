@@ -81,7 +81,7 @@ noremap <right> <NOP>
 autocmd BufWritePost .Xresources,~/.Xresources.d/* !xrdb ~/.Xresources;
 
 " Relative line numbers
-set relativenumber
+set number relativenumber
 
 " 80-character marker
 set colorcolumn=80
