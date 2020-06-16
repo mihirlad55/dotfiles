@@ -19,18 +19,18 @@
    XF86AudioMute
 
 # Increase backlight
-"xbacklight -inc 5"
+"light -A 5"
    XF86MonBrightnessUp
 
-"xbacklight -inc 5"
+"light -A 5"
     m:0x41 + c:21
     Shift+Mod4 + equal
 
 # Decrease backlight
-"xbacklight -dec 5"
+"light -U 5"
    XF86MonBrightnessDown
 
-"xbacklight -dec 5"
+"light -U 5"
     m:0x41 + c:20
     Shift+Mod4 + minus
 
