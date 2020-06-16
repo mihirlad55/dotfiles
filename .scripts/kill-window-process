@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+window_id="$(xdotool getwindowfocus)"
+pid="$(xdotool getwindowpid "$window_id")"
+
+kill "$pid"

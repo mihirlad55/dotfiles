@@ -96,3 +96,8 @@
 # Map to monitor
 "~/.scripts/map-touch-to-screen -c"
     Mod4+p
+
+# Kill focused window process
+"~/.scripts/kill-window-process"
+    m:0xd + c:24
+    Control+Shift+Alt + q
