@@ -324,6 +324,10 @@
     fullscreen = show
     new_icon = ~/.scripts/notifications/battery-check/charging-yellow.png
 
+[insync]
+    summary = "Insync"
+    new_icon = ~/.config/dunst/insync.png
+
 [slack]
     desktop_entry = "Slack"
     new_icon = ~/.config/dunst/slack/slack.png
