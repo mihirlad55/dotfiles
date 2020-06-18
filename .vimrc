@@ -235,7 +235,24 @@ augroup vimrc_group
     " Open vim files with all folds closed
     autocmd FileType vim setlocal foldmethod=marker foldlevelstart=0
 augroup END
+
+
+"" Markdown
+augroup markdown_group
+    autocmd!
+    " Set wrap at 80
+    autocmd FileType markdown setlocal wrap textwidth=80
+augroup END
+
+
+"" gitcommit
+augroup gitcommit_group
+    autocmd!
+    " Set wrap at 80
+    autocmd FileType gitcommit setlocal wrap textwidth=80
+augroup END
 " }}}
+
 
 
 " vim-multiple-cursors
