@@ -43,7 +43,7 @@ for i in "${!summaries[@]}"; do
     labels="${options[i]}"
 
     # Display rofi with $labels as options and get selection
-    sel="$(echo -e "$labels" | rofi -dmenu -p "$summary")"
+    sel="$(echo -e "$labels" | rofi -i -dmenu -p "$summary")"
 
     # If an option was selected...
     if [[ "$sel" != "" ]]; then
