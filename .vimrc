@@ -1,6 +1,6 @@
 " Vim Plugins -----------------------------------------------------| {{{
-call plug#begin('~/.vim/plugged') 
-    Plug 'vim-scripts/DoxygenToolkit.vim' 
+call plug#begin('~/.vim/plugged')
+    Plug 'vim-scripts/DoxygenToolkit.vim'
     Plug 'kana/vim-operator-user'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -14,7 +14,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'chrisbra/Colorizer'
     Plug 'joshdick/onedark.vim'
-call plug#end() 
+    Plug 'jiangmiao/auto-pairs'
+call plug#end()
 " }}}
 
 
