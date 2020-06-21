@@ -156,8 +156,17 @@ nnoremap <leader>bb :Buffers<cr>
 
 " <leader>f: Fuzzy file search
 nnoremap <leader>f :Files<cr>
-" <leader>g: Fuzzy git file search
-nnoremap <leader>g :GitFiles<cr>
+" <leader>G: Fuzzy git file search
+nnoremap <leader>G :GitFiles<cr>
+
+" <leader>cn: Go to next quickfix
+nnoremap <leader>cn :cnext<cr>
+" <leader>cp: Go to previous quickfix
+nnoremap <leader>cp :cprevious<cr>
+
+
+" <leader>/: Stop highlighting items from last search
+nnoremap <leader>/ :nohlsearch<cr>
 
 
 "" Operator-pending Movements
@@ -187,6 +196,8 @@ set mouse=a
 
 "" Ignore case when pattern searching
 set ignorecase
+"" Start highlighting search as it is typed
+set incsearch
 
 "" FZF
 set rtp+=~/.fzf
