@@ -55,7 +55,29 @@ noremap <up> <NOP>
 noremap <down> <NOP>
 noremap <left> <NOP>
 noremap <right> <NOP>
+cnoremap <up> <NOP>
+cnoremap <down> <NOP>
+cnoremap <left> <NOP>
+cnoremap <right> <NOP>
 
+
+" Insert-mode navigation
+inoremap <c-k> <up>
+inoremap <c-j> <esc>o
+inoremap <c-l> <right>
+
+
+"" Commandline-mode navigation
+cnoremap <c-k> <up>
+cnoremap <c-j> <down>
+cnoremap <c-l> <right>
+
+
+"" Delay navigation to force relative line number habit
+nnoremap hh <NOP>
+nnoremap jj <NOP>
+nnoremap kk <NOP>
+nnoremap ll <NOP>
 
 "" No escape key in insert mode
 inoremap <esc> <NOP>
