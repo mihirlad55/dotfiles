@@ -224,21 +224,23 @@ set termguicolors
 
 "" Switch from unsaved buffers
 set hidden
-
-"" Highlight search pattern while typing
-set incsearch
 " }}}
 
 
 
 " Colors and Theming ----------------------------------------------| {{{
-"colorscheme base16-google-dark "base16-brewer base16-atelier-heath base16-atelier-forest base16-eighties 
+"colorscheme base16-google-dark "base16-brewer base16-atelier-heath base16-atelier-forest base16-eighties
 "let g:airline_theme='base16_google' "'base16_brewer' 'base16_atelierheath' 'base16_atelierforest' 'base16_eighties'
 colorscheme onedark
 let g:airline_scheme='onedark'
 
-" Keep background of terminal
+" Keep background of terminal (for transparency)
 highlight Normal guibg=NONE ctermbg=NONE
+
+" Highlight trailing whitespace
+let s:whitespace_color = g:terminal_color_1
+execute "highlight TrailingWhitespaceError ctermbg=red guibg=" . s:whitespace_color
+match TrailingWhitespaceError /\v\s+$/
 " }}}
 
 
