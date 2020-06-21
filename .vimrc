@@ -183,6 +183,20 @@ endfunction
 "" }}}2
 
 
+"" <tab> completion {{{2
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"" }}}2
+
+
 " <leader>/: Stop highlighting items from last search
 nnoremap <leader>/ :nohlsearch<cr>
 
@@ -312,3 +326,4 @@ augroup END
 " vim-multiple-cursors
 let g:multi_cursor_exit_from_insert_mode = 1
 let g:multi_cursor_quit_key = 'jk'
+
