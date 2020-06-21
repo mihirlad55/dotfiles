@@ -159,10 +159,28 @@ nnoremap <leader>f :Files<cr>
 " <leader>G: Fuzzy git file search
 nnoremap <leader>G :GitFiles<cr>
 
-" <leader>cn: Go to next quickfix
-nnoremap <leader>cn :cnext<cr>
-" <leader>cp: Go to previous quickfix
-nnoremap <leader>cp :cprevious<cr>
+
+"" Quickfix Mappings {{{2
+""" <leader>cn: Go to next quickfix
+nnoremap <leader>qn :cnext<cr>
+""" <leader>cp: Go to previous quickfix
+nnoremap <leader>qp :cprevious<cr>
+""" <leader>q: Toggle quickfix
+nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
+
+let g:quickfix_is_open = 0
+function! s:QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+"" }}}2
 
 
 " <leader>/: Stop highlighting items from last search
