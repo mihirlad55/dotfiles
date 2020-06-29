@@ -93,6 +93,10 @@ nnoremap dH d0
 nnoremap L $
 "" dL: Delete to end of line
 nnoremap dL d$
+"" _: go to next underscore-separated word in line
+nnoremap - f_l
+"" _: go to previous underscore-separated word in line
+nnoremap _ F_h
 
 
 "" <leader>ev: edit ~/.vimrc
@@ -206,6 +210,15 @@ nnoremap <leader>/ :nohlsearch<cr>
 onoremap p i(
 """ in(: inside next paranthesis
 onoremap in( :<c-u>normal! f(vi(<cr>
+""" ): delete to end of block
+onoremap ) :normal! f{V%"d<cr>
+""" i_: delete inside underscores
+onoremap i_ :<c-u>normal! T_vt_<cr>
+""" -: delete to next underscore
+onoremap - :<c-u>normal! vt_<cr>
+""" -: delete to previous underscore
+onoremap _ :<c-u>normal! vT_<cr>
+
 " }}}
 
 
