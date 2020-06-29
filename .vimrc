@@ -338,8 +338,13 @@ augroup gitcommit_group
     " Set wrap at 80
     autocmd FileType gitcommit setlocal wrap textwidth=80
 augroup END
-" }}}
 
+"" C
+augroup c_group
+    autocmd!
+    autocmd FileType c setlocal foldmethod=syntax
+augroup END
+" }}}
 
 
 " vim-multiple-cursors
