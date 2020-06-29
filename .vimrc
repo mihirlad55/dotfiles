@@ -361,3 +361,11 @@ augroup END
 let g:multi_cursor_exit_from_insert_mode = 1
 let g:multi_cursor_quit_key = 'jk'
 
+
+" dwm-ipc
+augroup dwm_ipc_group
+  autocmd BufRead,BufNewFile */dwm-ipc/*.c
+              \ setlocal softtabstop=2 tabstop=2 shiftwidth=2
+  autocmd BufRead,BufNewFile */dwm-ipc/*.h
+              \ setlocal softtabstop=2 tabstop=2 shiftwidth=2
+augroup END
