@@ -346,6 +346,16 @@ augroup c_group
 augroup END
 " }}}
 
+"" diff
+augroup diff_group
+    autocmd!
+    autocmd FileType diff nnoremap <buffer> <localleader>a 0r+
+    autocmd FileType diff nnoremap <buffer> <localleader>d 0r-
+    autocmd FileType diff nnoremap <buffer> <localleader>c 0r<space>
+    autocmd FileType diff vnoremap <buffer> <localleader>a :s/\v^[-+ ]/+/<cr>:nohlsearch<cr>
+    autocmd FileType diff vnoremap <buffer> <localleader>d :s/\v^[-+ ]/-/<cr>:nohlsearch<cr>
+    autocmd FileType diff vnoremap <buffer> <localleader>c :s/\v^[-+ ]/ /<cr>:nohlsearch<cr>
+augroup END
 
 " vim-multiple-cursors
 let g:multi_cursor_exit_from_insert_mode = 1
