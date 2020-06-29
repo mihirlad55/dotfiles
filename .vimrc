@@ -164,6 +164,12 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>G :GitFiles<cr>
 
 
+nnoremap gd :call CocAction("jumpDefinition")<cr>
+nnoremap <leader>r :call CocAction("rename")<cr>
+nnoremap = :call CocAction("format")<cr>
+onoremap = :<c-u>call CocAction("formatSelected", visualmode())<cr>
+
+
 "" Quickfix Mappings {{{2
 """ <leader>cn: Go to next quickfix
 nnoremap <leader>qn :cnext<cr>
