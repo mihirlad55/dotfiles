@@ -15,7 +15,7 @@ ssids="$(tail -n-1 /tmp/networks | cut -f2)"
 
 chosen="$(printf "%s\n" "${ssids[@]}" | rofi -dmenu -p "Network")"
 
-id="$(echo "${networks[@]}" | grep "$chosen" | cut -f1)"
+id="$(< /tmp/networks grep "$chosen" | cut -f1)"
 
 sudo --askpass wpa_cli -i"$interface" select_network "$id"
 
