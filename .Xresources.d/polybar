@@ -1,5 +1,5 @@
 ! Polybar !
-polybar.background:             c00 
+polybar.background:             c00
 polybar.background-alt:         base01
 
 polybar.foreground:             c15
@@ -8,8 +8,10 @@ polybar.foreground-alt:         c07
 polybar.icon:                   c15
 polybar.alert:                  c01
 
-polybar.ws-focused-background:  c08
-polybar.ws-focused-underline:   c03
+polybar.tag-focused-background:     base0F
+polybar.tag-unfocused-background:   base01
+polybar.tag-visible-background:     c00
+polybar.tag-urgent-background:      c09
 
 polybar.primary:      c00
 polybar.secondary:    c00
