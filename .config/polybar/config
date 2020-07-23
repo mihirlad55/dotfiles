@@ -559,7 +559,7 @@ animation-charging-font = 2
 animation-charging-foreground = ${colors.icon}
 animation-charging-framerate = 750
 
-format-full-prefix = 
+format-full-prefix = 
 format-full-prefix-foreground = ${colors.icon}
 format-full-prefix-padding-right = 1
 format-full-prefix-padding-left = 0
