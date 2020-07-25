@@ -41,6 +41,8 @@
    XF86Search
 "~/.scripts/rofi/rofi-run"
     Mod1+s
+"~/.scripts/rofi/rofi-windows"
+    Mod1+w
 
 # Rofi Finder
 "~/.scripts/rofi/rofi-finder"

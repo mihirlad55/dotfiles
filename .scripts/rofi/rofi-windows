@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+mapfile -t clients < <(dwm-msg get_monitors \
+    | jq -r '.[].clients.all | join(",")' \
+    | sed 's/,/\n/g')
+
+titles=()
+for c in "${clients[@]}"; do
+    title="$(dwm-msg get_dwm_client "$c" | jq -r '.name')"
+    titles=("${titles[@]}" "$title")
+done
+
+sel="$(printf '%s\n' "${titles[@]}" | rofi -i -dmenu -p "Window")"
+
+if [[ "$sel" != "" ]]; then
+    for i in "${!clients[@]}"; do
+        if [[ "$sel" == "${titles[i]}" ]]; then
+            cinfo="$(dwm-msg get_dwm_client "${clients[i]}")"
+            tags="$(echo "$cinfo" | jq -r '.tags')"
+            mon="$(echo "$cinfo" | jq -r '.monitor_number')"
+            dwm-msg run_command focusmonnum "$mon"
+            dwm-msg run_command view "$tags"
+            exit 0
+        fi
+    done
+fi
