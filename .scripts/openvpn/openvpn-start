@@ -5,6 +5,9 @@ ICON_PATH="$BASE_DIR/openvpn.png"
 
 export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
 
+sudo --askpass sysctl net.ipv6.conf.all.disable_ipv6=1
+sudo --askpass sysctl net.ipv6.conf.default.disable_ipv6=1
+
 sudo --askpass ls "$SERVER_PATH" | \
     grep -v 'login.conf' | \
     sed 's/\.conf//' \
@@ -19,7 +22,7 @@ res="$?"
 
 if [[ "$res" -eq 0 ]]; then
     summary="OpenVPN ($chosen)"
-    body="OpenVPN client started"
+    body="OpenVPN client started. Confirm your protection with https://www.expressvpn.com/dns-leak-test"
 
     notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
 fi
