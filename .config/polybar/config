@@ -404,6 +404,7 @@ format-underline = ${colors.background}
 type = internal/temperature
 hwmon-path = ${env:HWMON_PATH}
 warn-temperature = 60
+base-temperature = 40
 
 ramp-0 = 
 ramp-1 = 
