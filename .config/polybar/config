@@ -443,10 +443,10 @@ interface = enp3s0
 interval = 3.0
 ping-interval = 3.0
 
-label-connected = %essid%: %local_ip%
+label-connected = %local_ip%
 label-connected-foreground = ${colors.foreground}
 
-label-packetloss = %essid%: %local_ip%
+label-packetloss = %local_ip%
 label-packetloss-foreground = ${colors.foreground}
 
 label-disconnected =
