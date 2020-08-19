@@ -257,6 +257,9 @@ set termguicolors
 
 "" Switch from unsaved buffers
 set hidden
+
+"" Set default .tex flavor
+let g:tex_flavor = 'latex'
 " }}}
 
 
