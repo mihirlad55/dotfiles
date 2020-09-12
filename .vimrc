@@ -326,6 +326,14 @@ augroup vimrc_group
     autocmd FileType vim setlocal foldmethod=marker foldlevelstart=0
 augroup END
 
+"" rasi
+augroup rasi_group
+    autocmd!
+    " Set filetype for *.rasi
+    autocmd BufRead,BufNewFile *.rasi set filetype=css
+    autocmd BufRead,BufNewFile *.rasi CocDisable
+augroup END
+
 
 "" Markdown
 augroup markdown_group
