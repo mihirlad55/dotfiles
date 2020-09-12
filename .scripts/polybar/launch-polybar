@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+if pgrep '^polybar' > /dev/null; then
+  exit 0
+fi
+
 # Export path to Core 0 for temperature module
 for path in /sys/class/hwmon/hwmon*/temp*_label; do
     label="$(cat "$path")"
