@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
 cd ~/.scripts
-script="$(find . -type f -executable | sed 's/^..//' | tail -n +2 | rofi -dmenu -p scripts -i)"
+script="$(find . -type f -executable | sed 's/^..//' | tail -n +2 | rofi -dmenu -p scripts -theme ~/.config/rofi/scripts.rasi -i)"
 
 ~/.scripts/$script

@@ -10,7 +10,7 @@ for c in "${clients[@]}"; do
     titles=("${titles[@]}" "$title")
 done
 
-sel="$(printf '%s\n' "${titles[@]}" | rofi -i -dmenu -p "Window")"
+sel="$(printf '%s\n' "${titles[@]}" | rofi -i -dmenu -p "Window" -theme "$HOME/.config/rofi/windows.rasi")"
 
 if [[ "$sel" != "" ]]; then
     for i in "${!clients[@]}"; do
