@@ -97,6 +97,10 @@ nnoremap dL d$
 nnoremap - f_l
 "" _: go to previous underscore-separated word in line
 nnoremap _ F_h
+"" _: go to next underscore-separated word in line
+vnoremap - f_l
+"" _: go to previous underscore-separated word in line
+vnoremap _ F_h
 
 
 "" <leader>ev: edit ~/.vimrc
