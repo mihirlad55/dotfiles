@@ -91,6 +91,10 @@
 "~/.scripts/rofi/rofi-lastpass copy"
     Mod1+Shift+p
 
+# Power Options
+"~/.scripts/rofi/powermenu"
+    Mod4+p
+
 # Restart WiFi
 "sudo systemctl restart wpa_supplicant@wlp2s0.service"
     Mod4+r
