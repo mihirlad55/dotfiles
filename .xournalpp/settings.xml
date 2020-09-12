@@ -4,14 +4,14 @@
   <property name="pressureSensitivity" value="true"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Portrait"/>
-  <property name="lastSavePath" value="file:///home/mihirlad55/GoogleDrive/School/Florida%20Polytechnic%20University/Year%202/03%20Spring%202020/Circuits%201"/>
+  <property name="lastSavePath" value="/home/mihirlad55/GoogleDrive/School/Florida Polytechnic University/Year 3/Fall Semester/Data Structures and Algorithms/Assignments"/>
   <property name="lastOpenPath" value="/home/mihirlad55/GoogleDrive2/School/Florida Polytechnic University/Year 2/03 Spring 2020/Probability and Statistics/Homework/HW9"/>
   <property name="lastImagePath" value=""/>
   <property name="zoomStep" value="10.00000000"/>
   <property name="zoomStepScroll" value="2.00000000"/>
   <property name="displayDpi" value="141"/>
   <property name="mainWndWidth" value="1898"/>
-  <property name="mainWndHeight" value="1030"/>
+  <property name="mainWndHeight" value="1022"/>
   <property name="maximized" value="false"/>
   <property name="showSidebar" value="false"/>
   <property name="sidebarWidth" value="50"/>
@@ -49,7 +49,7 @@
   <property name="drawDirModsRadius" value="50"/>
   <property name="snapRotation" value="true"/>
   <property name="snapRotationTolerance" value="0.20000000"/>
-  <property name="snapGrid" value="true"/>
+  <property name="snapGrid" value="false"/>
   <property name="snapGridTolerance" value="0.25000000"/>
   <property name="touchWorkaround" value="false"/>
   <property name="selectionBorderColor" value="-65536"/>
@@ -76,7 +76,7 @@
   <property name="experimentalInputSystemEnabled" value="true"/>
   <property name="inputSystemTPCButton" value="true"/>
   <property name="inputSystemDrawOutsideWindow" value="true"/>
-  <property name="font" font="Sans" size="12.00000000"/>
+  <property name="font" font="Source Code Pro" size="4.00000000"/>
   <data name="buttonConfig">
     <data name="default">
       <attribute name="color" type="hex" value="ff000000"/>
@@ -126,6 +126,10 @@
     </data>
     <data name="Razer Razer Ouroboros Consumer Control">
       <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="0"/>
+    </data>
+    <data name="Virtual core XTEST pointer">
+      <attribute name="deviceClass" type="int" value="0"/>
       <attribute name="deviceSource" type="int" value="0"/>
     </data>
     <data name="Wacom HID 4874 Finger">
