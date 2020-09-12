@@ -12,16 +12,7 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-* {
-    background:                     #00000000;
-    background-color:               #282c34CD;
-    background-entry:               #00000033;
-    background-alt:                 #61afefA0;
-    foreground:                     #f2f2f2EE;
-    foreground-selected:            #ffffffFF;
-    urgent:                         #E91E6366;
-    urgent-selected:                #E91E6377;
-}
+@import "colors.rasi"
 
 window {
     transparency:                   "real";
@@ -38,25 +29,24 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						4px 8px 0px 4px;
-	background-color: 				@background;
+	padding: 						0px 8px 0px 4px;
+    vertical-align:                 0.5;
+	background-color: 				#00000000;
 	text-color: 					@foreground;
 	font:							"FantasqueSansMono Nerd Font 16";
 }
 
 inputbar {
-    background-color:               @background-alt;
+    background-color:               @background-input;
     text-color:                     @foreground;
     expand:                         false;
-    border-radius:                  0px;
-    margin:                         0px 0px 0px 0px;
     padding:                        10px 10px 10px 10px;
     position:                       center;
 }
 
 
 entry {
-    background-color:               @background;
+    background-color:               #00000000;
     text-color:                     @foreground;
     placeholder-color:              @foreground;
     expand:                         true;
@@ -66,14 +56,14 @@ entry {
 }
 
 case-indicator {
-    background-color:               @background;
+    background-color:               #00000000;
     text-color:                     @foreground;
     spacing:                        0;
 }
 
 
 listview {
-    background-color:               @background;
+    background-color:               #00000000;
     columns:                        1;
     lines:                          10;
     spacing:                        10px;
@@ -83,30 +73,29 @@ listview {
 }
 
 mainbox {
-    background-color:               @background-color;
+    background-color:               #00000000;
     children:                       [ inputbar, message, listview ];
     spacing:                        15px;
     padding:                        40px;
 }
 
 element {
-    background-color:               @background;
+    children:                       [ element-icon, element-text ];
+    background-color:               #00000000;
     text-color:                     @foreground;
-    orientation:                    vertical;
-    border-radius:                  0px;
+    orientation:                    horizontal;
     padding:                        10px 10px 10px 10px;
 }
 
 element-icon {
-    size:                           100px;
-    border:                         0px;
+    size:                           2ch;
 }
 
 element-text {
     expand:                         true;
-    horizontal-align:               0.5;
+    horizontal-align:               0;
     vertical-align:                 0.5;
-    margin:                         5px 10px 0px 10px;
+    margin:                         0px 10px 0px 10px;
 }
 
 element normal.urgent,
@@ -118,12 +107,12 @@ element alternate.urgent {
 
 element normal.active,
 element alternate.active {
-    background-color:               @background-alt;
+    background-color:               @background-selected;
     text-color:                     @foreground;
 }
 
 element selected {
-    background-color:               @background-alt;
+    background-color:               @background-selected;
     text-color:                     @foreground-selected;
 }
 
@@ -133,15 +122,15 @@ element selected.urgent {
 }
 
 element selected.active {
-    background-color:               @background-alt;
+    background-color:               @background-selected;
     color:                          @foreground-selected;
 }
 
 message {
-    background-color:               @background;
+    background-color:               #00000000;
 }
 
 textbox {
-    background-color:               @background;
+    background-color:               #00000000;
     text-color:                     @foreground;
 }

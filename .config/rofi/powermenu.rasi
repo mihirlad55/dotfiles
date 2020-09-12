@@ -1,27 +1,13 @@
 @import "colors.rasi"
 
-/* ########### */
-
 * {
     /* General */
-    text-font:                            "Comfortaa 12";
     icon-font:                            "Hurmit Nerd Font Mono 64";
-    icon-font-small:                      "Hurmit Nerd Font Mono 48";
 
-    option-6-listview-spacing:            10px;
-
-    menu-window-padding:                   400px 550px;
-    menu-inputbar-margin:                  10px 0px;
-    menu-prompt-padding:                   10px 20px 10px 20px;
-    menu-prompt-margin:                    0px 0px 0px 0px;
-    menu-element-border:                   0px;
-    menu-element-padding:                  0px;
     accent: #e06c75;
     foreground: #c8ccd4;
     background-light: #00000000;
 }
-
-/* ########### */
 
 #window {
     height: 100%;
@@ -33,7 +19,7 @@
     sidebar-mode: 					false;
     location: center;
     anchor: center;
-    padding: @menu-window-padding;
+    padding: 400px 550px;
     children: [ inputbar, horibox ];
 }
 
@@ -48,17 +34,21 @@
 #listview {
   layout: horizontal;
   background-color: @background-light;
-  spacing: @option-6-listview-spacing;
-  lines: 5;
+  spacing: 30px;
+  columns: 5;
   extend: true;
+  horizontal-align: 0.5;
 }
 
 #element {
-    padding: @option-element-padding;
+    children: [element-text];
     background-color: @background-light;
     horizontal-align: 0.5;
+}
+
+element-text {
     font: @icon-font;
-    padding: @menu-element-padding;
+    padding: 20px;
 }
 
 #element.selected {
@@ -68,20 +58,20 @@
 
 #inputbar {
   children: [ textbox-prompt-colon, prompt ];
-  margin: @menu-inputbar-margin;
+  margin: 10px 0px;
   background-color: #00000000;
   padding: 0 0 0 10%;
 }
 
 prompt,
 textbox-prompt-colon {
-  padding: @menu-prompt-padding;
+  padding: 10px 20px 10px 20px;
   border: 2px;
   border-color: @accent;
 }
 
 #prompt {
-  margin: @menu-prompt-margin;
+  margin: 0px;
   background-color: @background-light;
   text-color: @accent;
 }
