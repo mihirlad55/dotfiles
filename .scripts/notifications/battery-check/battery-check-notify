@@ -17,7 +17,7 @@ while true; do
     fi
 
     if [ "$charge_level" -ne "$last_charge_level" ]; then
-        if [ "$charge_level" -lt 10 ]; then
+        if [ "$charge_level" -lt 10 ] && [ "$charge_level" -lt "$last_charge_level" ]; then
             notify-send "Battery Low" "Battery is currently at $charge_level%"
         elif [ "$charge_level" -eq 100 ]; then
             notify-send "Battery Full" "Battery is currently at $charge_level%"
