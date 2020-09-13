@@ -107,3 +107,8 @@
 "~/.scripts/kill-window-process"
     m:0xd + c:24
     Control+Shift+Alt + q
+
+# Screenshot when clicking pen top button
+"~/.scripts/screenshot-region"
+    m:0x40 + c:198
+    Mod4 + XF86AudioMicMute
