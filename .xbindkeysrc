@@ -66,6 +66,8 @@
     m:0x1 + c:107
     Shift + Print
 
+"~/.scripts/screenshot"
+    Print
 
 # Spotify
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
