@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+BASE_DIR="$( readlink -f "$(dirname "$0")" )"
+ICON_PATH="$BASE_DIR/bluetooth.png"
+
+export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
+
+bluetoothctl power off
+res="$?"
+
+sudo --askpass systemctl stop bluetooth.service
+res=$res && $?
+
+if [[ "$res" -eq 0 ]]; then
+    summary="Bluetooth"
+    body="Bluetooth powered off"
+
+    notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
+fi
+
+unset SUDO_ASKPASS
