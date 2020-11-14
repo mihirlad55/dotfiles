@@ -8,7 +8,9 @@ x-scheme-handler/mailspring=mailspring.desktop
 application/pdf=org.pwmt.zathura.desktop
 image/png=sxiv.desktop
 image/jpeg=sxiv.desktop
+text/plain=nvim.desktop;
 
 [Added Associations]
 image/svg+xml=inkscape.desktop;
 text/plain=nvim.desktop;
+video/mp4=vlc.desktop;
