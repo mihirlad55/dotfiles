@@ -9,11 +9,13 @@
 \RequirePackage{caption}
 \RequirePackage{booktabs}
 \RequirePackage{parskip}
+\RequirePackage{amssymb}
 \RequirePackage{mathtools}
 \RequirePackage{float}
 \RequirePackage{multirow}
 \RequirePackage{nicematrix}
 \RequirePackage{systeme}
+\RequirePackage{environ}
 
 
 \graphicspath{ {./images/} }
@@ -27,26 +29,49 @@
 
 \titleformat{\section}[runin]{\normalfont\bfseries\Large}{}{}{}[]
 
-\newcommand{\question}[1]{\section*{#1}}
+\NewEnviron{question}[1]{%
+  \section*{#1}
+  \BODY
+}
 
 \newcounter{QuestionCounter}
 \setcounter{QuestionCounter}{1}
-\newcommand{%
-  \numquestion}{%
+\NewEnviron{numquestion}{%
   \section*{\arabic{QuestionCounter}.}%
   \stepcounter{QuestionCounter}%
+  \BODY
+}
+
+\NewEnviron{solution}{%
+  \bigskip\hspace{\itemindent}\textbf{Solution}
+
+  \BODY
+}
+
+\NewEnviron{alignterms}{%
+    \sysdelim{.}{.}\systeme{\BODY}
+}
+
+\NewEnviron{matrixsteps}{%
+  \begin{align*}
+    \begin{NiceMatrixBlock}[auto-columns-width]
+      \begin{aligned}
+        \BODY
+      \end{aligned}
+    \end{NiceMatrixBlock}
+  \end{align*}
 }
 
 \newcommand{\tageq}[1]{\label{eq:#1}\tag{eq. #1}}
 \newcommand{\req}[1]{\eqref{eq:#1}}
 
-\newcommand{\solution}[0]{\bigskip\hspace{\itemindent}\textbf{Solution}}
-
-\newcommand{\alignterms}[1]{%
-    \sysdelim{.}{.}\systeme{
-      #1
-   }
+\newcommand{\elementarystep}[2]{%
+  \begin{bNiceMatrix}[r]
+    #2
+  \end{bNiceMatrix} & \hspace{10pt}\text{\parbox{4cm}{#1}} \\ \\
 }
+
+\newcommand{\emptyline}{\phantom{T}}
 
 \allowdisplaybreaks
 
