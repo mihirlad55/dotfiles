@@ -1,0 +1,13 @@
+configuration {
+    disable-history:                true;
+}
+
+window {
+    height:                         15%;
+    width:                          50%;
+}
+
+entry {
+    placeholder:                    "Password";
+}
+
