@@ -256,8 +256,8 @@ type = custom/script
 interval = 3600
 
 click-left = ~/.scripts/update &
-exec = echo $(yay -Pu | wc -l)
-exec-if = [  $(yay -Pu | wc -l) -ne "0" ]
+exec = echo $(yay -Qu | wc -l)
+exec-if = [  $(yay -Qu | wc -l) -ne "0" ]
 tail = true
 
 label = %output%
