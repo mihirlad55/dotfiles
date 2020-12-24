@@ -140,8 +140,36 @@ function status() {
     fi
 }
 
+function hide_windows() {
+    local i tagset
+    mapfile -t tagsets < <(dwm-msg get_monitors | jq '.[].tagset.current')
+
+    i=0
+    for tagset in "${tagsets[@]}"; do
+      echo "$tagset"
+      dwm-msg --ignore-reply run_command focusmonnum "$i"
+      dwm-msg --ignore-reply run_command toggleview "$tagset"
+      i=$((i + 1))
+    done
+}
+
+function show_windows() {
+    local i tagset
+
+    i=0
+    for tagset in "${tagsets[@]}"; do
+      echo "$tagset"
+      dwm-msg --ignore-reply run_command focusmonnum "$i"
+      dwm-msg --ignore-reply run_command toggleview "$tagset"
+      i=$((i + 1))
+    done
+
+}
+
 function prelock() {
     physlock -l
+
+    hide_windows
 
     # Disable dunst
 	if [[ -n "$(pidof dunst)" ]]; then
@@ -152,6 +180,8 @@ function prelock() {
 
 function postlock() {
     physlock -L
+
+    show_windows
 
     # Enable dunst
 	if [[ -n "$(pidof dunst)" ]]; then
