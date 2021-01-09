@@ -1,3 +1,4 @@
 #!/usr/bin/bash
 
 expressvpn disconnect
+rm -f /tmp/expressvpn-alias
