@@ -84,7 +84,7 @@ font-5 = Material Icons:size=11;4
 font-6 = Material Icons:size=13;5
 
 modules-left = dwm
-modules-right = termdown updates spotify previous playpause next pad weather-icon weather-temp pad memory pad cpu cpu-speed pad temperature wlan eth openvpn battery backlight pulseaudio date restart lock notifications redshift powermenu
+modules-right = termdown updates spotify previous playpause next pad weather-icon weather-temp pad memory pad cpu cpu-speed pad temperature wlan eth expressvpn openvpn battery backlight pulseaudio date restart lock notifications redshift powermenu
 
 tray-position = right
 tray-padding = 2
@@ -528,6 +528,26 @@ interval = 3.0
 
 exec = systemctl list-units | grep openvpn-client | grep running | awk '{print $1};' | cut -d '@' -f2 | cut -d '.' -f1 
 exec-if = systemctl list-units | grep openvpn-client | grep running
+
+format-prefix = "  "
+format-prefix-font = 6
+format-prefix-foreground = ${colors.icon}
+
+format-padding = 1
+format-margin = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-alt}
+format-underline = ${colors.background}
+format-overline = ${colors.background}
+
+
+
+[module/expressvpn]
+type = custom/script
+interval = 3.0
+
+exec = cat /tmp/expressvpn-alias
+exec-if = [[ -f /tmp/expressvpn-alias ]]
 
 format-prefix = "  "
 format-prefix-font = 6
