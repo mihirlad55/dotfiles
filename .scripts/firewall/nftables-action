@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+BASE_DIR="$( readlink -f "$(dirname "$0")" )"
+
+export SUDO_ASKPASS="$HOME/.scripts/rofi/rofi-askpass"
+
+mapfile -t actions < <(cd "$BASE_DIR/actions" \
+  && find . -iname '*.conf' -printf '%f\n' \
+  | sed -E 's/\.conf//')
+
+echo "$actions"
+
+chosen="$(printf "%s\n" "${actions[@]}" | rofi -dmenu -p "Action")"
+
+sudo --askpass /usr/sbin/nft -f "$BASE_DIR/actions/$chosen.conf"
+
+res="$?"
+
+if [[ "$res" -eq 0 ]]; then
+    summary="Nftables ($chosen)"
+    body="Action applied"
+
+    notify-send "$summary" "$body" -u normal -i "$ICON_PATH"
+fi
+
+unset SUDO_ASKPASS
