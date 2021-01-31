@@ -8,6 +8,8 @@
 \RequirePackage{enumitem}
 \RequirePackage{lmodern}
 \RequirePackage{setspace}
+\RequirePackage{textcomp}
+\RequirePackage{url}
 
 \usepackage[english]{babel}
 \usepackage[autostyle=true, english=american]{csquotes}
