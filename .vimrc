@@ -264,6 +264,9 @@ set hidden
 
 "" Set default .tex flavor
 let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {
+      \ 'build_dir': 'latex-build/'
+      \}
 " }}}
 
 
@@ -312,6 +315,13 @@ augroup latex_group
         \ :setlocal spell |
         \ :set spelllang=en_us
     autocmd FileType *.tex inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+    " Delete temp files on buffer close and get pdf
+    autocmd BufDelete,VimLeave,BufWinLeave *.tex silent VimtexStop
+    autocmd BufDelete,VimLeave,BufWinLeave *.tex silent VimtexClean
+    autocmd BufDelete,VimLeave,BufWinLeave *.tex silent ! cp latex-build/*.pdf .
+    autocmd BufDelete,VimLeave,BufWinLeave *.tex silent ! rm -r latex-build
+    " Autostart compiling when opened
+    autocmd User VimtexEventInitPost call vimtex#compiler#compile()
 augroup END
 
 
