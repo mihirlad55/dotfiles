@@ -16,27 +16,17 @@
 
 \graphicspath{ {./images/} }
 
-\titlespacing*{\section}{0pt}{5.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
-
 \captionsetup{justification=raggedright, singlelinecheck=false, format=hang}
-
-\titleformat{\section}[runin]{\normalfont\bfseries\Large}{}{}{}[]
-
-\NewEnviron{question}{%
-  \section*{\BODY}
-}
 
 \newcounter{QuestionCounter}
 \setcounter{QuestionCounter}{1}
-\NewEnviron{numquestion}{%
-  \section*{\arabic{QuestionCounter}.}%
-  \stepcounter{QuestionCounter}%
-  \BODY
-}
+\newenvironment{question}[1][\arabic{QuestionCounter}]
+  {\bigskip\normalfont\textbf{#1. }\stepcounter{QuestionCounter}}{}
+\newenvironment{question*}
+  {\bigskip\normalfont}{}
 
-\NewEnviron{solution}{%
-  \hspace{\itemindent}
+\newenvironment{solution}{\smallskip\hspace{\itemindent}\textbf{Solution}
 
-  \BODY
-}
+}{}
+
 
