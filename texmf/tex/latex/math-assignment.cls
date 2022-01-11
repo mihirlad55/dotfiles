@@ -4,12 +4,15 @@
 
 
 \LoadClass{homework}
+\RequirePackage{hyperref}
+\RequirePackage{url}
 \RequirePackage[nobottomtitles*]{titlesec}
 \RequirePackage{graphicx}
 \RequirePackage{caption}
 \RequirePackage{booktabs}
 \RequirePackage{parskip}
 \RequirePackage{amssymb}
+\RequirePackage{gensymb}
 \RequirePackage{mathtools}
 \RequirePackage{siunitx}
 \RequirePackage{float}
