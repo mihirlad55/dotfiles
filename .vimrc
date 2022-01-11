@@ -394,3 +394,13 @@ augroup dwm_ipc_group
   autocmd BufRead,BufNewFile */dwm-ipc/*.h
               \ setlocal softtabstop=2 tabstop=2 shiftwidth=2
 augroup END
+
+" polybar
+augroup polybar_group
+  autocmd BufRead,BufNewFile */polybar/*.cpp
+              \ setlocal softtabstop=2 tabstop=2 shiftwidth=2
+  autocmd BufRead,BufNewFile */polybar/*.hpp
+              \ setlocal softtabstop=2 tabstop=2 shiftwidth=2
+augroup END
+
+set shiftwidth=2
