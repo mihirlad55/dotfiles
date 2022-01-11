@@ -1,4 +1,10 @@
 {
-    "suggest.autoTrigger": "always"
+    "suggest.autoTrigger": "always",
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": ["--style", "google"],
+    "eslint.format.enable": true,
+    "cSpell.userWords": [
+      "Deproject"
+    ]
 }
 
