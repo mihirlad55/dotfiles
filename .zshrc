@@ -56,6 +56,7 @@ alias o="xdg-open"
 alias vifm="$HOME/.scripts/vifmrun"
 alias srm="trash-put"
 alias gdc="git diff --cached"
+alias fkill="kill -KILL"
 
 # Always output termdown to /tmp/termdown for polybar
 alias termdown="termdown -o '/tmp/termdown'"
