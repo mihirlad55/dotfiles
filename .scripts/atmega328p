@@ -1,0 +1,120 @@
+#!/usr/bin/bash
+
+function assemble() {
+  file="$1"
+  file_no_ext="${file%.S}"
+
+  if [[ "$file_no_ext" = "$file" ]]; then
+    echo "Input file must have the .S extension"
+    exit 1
+  fi
+
+  # Replace .equ, .def, and .include with C macros
+  sed -E -e 's/^\.include/\#include/g' -e 's/^\.equ/\#define/g' -e 's/^\.def/\#define/g' -e 's/(\^#define.+)=(.+)$/\1 \2/g' "$file" > "$file_no_ext.s"
+
+  # Preprocess the file
+  avr-cpp "$file_no_ext.s" -o "$file_no_ext.i"
+
+  # Assemble the file
+  avr-as -mmcu=atmega328p -g --gstabs -o "$file_no_ext.o" "$file_no_ext.i"
+
+  # Link the file into an executable
+  avr-ld -m avr4 -o "$file_no_ext.elf" "$file_no_ext.o"
+
+  # Copy the hex into the executable
+  avr-objcopy -O ihex "$file_no_ext.elf" "$file_no_ext.hex"
+
+  echo "Done compiling $file"
+}
+
+function compile() {
+  file="$1"
+  file_no_ext="${file%.c}"
+
+  if [[ "$file_no_ext" = "$file" ]]; then
+    echo "Input file must have the .c extension"
+    exit 1
+  fi
+
+  # Compile file
+  avr-gcc -O2 -mmcu=atmega328p -I"/usr/avr/include" -o "$file_no_ext.o" "$file_no_ext.c"
+
+  # Copy the executable into a hex
+  avr-objcopy -O ihex "$file_no_ext.o" "$file_no_ext.hex"
+
+  echo "Done compiling $file"
+}
+
+function upload() {
+  hex_file="$1"
+
+  avrdude \
+    -patmega328p \
+    -carduino \
+    -P/dev/ttyACM0 \
+    -b115200 \
+    -D \
+    -Uflash:w:"$hex_file":i \
+    "$@"
+}
+
+function gdb() {
+  file="$1"
+  file_no_ext="${file%.elf}"
+
+  if [[ "$file_no_ext" = "$file" ]]; then
+    echo "Input file must have the .elf extension"
+    exit 1
+  fi
+
+  pkill simavr
+  simavr -m atmega328p -f 8000000 -g "$file" &
+
+  avr-gdb -ex 'target remote :1234' -ex "file $file"
+  pkill simavr
+}
+
+function print_usage() {
+  echo "usage: atmega328p <action>"
+  echo ""
+  echo "  assemble <file>     Assemble a .S AVR file"
+  echo ""
+  echo "  compile <file>      Compile a .c file"
+  echo ""
+  echo "  upload <file>       Upload an assembled .hex file"
+  echo ""
+  echo "  gdb <file>          Debug an AVR .elf"
+  echo ""
+  echo "  help                Print this message"
+}
+
+case "$1" in
+  assemble)
+    shift
+    assemble "$@"
+    exit
+    ;;
+  compile)
+    shift
+    compile "$@"
+    exit
+    ;;
+  upload)
+    shift
+    upload "$@"
+    exit
+    ;;
+  gdb)
+    shift
+    gdb "$@"
+    exit
+    ;;
+  help)
+    print_usage
+    exit
+    ;;
+  *)
+    echo "Invalid command: $!"
+    print_usage
+    exit 1
+esac
