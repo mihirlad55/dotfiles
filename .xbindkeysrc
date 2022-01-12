@@ -114,3 +114,20 @@
 "~/.scripts/screenshot-region"
     m:0x40 + c:198
     Mod4 + XF86AudioMicMute
+
+### Dunst ###
+# Last notification
+"dunstctl history-pop"
+    Control+grave
+
+# Close notification
+"dunstctl close"
+    Control+space
+
+# Close all notifications
+"dunstctl close-all"
+    Control+Shift+space
+
+# Notification Context
+"dunstctl context"
+    Control+Shift+period
