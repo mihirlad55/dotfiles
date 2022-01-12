@@ -88,6 +88,7 @@ element {
 }
 
 element-icon {
+    background-color:               #00000000;
     size:                           2ch;
 }
 
@@ -96,6 +97,8 @@ element-text {
     horizontal-align:               0;
     vertical-align:                 0.5;
     margin:                         0px 10px 0px 10px;
+    background-color:               #00000000;
+    text-color:                     @foreground;
 }
 
 element normal.urgent,
