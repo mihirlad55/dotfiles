@@ -193,16 +193,16 @@ function postlock() {
 function lock() {
     i3lock -n \
         --time-str="%I:%M %p" \
-        -t -i "$IMAGE_PATH" \
-        --time-pos='x+960:y+400' --time-align 0 \
-        --time-font="Roboto" --time-size="80" \
-        --date-pos='x+960:y+435' --date-align 0 --date-str="%A, %B %d, %Y" \
-        --date-font="Roboto" --date-size="24" \
+        -F -i "$IMAGE_PATH" \
+        --time-pos='x+240:h-100' --time-align 0 \
+        --time-font="Liberation Mono" --time-size="80" \
+        --date-pos='x+240:h-50' --date-align 0 --date-str="%A, %B %d, %Y" \
+        --date-font="Liberation Mono" --date-size="24" \
         --clock \
         --inside-color=$insidecolor --ring-color=$ringcolor --line-uses-inside \
         --keyhl-color=$keyhlcolor --bshl-color=$bshlcolor --separator-color=$separatorcolor \
         --insidever-color=$insidevercolor --insidewrong-color=$insidewrongcolor \
-        --ringver-color=$ringvercolor --ringwrong-color=$ringwrongcolor --ind-pos='x+960:y+505' \
+        --ringver-color=$ringvercolor --ringwrong-color=$ringwrongcolor --ind-pos='x+925:h-100' \
         --radius=20 --ring-width=4 --verif-text='' --wrong-text='' \
         --verif-color="$verifcolor" --time-color="$timecolor" --date-color="$datecolor" \
         --noinput-text='' --force-clock --pass-media-keys
