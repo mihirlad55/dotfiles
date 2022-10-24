@@ -45,8 +45,8 @@ function is_vpn_on {
 
 function get_coord {
     local r=$(curl -s -X GET "$FIREFOX_LOCATION_API" 2> /dev/null)
-    lat=$(echo $r | egrep -o '"lat": -?[0-9]*\.[0-9]*' | cut -d' ' -f2)
-    lng=$(echo $r | egrep -o '"lng": -?[0-9]*\.[0-9]*' | cut -d' ' -f2)
+    lat=$(echo $r | grep -E -o '"lat": -?[0-9]*\.[0-9]*' | cut -d' ' -f2)
+    lng=$(echo $r | grep -E -o '"lng": -?[0-9]*\.[0-9]*' | cut -d' ' -f2)
 
     up=$(cat /proc/uptime | cut -d' ' -f1)
 
@@ -73,10 +73,10 @@ function get_weather_city {
 
 function get_result {
     r=$1
-    icon_f=$(echo $r | egrep -o '"icon":"..."' | cut -d':' -f2 | sed 's/"//g')
+    icon_f=$(echo $r | grep -E -o '"icon":"..."' | cut -d':' -f2 | sed 's/"//g')
     icon=$(get_icon $icon_f)
 
-    temp=$(echo $r | egrep -o '"temp":-?[0-9]*\.?[0-9]*' | cut -d':' -f2)
+    temp=$(echo $r | grep -E -o '"temp":-?[0-9]*\.?[0-9]*' | cut -d':' -f2)
     # Round
     temp=$(echo $temp | awk '{print int($1)}')
 
